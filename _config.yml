@@ -2,7 +2,7 @@
 
 title:            coffemon
 locale:           en_US
-url:              http://iszlai.github.io/
+url:              http://iszlai.github.io
 
 
 # Jekyll configuration
@@ -28,10 +28,10 @@ kramdown:
 owner:
   name: Lehel iszlai
   avatar: bio-photo.jpg
-  bio: "Describe your self."
-  email: 
+  bio: "My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design."
+  email: iszlai.lehel@gmail.com
   disqus-shortname: 
-  twitter: #username
+  twitter: iszlailehel
   facebook: #username
   google:
     plus: #username
@@ -40,7 +40,7 @@ owner:
     ad-client: 
     ad-slot: 
   bing-verify: 
-  github: #username
+  github: iszlai
   stackoverflow: #http://stackoverflow.com/users/123456/username
   linkedin: #username
   instagram: #username
