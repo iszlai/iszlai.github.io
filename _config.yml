@@ -24,11 +24,11 @@ kramdown:
   use_coderay: false
 
 
-# Site owner
+# Site owner  ""
 owner:
   name: Lehel iszlai
   avatar: bio-photo.jpg
-  bio: "My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design."
+  bio: "software developer, coffee addict,tech enthusiast and personal rants"
   email: iszlai.lehel@gmail.com
   disqus-shortname: 
   twitter: iszlailehel
