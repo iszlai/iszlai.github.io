@@ -11,6 +11,7 @@ image:
 ---
 
 My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.
+
 ## History
 
 Grew up in Marosvasarhely, Romania when to Babeş-Bolyai University
