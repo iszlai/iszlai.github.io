@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About the Theme
-tags: [about, Jekyll, theme, responsive]
+title: About me
+tags: [about, bio]
 modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 image:
@@ -10,16 +10,9 @@ image:
   creditlink: http://texturelovers.com
 ---
 
-Minimal Mistakes is responsive Jekyll theme with large featured images and solid typography. As the name implies the styling is fairly minimal to make it easier for you to build on top of.
+My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.
 
-## Minimal Mistakes is all about:
+## History
 
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 8+ and all modern browsers. 
-* Minimal embellishments -- content first.
-* Optional large feature images for posts and pages.
-* Simple and clear permalink structure.
-* [Custom 404 page](http://mmistakes.github.io/minimal-mistakes/404.html) to get you started.
-* Support for Disqus Comments
-
-<a markdown="0" href="{{ site.url }}/theme-setup" class="btn">Install Minimal Mistakes Theme</a>
+Grew up in Marosvasarhely, Romania when to Babeş-Bolyai University
+Faculty of Mathematics and Computer Science.My dissertation was about JavaScript based grid computing.During the time I had was an intern at a mobile development company where I did Android development and an outsource firm where I did test automation .After graduating a moved to Budapest, Hungary where I started to work a leading financial institution, trough which I had a chance to learn in international offices in New York and London.
