@@ -1,7 +1,7 @@
 ---
 layout: home
-excerpt: "A responsive Jekyll theme with editorial tendencies by designer Michael Rose."
-tags: [Jekyll, theme, responsive, blog, template]
+excerpt: "A blog about software development, design and technology by Lehel Iszlai" 
+tags: [code, technolgy, design, blog, software]
 image:
   feature: texture-feature-01.jpg
   credit: Texture Lovers
