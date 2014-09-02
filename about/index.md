@@ -6,8 +6,6 @@ modified: 2014-08-08T20:53:07.573882-04:00
 comments: true
 image:
   feature: texture-feature-01.jpg
-  credit: Texture Lovers
-  creditlink: http://texturelovers.com
 ---
 
 My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.

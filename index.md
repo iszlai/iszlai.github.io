@@ -4,6 +4,4 @@ excerpt: "A blog about software development, design and technology by Lehel Iszl
 tags: [code, technolgy, design, blog, software]
 image:
   feature: texture-feature-01.jpg
-  credit: Texture Lovers
-  creditlink: http://texturelovers.com
 ---
