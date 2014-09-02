@@ -11,7 +11,8 @@ image:
 ---
 
 My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.
-## History
+
+# History
 
 Grew up in Marosvasarhely, Romania when to Babeş-Bolyai University
 Faculty of Mathematics and Computer Science.My dissertation was about JavaScript based grid computing.During the time I had was an intern at a mobile development company where I did Android development and an outsource firm where I did test automation .After graduating a moved to Budapest, Hungary where I started to work a leading financial institution, trough which I had a chance to learn in international offices in New York and London.
