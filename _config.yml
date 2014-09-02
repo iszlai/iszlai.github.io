@@ -1,8 +1,8 @@
 # Site wide configuration
 
-title:            Site Title
+title:            coffemon
 locale:           en_US
-url:              http://localhost:4000
+url:              http://iszlai.github.io/
 
 
 # Jekyll configuration
@@ -26,7 +26,7 @@ kramdown:
 
 # Site owner
 owner:
-  name: Your Name
+  name: Lehel iszlai
   avatar: bio-photo.jpg
   bio: "Describe your self."
   email: 
