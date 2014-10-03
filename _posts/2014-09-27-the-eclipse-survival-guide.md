@@ -75,7 +75,7 @@ This bit can make you really productive but also please be careful don't let the
 
 
 ##Open resource##
-You are working on a project with hundreds of files packages and a complex structure if you have sort of memory about what a file is called you can try opening it with open resources .To use it all you need is **Ctrl**+**Shift**+**Name** ,and you can also use `?` for any character match and `*` any string match
+You are working on a project with hundreds of files packages and a complex structure if you have sort of memory about what a file is called you can try opening it with open resources .To use it all you need is **Ctrl**+**Shift**+**R** ,and name in which you can also use `?` for any character match and `*` any string match
 <br/><br/>
 ![alt text](/images/openRes.gif "Open resources")
 
