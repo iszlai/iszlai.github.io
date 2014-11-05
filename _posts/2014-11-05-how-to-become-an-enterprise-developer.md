@@ -36,7 +36,8 @@ So my questions are as follows:
 How to learn ,to understand and to get better at this type of code? I thought about open source but find it really heard to contribute to anything meaningfull. It's either also huge without anybody to ask, or I've read here or there that they are impatient with new people, or all they have time for is a readily made pull request.
 <br/><br/>
 
-My final question is on a related ,topic is should a try to master Java more or focus on more new and trendy stuff ?Thing is I really feel like this 
+My final question is on a related ,topic is should a try to master Java more or focus on more new and trendy stuff ?Thing is I really feel like this <br/>
 ![alt text](/images/aprox.gif "Knowledge")
+<br/>
 ,and feel like I really should try to focus on one thing just don't really know on what.
 
