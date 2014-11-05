@@ -5,7 +5,7 @@ modified:
 categories: 
 comments : true
 excerpt:
-tags: [eclipse,java,guide,scala,tutorial]
+tags: [java,guide,scala,enterprise,development,software]
 image:
   feature:
 date: 2014-11-05T13:27:23+02:00
