@@ -3,6 +3,7 @@ layout: post
 title: "The Eclipse Survival Guide"
 modified:
 categories: 
+comments : true
 excerpt:
 tags: [eclipse,java,guide,scala,tutorial]
 image:

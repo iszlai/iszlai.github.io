@@ -3,6 +3,7 @@ layout: post
 title: "How to become an enterprise developer and other personal rants ?"
 modified:
 categories: 
+comments : true
 excerpt:
 tags: [eclipse,java,guide,scala,tutorial]
 image:
