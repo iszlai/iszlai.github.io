@@ -13,6 +13,34 @@
  And the came the [Dynamo Paper] (http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) and bunch of implementation 
  each competing for the title of the best key-value data store for some use case.
  
+## Are there all the same ?
+
+No actually, they an use consistency models ranging from eventual consistency to serializability. A few support ordering of keys and there are those that maintain data in memory. And most of them can be set up for different use cases.
+So the main types are:
+#### eventually consistent
+
+- Riak
+- Apache Cassandra
+- Dynamo
+#### ordered
+
+- Berkeley DB
+- FoundationDB
+- InfinityDB
+#### RAM
+
+- Hazelcast
+- Memcached
+- redis
+#### solid-state drive /rotating disk
+
+- Aerospike
+- BigTable
+- Keyspace
+- LevelDB
+- Oracle NoSQL Database
+- Tokyo Cabinet
+ 
 ## Ok, but when to use a Key-Value store and is it good for...? 
  
   
