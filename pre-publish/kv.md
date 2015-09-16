@@ -13,7 +13,7 @@
  And the came the [Dynamo Paper] (http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) and bunch of implementation 
  each competing for the title of the best key-value data store for some use case.
  
-## Ok but "When to use a Key-Value store ?" What can it do for me ?
+## Ok, but ... "When to use a Key-Value store and what's it good for?" 
  
   
   **Can handle size and can scale well.**
