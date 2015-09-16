@@ -13,10 +13,10 @@
  And the came the [Dynamo Paper] (http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) and bunch of implementation 
  each competing for the title of the best key-value data store for some use case.
  
-## Ok, but ... "When to use a Key-Value store and what's it good for?" 
+## Ok, but When to use a Key-Value store and is it good for...? 
  
   
-  **Can handle size and can scale well.**
+  **It Can handle size and can scale well.**
    
    Due to the implementation and use of distributed hash tables it usually really easy to add more nodes if you want to scale out. 
    You can also set how much of data you want replicated on what percent of the nodes. And for this type of NoSQL data store you can almost 
@@ -42,7 +42,7 @@
    It's easier to upgrade or change the data if you don't have constraints of a rigid schema. Schema wise think of it like a Document Database 
    because it can have 'optional fields'. You can add, delete fields without the need to worry about schema migration.
  
-  **cache or store BLOB data**
+  **Cache or store BLOB data**
   
  Caching can for bits of web pages, or to save complex objects that were expensive to join in a relational database, to reduce latency, and so on.
  
