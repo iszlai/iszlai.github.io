@@ -12,7 +12,7 @@ date: 2014-09-27T13:27:23+02:00
 ---
  
 
-After starting with Java, Scala, C++ or any other language you probably start using an IDE, well there are many out there for everyones personal preferences I'll mainly focus on Eclipse.It's an Open Source IDE, mostly provided in Java, but it supports other the development languages by being extended with plug-ins.
+After starting with Java, Scala, C++ or any other language you probably start using an ide, well there are many out there for everyones personal preferences I'll mainly focus on Eclipse.It's an Open Source IDE, mostly provided in Java, but it supports other the development languages by being extended with plug-ins.
 
 ##Turn on line numbers 
 
