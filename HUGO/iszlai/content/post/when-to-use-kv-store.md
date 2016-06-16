@@ -16,7 +16,7 @@ The values can be depending on the implementation strings, numbers, collections 
 
 In the beginning because of a lack of standardization and requiring different mindset for designing the data storage it was only a niche
 for a few limited use cases.
-And the came the [Dynamo Paper] (http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) and bunch of implementation
+And the came the [Dynamo Paper] (http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf) and bunch of implementations
 each competing for the title of the best key-value data store for some use case.
 
 ## Ok but "When to use a Key-Value store ?" What can it do for me ?
@@ -25,8 +25,8 @@ each competing for the title of the best key-value data store for some use case.
  **Can handle size and can scale well.**
 
   Due to the implementation and use of distributed hash tables it usually really easy to add more nodes if you want to scale out.
-  You can also set how much of data you want replicated on what percent of the nodes. And for this type of NoSQL data store you can almost
-  linearly scale out
+  You can also set how much of data you want replicated on what percent of the nodes. With this type of NoSQL data store you can almost
+  linearly scale out.
 
 
  **When processing a constant stream of small reads and writes really fast.**
@@ -57,12 +57,13 @@ Caching can for bits of web pages, or to save complex objects that were expensiv
  Well generally what you want to do is store the related under similar keys.
  For example on a log in page you could store all user related data "under the user namespace". Like **user:johndoe** and the password hash under **user:johndoe:passwd** .
 
- If you are building a webshop for example and lets say a product you are selling gets mentioned by Oprah.
- Well if you store it all like  **product:1234:stockcount** all the queries hit that single cell. That's when you might want to think about different scenarios.
- In classical SQL database for analytics you would store/update all data in tables and do queries like give me all the people who purchased this and that and live here etc.
- Here especially if you are under high load it would be easier to do separate writes to:
+ Imagine you are building a webshop, and lets say a product you are selling gets mentioned by Oprah.
+ If you store it all like  **product:1234:stockcount**, then all the queries hit that single cell.
+ In scenarios like that you might want to think about different schema to partition your data.
+ Classical SQL databases where designed for easy querying. Everyone can easily write analytics queries like give me all the people who purchased this and that or live here etc.
+ When you create a highly scalable system it would be way less straining to separate writes like:
    **didpurchase:something** and **lives:somewhere** inc.
- If your chosen implementation doesn't have indexes you could also maintain it by yourself for example a product list:
+ If your chosen key value store implementation doesn't have indexes you could also maintain it by yourself for example a product list:
 ```
  product:0 -> { "color":"blue",
                 "souldOut":false,
