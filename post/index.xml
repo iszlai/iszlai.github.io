@@ -167,5 +167,22 @@ You can choose things like:&lt;/p&gt;
 </description>
     </item>
     
+    <item>
+      <title>About me</title>
+      <link>http://iszlai.github.io/post/about-me/</link>
+      <pubDate>Fri, 08 Aug 2014 20:53:07 -0400</pubDate>
+      
+      <guid>http://iszlai.github.io/post/about-me/</guid>
+      <description>
+
+&lt;p&gt;My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.&lt;/p&gt;
+
+&lt;h2 id=&#34;history&#34;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;Grew up in Marosvasarhely, Romania when to Babeş-Bolyai University
+Faculty of Mathematics and Computer Science. My dissertation was about JavaScript based grid computing. During the time I was an intern at a mobile development company where I did Android development and have worked at an outsource firm where I did test automation. After graduating a moved to Budapest, Hungary where I started to work at a leading financial institution, trough which I had a chance to learn at the international offices in New York and London.&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
