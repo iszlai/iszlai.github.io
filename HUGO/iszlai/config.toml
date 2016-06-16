@@ -1,0 +1,38 @@
+baseurl = "http://iszlai.github.io/"
+languageCode = "en-us"
+title = "iszlai - data,coffee and code"
+theme = "hugo-steam-theme"
+disqusShortname = "coffemon"
+paginate = 10
+
+[params]
+
+	title = "iszlai"
+	subtitle = "data,coffee and code"
+	copyright = "Released under the MIT license."
+
+	# You can choose between green, orange, red and blue.
+	themeColor = "green"
+	# Enable Google Analytics be inserting your tracking code
+	googleAnalytics = "UA-54428146-1"
+
+	# To provide some metadata for search engines and the about section in the footer
+	# feel free to add a few information about you and your website.
+	name = "Lehel Iszlai"
+	bio = "software developer, coffee addict,tech enthusiast and personal rants"
+	description = "Your description of the blog"
+	location = "" # optional
+	twitter = "iszlailehel" # optional
+	github = "iszlai" # optional
+
+	# Enable a comment system
+	# You can choose between Disqus or Google Plus by setting comments
+	# to disqus or googleplus. For using Disqus you need to enter your
+	# shortname in disqusShortname at the top of the configs. 
+	comments = "disqus"
+
+	# Customize or translate the strings
+	keepReadingStr = "Keep reading"
+	backtotopStr = "Back to top"
+	shareStr = "Share"
+	pageNotFoundTitle = "404 - Page not found"

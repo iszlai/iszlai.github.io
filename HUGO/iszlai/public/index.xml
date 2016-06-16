@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iszlai - data,coffee and code</title>
+    <link>http://iszlai.github.io/</link>
+    <description>Recent content on iszlai - data,coffee and code</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Nov 2014 13:27:23 +0200</lastBuildDate>
+    <atom:link href="http://iszlai.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to become an enterprise developer and other personal rants ?</title>
+      <link>http://iszlai.github.io/post/how-to-become-an-enterprise-developer/</link>
+      <pubDate>Wed, 05 Nov 2014 13:27:23 +0200</pubDate>
+      
+      <guid>http://iszlai.github.io/post/how-to-become-an-enterprise-developer/</guid>
+      <description>&lt;p&gt;First of all this is a personal post with lot of questions, insecurities and rants. Really any answer reply&amp;rsquo;s, tweet, PM, email anything would be useful and help me at this point. But first let me give a bit of a background of how I got to this stage in the first place.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve studied programming since highscool all throughout University I had a CS major so I have/had the basics covered. While in Uni they hired me as a &amp;ldquo;Test automation engineer&amp;rdquo; but what I ended up doing was mostly manual testing with very little coding (or thinking by the way) &lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/qa.gif&#34; alt=&#34;alt text&#34; title=&#34;QA&#34; /&gt;
+&lt;br/&gt;
+with continuous promises of getting in the development side. Which never came, so one day almost after a year of getting fed up I decided I would move on.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;I moved to another city get a job at a respected international financial firm and went trough their graduate program. It was wonderful they really tried their best to teach us about all the low level intricate details of *nix systems and C/C++ differences and idioms and a short introductory to function side with a bit of Scala.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;After the program we where pre-placed in teams ,and although I always had more affinity for backend related task and technology someone decided I will do Flash/Flex development on a huge system but with the promise I&amp;rsquo;ll get to work the backend as well.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s been a year since and almost all I did was UI development and it really doesn&amp;rsquo;t suit me, while I rarely had the chance but everytime I could do any minor change on the Java backend I was really happy. Don&amp;rsquo;t get me wrong it was hard with virtually any experience with a 500k lines of code base.
+&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/feel.gif&#34; alt=&#34;alt text&#34; title=&#34;Feel&#34; /&gt;
+&lt;br/&gt;
+ It was/is really hard to find way trough it. Since it is a 6 years+ old project most of the original team has moved on and any bit of documentation outdated.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;I did my best to learn the theory and I can say fairly confident that I know how dependency injection works, I can use Spring and can modify the components based on the code that&amp;rsquo;s already present. I know how ORMs work and even wrote a toy one for myself at home just to get a deeper understanding. I read a lot about and in theory know and understand design patterns.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;But my problem is that certain thing just don&amp;rsquo;t click in my mind. It&amp;rsquo;s mostly the why&amp;rsquo;s. Why are there factories everywhere, why are there builders upon builder, things like AbstractProxyBeanFactory and the like make me hold my head and scream. Why are things like VisitorAdapter (just like this ) defined. Why and who thought SOAP was a good a idea to communicate with integration partners.
+&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/legacy.gif&#34; alt=&#34;alt text&#34; title=&#34;Knowledge&#34; /&gt;
+&lt;br/&gt;
+ I find my self lost with no guidance at all, I rarely get to write code in the backend and feel that my home pet projects are not enough to learn certain things like this.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;So my questions are as follows:
+How to learn ,to understand and to get better at this type of code? I thought about open source but find it really heard to contribute to anything meaningfull. It&amp;rsquo;s either also huge without anybody to ask, or I&amp;rsquo;ve read here or there that they are impatient with new people, or all they have time for is a readily made pull request.
+&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;p&gt;My final question is on a related ,topic is should a try to master Java more or focus on more new and trendy stuff ?Thing is I really feel like this &lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/aprox.gif&#34; alt=&#34;alt text&#34; title=&#34;Knowledge&#34; /&gt;
+&lt;br/&gt;
+,and feel like I really should try to focus on one thing just don&amp;rsquo;t really know on what.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Eclipse Survival Guide</title>
+      <link>http://iszlai.github.io/post/eclipse-survival-guide/</link>
+      <pubDate>Sat, 27 Sep 2014 13:27:23 +0200</pubDate>
+      
+      <guid>http://iszlai.github.io/post/eclipse-survival-guide/</guid>
+      <description>
+
+&lt;p&gt;After starting with Java, Scala, C++ or any other language you probably start using an ide, well there are many out there for everyones personal preferences I&amp;rsquo;ll mainly focus on Eclipse.It&amp;rsquo;s an Open Source IDE, mostly provided in Java, but it supports other the development languages by being extended with plug-ins.&lt;/p&gt;
+
+&lt;h2 id=&#34;turn-on-line-numbers&#34;&gt;Turn on line numbers&lt;/h2&gt;
+
+&lt;p&gt;Seems trivial but it&amp;rsquo;s really useful when you work on a team or want to find something at a specific line. All you have to do is right click the gutter and choose &lt;strong&gt;Show line numbers&lt;/strong&gt;. It&amp;rsquo;s a simple tip but often useful and you only have to do it once.
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/lineNum.gif&#34; alt=&#34;alt text&#34; title=&#34;Show line numbers&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;go-to-line&#34;&gt;Go to line&lt;/h2&gt;
+
+&lt;p&gt;Similarly you see a line number inside a log regarding an Exception all you do is fire up go to line using &lt;strong&gt;Ctrl+L&lt;/strong&gt; type the line number and hit enter.
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/gotoLine.gif&#34; alt=&#34;alt text&#34; title=&#34;Go to line&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;settings-search&#34;&gt;Settings search&lt;/h2&gt;
+
+&lt;p&gt;Eclipse is a huge platform and is continually growing it&amp;rsquo;s really hard to find keep in mind where you can find the appropriate settings. Luckily theres a search for the settings.
+Let&amp;rsquo;s try to find the JRE settings as it&amp;rsquo;s commonly needed. So all you do is go to settings which can be found at &lt;strong&gt;Window&lt;/strong&gt; &amp;gt;&amp;gt; &lt;strong&gt;Preferences&lt;/strong&gt; and type what you are searching for like &lt;strong&gt;JRE&lt;/strong&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/settingsSearch.gif&#34; alt=&#34;alt text&#34; title=&#34;Settings&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;type-hierarchy&#34;&gt;Type hierarchy&lt;/h2&gt;
+
+&lt;p&gt;Ever wanted to know the whole supertype tree of a class of a class or to find the abstract type ? Using supertype hierarchy with &lt;strong&gt;Ctrl&lt;/strong&gt;+&lt;strong&gt;T&lt;/strong&gt; .
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/supertype.gif&#34; alt=&#34;alt text&#34; title=&#34;Supertype&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;comment-out-a-block&#34;&gt;Comment out a block&lt;/h2&gt;
+
+&lt;p&gt;When in a hurry you want to check something out, and don&amp;rsquo;t want the change to last, you could just easily comment out a block using &lt;strong&gt;Ctrl&lt;/strong&gt;+&lt;strong&gt;Shift&lt;/strong&gt;+&lt;strong&gt;C&lt;/strong&gt;.
+After you&amp;rsquo;re done repeat the same to undo it. This is also available for majority of languages so don&amp;rsquo;t have to type &lt;code&gt;&amp;lt;!-- --&amp;gt;&lt;/code&gt; in xml ever again.Side note never leave commented out code blocks in code, it&amp;rsquo;s messy and it makes the code harder to read, and there really is no reason to keep it anyway thats what the source control is for.
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/comment.gif&#34; alt=&#34;alt text&#34; title=&#34;Comment&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;extract-method&#34;&gt;Extract method&lt;/h2&gt;
+
+&lt;p&gt;While refactoring you find a huge chunk of code that really should be a a method. So you could just create a method copy the chunk out, figure out the parameters and make it work. Or you could the IDE do most the work and just check the result. All you do is &lt;strong&gt;Alt&lt;/strong&gt;+&lt;strong&gt;Shift&lt;/strong&gt;+&lt;strong&gt;M&lt;/strong&gt; and give a method name.As you can see eclipse really does a pretty fine job on it&amp;rsquo;s own and saves you a lot of time.
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/extract.gif&#34; alt=&#34;alt text&#34; title=&#34;Extract method&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;delete-a-line&#34;&gt;Delete a line&lt;/h2&gt;
+
+&lt;p&gt;Don&amp;rsquo;t you just have it when there are empty lines in the wrong place ? Using &lt;strong&gt;Ctrl&lt;/strong&gt;+&lt;strong&gt;D&lt;/strong&gt; you delete the current line, it&amp;rsquo;s really like Vim&amp;rsquo;s DD command if that ain&amp;rsquo;t a reason to love it, i don&amp;rsquo;t know what is.
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/delete.gif&#34; alt=&#34;alt text&#34; title=&#34;Delete a line&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;find-references&#34;&gt;Find references&lt;/h2&gt;
+
+&lt;p&gt;You want to change something but you aren&amp;rsquo;t sure if it&amp;rsquo;s used by anything else or what else might be affected. In this case all you do is &lt;strong&gt;Right-click&lt;/strong&gt;+&lt;strong&gt;References&lt;/strong&gt;+&lt;strong&gt;scope&lt;/strong&gt; (like workspace, project, etc)
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/refferences.gif&#34; alt=&#34;alt text&#34; title=&#34;References&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;generate-code&#34;&gt;Generate code&lt;/h2&gt;
+
+&lt;p&gt;Often you find yourself writing a bit boiler plate code like getters/setters, toString, simple constructors.All this can be done by eclipse for you in a pretty find grained matter. All you do is &lt;strong&gt;Right-click&lt;/strong&gt;+&lt;strong&gt;Source&lt;/strong&gt;+what code you want to generate.
+You can choose things like:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Getters and Setters&lt;/li&gt;
+&lt;li&gt;Delegate methods&lt;/li&gt;
+&lt;li&gt;hashCode() and equals()&lt;/li&gt;
+&lt;li&gt;toString()&lt;/li&gt;
+&lt;li&gt;Constructors&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This bit can make you really productive but also please be careful don&amp;rsquo;t let the IDE make design decisions for you if you don&amp;rsquo;t need it don&amp;rsquo;t add it it will be just a cluttered code.
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/generate.gif&#34; alt=&#34;alt text&#34; title=&#34;Generate&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;open-resource&#34;&gt;Open resource&lt;/h2&gt;
+
+&lt;p&gt;You are working on a project with hundreds of files packages and a complex structure if you have sort of memory about what a file is called you can try opening it with open resources .To use it all you need is &lt;strong&gt;Ctrl&lt;/strong&gt;+&lt;strong&gt;Shift&lt;/strong&gt;+&lt;strong&gt;R&lt;/strong&gt; ,and name in which you can also use &lt;code&gt;?&lt;/code&gt; for any character match and &lt;code&gt;*&lt;/code&gt; any string match
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/openRes.gif&#34; alt=&#34;alt text&#34; title=&#34;Open resources&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;open-declaration-implementation&#34;&gt;Open declaration/implementation&lt;/h2&gt;
+
+&lt;p&gt;When you see a method or an object and you would like to know where it&amp;rsquo;s declared or where it&amp;rsquo;s implemented you just hold down &lt;strong&gt;Ctrl&lt;/strong&gt; + &lt;strong&gt;click&lt;/strong&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/openDec.gif&#34; alt=&#34;alt text&#34; title=&#34;Open declaration/implementation&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;search&#34;&gt;Search&lt;/h2&gt;
+
+&lt;p&gt;The search in eclipse is really powerful and has many functionalities to cover all of them it would take quite a lot.The two main things I would like to point out are&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Search and replace in file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The typical file search and replace theres not a lot to talk about it. All you do is &lt;strong&gt;Ctrl&lt;/strong&gt;+&lt;strong&gt;F&lt;/strong&gt; and then the usual functionality you would expect is there.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Search workspace&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A more powerful search with filtering capabilities on file type and search scope.I couldn&amp;rsquo;t live without it on a windows box it&amp;rsquo;s almost as good as &lt;code&gt;grep&lt;/code&gt; .To use it all you need is &lt;strong&gt;Ctrl&lt;/strong&gt; + &lt;strong&gt;H&lt;/strong&gt;
+&lt;br/&gt;&lt;br/&gt;
+&lt;img src=&#34;http://iszlai.github.io/images/searchH.gif&#34; alt=&#34;alt text&#34; title=&#34;Search&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>About me</title>
+      <link>http://iszlai.github.io/post/about-me/</link>
+      <pubDate>Fri, 08 Aug 2014 20:53:07 -0400</pubDate>
+      
+      <guid>http://iszlai.github.io/post/about-me/</guid>
+      <description>
+
+&lt;p&gt;My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.&lt;/p&gt;
+
+&lt;h2 id=&#34;history&#34;&gt;History&lt;/h2&gt;
+
+&lt;p&gt;Grew up in Marosvasarhely, Romania when to Babeş-Bolyai University
+Faculty of Mathematics and Computer Science. My dissertation was about JavaScript based grid computing. During the time I was an intern at a mobile development company where I did Android development and have worked at an outsource firm where I did test automation. After graduating a moved to Budapest, Hungary where I started to work at a leading financial institution, trough which I had a chance to learn at the international offices in New York and London.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
