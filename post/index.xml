@@ -6,8 +6,328 @@
     <description>Recent content in Posts on iszlai - data,coffee and code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Nov 2016 14:21:56 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 10 Dec 2016 21:27:37 +0100</lastBuildDate>
     <atom:link href="http://iszlai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2016 week 49 in programming</title>
+      <link>http://iszlai.github.io/post/2016_week_49_in_programming/</link>
+      <pubDate>Sat, 10 Dec 2016 21:27:37 +0100</pubDate>
+      
+      <guid>http://iszlai.github.io/post/2016_week_49_in_programming/</guid>
+      <description>
+
+&lt;h2 id=&#34;this-guy-taught-me-better-than-my-professor-https-youtu-be-hranu6ktnes&#34;&gt;&lt;a href=&#34;https://youtu.be/HRANU6KtNEs&#34;&gt; This guy taught me better than my professor. &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Welcome to Programming from A to Z! &amp;ldquo;Programming from A to Z&amp;rdquo; is a course I teach at ITP. This playlist is anyone who would like to follow along online. This course focuses on programming strategies and techniques behind procedural analysis and generation of text-based data. We&amp;rsquo;ll explore topics ranging from evaluating text according to its statistical properties to the automated production of text with probabilistic methods to text visualization. Students will learn server-side and client-side JavaScript programming and develop projects that can be shared and interacted with online. Influences and Inspiration for the Programming from A to Z class:Jackson Mac Low&amp;rsquo;s Wikipedia Page: &lt;a href=&#34;https://en&#34;&gt;https://en&lt;/a&gt;. Js: &lt;a href=&#34;https://p5js.org/Processing:&#34;&gt;https://p5js.org/Processing:&lt;/a&gt; &lt;a href=&#34;https://processing.org&#34;&gt;https://processing.org&lt;/a&gt;. For More Programming from A to Z videos: &lt;a href=&#34;https://www&#34;&gt;https://www&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;programming-fibonacci-on-a-8-bits-self-made-breadboard-computer-https-www-youtube-com-watch-v-a73zxdjtu48&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=a73ZXDJtU48&#34;&gt; Programming Fibonacci on a 8 bits self made breadboard computer &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-to-pay-programmers-less-http-www-yegor256-com-2016-12-06-how-to-pay-programmers-less-html&#34;&gt;&lt;a href=&#34;http://www.yegor256.com/2016/12/06/how-to-pay-programmers-less.html&#34;&gt; How to Pay Programmers Less &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;How do you prevent that? Unfortunately, we can&amp;rsquo;t use violence any more, but there are some other mechanisms. If they don&amp;rsquo;t know how much their coworkers are getting, they won&amp;rsquo;t raise salary questions for much longer. They will be emotionally attached to the place and it will be very difficult to leave, no matter how underpaid they will be. Brainwash them regularly by communicating how great your company is, how big its mission is, and how important their contribution is. Spend just a little on all those funny office things, and they will pay you back big time, through the ability to underpay your programmers. They simply don&amp;rsquo;t know how to buy insurance, how to plan a retirement fund, or even how to pay taxes. How do you become friends? Well, meet their families, invite them over for dinner at your house, give them birthday gifts-all those tricks.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;linux-kernel-maintainer-says-no-to-amdgpu-patch-https-lists-freedesktop-org-archives-dri-devel-2016-december-126516-html&#34;&gt;&lt;a href=&#34;https://lists.freedesktop.org/archives/dri-devel/2016-December/126516.html&#34;&gt; Linux kernel maintainer says &amp;lsquo;No.&amp;rsquo; to AMDGPU patch &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;RFC] Using DC in amdgpu for upcoming GPU Dave Airlie airlied at gmail.com Thu Dec 8 20:07:26 UTC 2016 &amp;gt; I can&amp;rsquo;t dig into details of DC, so this is not a 100% assessment, but if &amp;gt; you call a function called &amp;ldquo;Validate&amp;rdquo; in atomic commit, you&amp;rsquo;re very, very &amp;gt; likely breaking atomic. If &amp;gt; you want to improve shared code the only downside is that you can&amp;rsquo;t also &amp;gt; improve amd, but that&amp;rsquo;s not so much a problem for non-amd folks ;-) &amp;gt; &amp;gt; The problem otoh with the abstraction layer between drm core and the amd &amp;gt; driver is that you can&amp;rsquo;t ignore if you want to refactor shared code. &amp;gt; &amp;gt; - Another issue is that very often we unify semantics in drivers by adding &amp;gt; some new helpers that at least dtrt for most of the drivers. If you have &amp;gt; your own world then the impendance mismatch will make sure that amd &amp;gt; drivers will have slightly different semantics, and I think that&amp;rsquo;s not &amp;gt; good for the ecosystem and kms - people want to run a lot more than just &amp;gt; a boot splash with generic kms userspace, stuff like xf86-video-$vendor &amp;gt; is going out of favour heavily. The trouble is that having your own world makes it harder for &amp;gt; everyone else to understand the amd driver, and understanding all drivers &amp;gt; is very often step 1 in some big refactoring or feature addition effort. Read up on the whole mac80211 problems we had years ago, where every wireless vendor wrote their own 80211 layer inside their driver, there was a lot of time spent creating a central 80211 before any of those drivers were suitable for merge, well we&amp;rsquo;ve spent our time creating a central modesetting infrastructure, bypassing it is taking a driver in totally the wrong direction. More information about the dri-devel mailing list [RFC] Using DC in amdgpu for upcoming GPU Dave Airlie airlied at gmail.com Thu Dec 8 20:07:26 UTC 2016 &amp;gt; I can&amp;rsquo;t dig into details of DC, so this is not a 100% assessment, but if &amp;gt; you call a function called &amp;ldquo;Validate&amp;rdquo; in atomic commit, you&amp;rsquo;re very, very &amp;gt; likely breaking atomic.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;amd-responds-to-linux-kernel-maintainer-s-rejection-of-amdgpu-patch-https-lists-freedesktop-org-archives-dri-devel-2016-december-126684-html&#34;&gt;&lt;a href=&#34;https://lists.freedesktop.org/archives/dri-devel/2016-December/126684.html&#34;&gt; AMD responds to Linux kernel maintainer&amp;rsquo;s rejection of AMDGPU patch &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Deucher at amd.com Fri Dec 9 17:32:24 UTC 2016 &amp;gt; &amp;mdash;Original Message&amp;mdash; &amp;gt; From: Dave Airlie &amp;gt; Sent: Thursday, December 08, 2016 3:07 PM &amp;gt; To: Daniel Vetter &amp;gt; Cc: Wentland, Harry; dri-devel; Grodzovsky, Andrey; amd-gfx mailing list; &amp;gt; Deucher, Alexander; Cheng, Tony &amp;gt; Subject: Re: [RFC] Using DC in amdgpu for upcoming GPU &amp;gt; &amp;gt; &amp;gt; I can&amp;rsquo;t dig into details of DC, so this is not a 100% assessment, but if &amp;gt; &amp;gt; you call a function called &amp;ldquo;Validate&amp;rdquo; in atomic commit, you&amp;rsquo;re very, very &amp;gt; &amp;gt; likely breaking atomic. It&amp;rsquo;s annoying since &amp;gt; &amp;gt; lots of code, and bugfixes have to be duplicated and all that, but it&amp;rsquo;s &amp;gt; &amp;gt; fairly easy to fix case-by-case, and as long as AMD folks stick around &amp;gt; &amp;gt; not a maintainance issue. If &amp;gt; &amp;gt; you want to improve shared code the only downside is that you can&amp;rsquo;t also &amp;gt; &amp;gt; improve amd, but that&amp;rsquo;s not so much a problem for non-amd folks ;-) &amp;gt; &amp;gt; &amp;gt; &amp;gt; The problem otoh with the abstraction layer between drm core and the &amp;gt; amd &amp;gt; &amp;gt; driver is that you can&amp;rsquo;t ignore if you want to refactor shared code. &amp;gt; &amp;gt; Given the choice between maintaining Linus&amp;rsquo; trust that I won&amp;rsquo;t merge &amp;gt; 100,000 lines &amp;gt; of abstracted HAL code and merging 100,000 lines of abstracted HAL code &amp;gt; I&amp;rsquo;ll give you one guess where my loyalties lie. &amp;gt; &amp;gt; I&amp;rsquo;ve also wondered if the DC code is ready for being part of the &amp;gt; kernel anyways, what &amp;gt; happens if I merge this, and some external contributor rewrites 50% of &amp;gt; it and removes a &amp;gt; bunch of stuff that the kernel doesn&amp;rsquo;t need. If code trumps all, then why do we have staging? I understand forward progress on APIs, but frankly from my perspective, atomic has been a disaster for stability of both atomic and pre-atomic code. Are you basically telling us that you&amp;rsquo;d rather we water down our driver and limit the features and capabilities and stability we can support so that others can refactor our code constantly for hazy goals to support some supposed glorious future that never seems to come? What about right now? Maybe we could try and support some features right now.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;why-does-calloc-exist-https-vorpus-org-blog-why-does-calloc-exist&#34;&gt;&lt;a href=&#34;https://vorpus.org/blog/why-does-calloc-exist/&#34;&gt; Why does calloc exist? &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In terms of its public API, calloc is different in two ways: first, it takes two arguments instead of one, and second, it returns memory that is pre-initialized to be all-zeros. So&amp;hellip; why does calloc exist, if it&amp;rsquo;s equivalent to these 2 lines? The C library is not known for its excessive focus on providing convenient shorthands! So that&amp;rsquo;s the first way that calloc cheats: when you call malloc to allocate a large buffer, then probably the memory will come from the operating system and already be zeroed, so there&amp;rsquo;s no need to call memset. Calloc lives inside the memory allocator, so it knows whether the memory it&amp;rsquo;s returning is fresh from the operating system, and if it is then it skips calling memset. This only explains part of the speedup: memset+malloc is actually clearing the memory twice, and calloc is clearing it once, so we might expect calloc to be 2x faster at best. Numpy allocated the array using calloc, and then it wrote 1s in the diagonal&amp;hellip; but most of the array is still zeros, so it isn&amp;rsquo;t actually taking up any memory, and our 2 GiB matrix fits into ~60 MiB of actual RAM. Of course there are other ways to accomplish the same thing, like using a real sparse matrix library, but that&amp;rsquo;s not the point. Calloc exists because it lets the memory allocator and kernel engage in a sneaky conspiracy to make your code faster and use less memory.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;doomrl-open-sourced-https-github-com-chaosforge-doomrl&#34;&gt;&lt;a href=&#34;https://github.com/ChaosForge/doomrl&#34;&gt; DoomRL open sourced &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Parts of this codebase date back to 2002, please do not judge! :P. This FreePascal source code release is provided as is. You can try compiling it using the latest version of Lazarus. Detailed compilation instructions will appear at some later point after the Jupiter Hell Kickstarter finishes. Chaosforge.org/ Copy bin/mp3, bin/music, bin/sound, bin/soundhq from the DoomRL folders to the source tree bin folder Download 32-bit Lazarus Open src/makewad.lpi build, do not run Run makewad.exe from the command line in the bin folder to generate doomrl. Code is distributed under the GPL 2.0 license. All art is 2003-2016 Derek Yu. Art is distributed under the CC-BY-SA 4.0 license.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;what-algorithm-did-microsoft-use-to-dither-color-in-early-versions-of-windows-http-retrocomputing-stackexchange-com-q-1887-621&#34;&gt;&lt;a href=&#34;http://retrocomputing.stackexchange.com/q/1887/621&#34;&gt; What algorithm did Microsoft use to dither color in early versions of Windows? &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Basically, Windows used the basic 16-color CGA palette, which included 4 shades of monochrome, and 12 basic colors, which later formed the basis of the &amp;ldquo;Web safe palette&amp;rdquo; that became popular during the early days of the Internet. The algorithm used back then was known as the Bayer dithering technique, otherwise referred to as ordered dithering. The basic idea was to generate a grid of threshold values in a mathematical arrangement that favors nearly consistent values equal distances from each other, which is what produces the cross-hatch effect. They also included some example source code written in PHP:. &amp;lt;?php /* Create a 8x8 threshold map &lt;em&gt;/ $map = array map(function($p) , range(0,63 ; /&lt;/em&gt; Define palette &lt;em&gt;/ $pal = Array(0x080000,0x201A0B,0x432817,0x492910, 0x234309,0x5D4F1E,0x9C6B20,0xA9220F, 0x2B347C,0x2B7409,0xD0CA40,0xE8A077, 0x6A94AB,0xD5C4B3,0xFCE76E,0xFCFAE2); /&lt;/em&gt; Read input image */ $srcim = ImageCreateFromPng(&amp;lsquo;scene. Basically, the entire thing was dreamed up by Bayer, and this algorithm dominated the market during the 4-bit era of computer graphics. 000000 #808080 #800000 #FF0000 #008000 #00FF00 #808000 #FFFF00 #000080 #0000FF #800080 #FF00FF #008080 #00FFFF #C0C0C0 #FFFFFF. Always dither from a full-color image, otherwise it&amp;rsquo;ll probably look even worse than you intended. Dithering in realtime is trivial for modern systems, as even classic 33mhz systems that ran Windows had no trouble implementing the Bayer dithering pattern.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;postgresql-10-will-ship-with-table-partitioning-https-git-postgresql-org-gitweb-p-postgresql-git-a-commit-h-f0e44751d7175fa3394da2c8f85e3ceb3cdbfe63&#34;&gt;&lt;a href=&#34;https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=f0e44751d7175fa3394da2c8f85e3ceb3cdbfe63&#34;&gt; PostgreSQL 10 will ship with table partitioning &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Table partitioning is like table inheritance and reuses much of theexisting infrastructure, but there are some important differences. The parent is called a partitioned table and is always empty; it maynot have indexes or non-inherited constraints, since those make nosense for a relation with no data of its own. Each partition has animplicit partitioning constraint. Multiple inheritance is notallowed, and partitioning and inheritance can&amp;rsquo;t be mixed. Tuple routing isn&amp;rsquo;t yet supported for partitions which are foreigntables, and it doesn&amp;rsquo;t handle updates that cross partition boundaries. Listpartitioning is limited to a single column, but range partitioning caninvolve multiple columns. A partitioning &amp;ldquo;Column&amp;rdquo; can be anexpression.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;i-am-tired-of-makefiles-https-dmitryfrank-com-blog-2016-1211-i-am-tired-of-makefiles&#34;&gt;&lt;a href=&#34;https://dmitryfrank.com/blog/2016/1211_i_am_tired_of_makefiles&#34;&gt; I am tired of Makefiles &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;At Cesanta, we use Makefiles to build our firmwares, libraries, and perform other things. I want my incremental builds to be reliable, and I want to be able to reuse my Makefiles as needed. A &amp;hellip;. Now, we have a project app with a separate Makefile, and we want to use mylib. We don&amp;rsquo;t want the app target to always get rebuilt. The app won&amp;rsquo;t be rebuilt, even though we want it to. My point is that if the author of makefile wants some variable to be overriddable, they should just use FOO ?= foo. There are plenty of other issues, some of them require ancient wisdom to write Makefiles which are correct, but I got used to most of them.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;atari-2600-emulator-in-minecraft-https-www-youtube-com-watch-v-jprkjndmtlc&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=jPRkjNDmTlc&#34;&gt; Atari 2600 Emulator in Minecraft &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;developers-side-projects-https-www-joelonsoftware-com-2016-12-09-developers-side-projects&#34;&gt;&lt;a href=&#34;https://www.joelonsoftware.com/2016/12/09/developers-side-projects/&#34;&gt; Developers’ side projects &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;So let&amp;rsquo;s consider this question: if you&amp;rsquo;re a developer working for software company, does that company own what you do in your spare time? Every software company is going to want to own the copyright to the code that its employees write for them, so no software company can accept the &amp;ldquo;Default&amp;rdquo; way the law works. So before you hire this developer, you agree, &amp;ldquo;Hey listen, I know that inventing happens all the time, and it&amp;rsquo;s impossible to prove whether you invented something while you were sitting in the chair I supplied in the cubicle I supplied or not. I don&amp;rsquo;t just want to buy your 9:00-5:00 inventions. I want them all, and I&amp;rsquo;m going to pay you a nice salary to get them all,&amp;rdquo; and she agrees to that, so now you want to sign something that says that all her inventions belong to the company for as long as she is employed by the company. So every software company tries to own everything that its employees do. Hmmm. OK, what if my employer is a small company making software for the legal industry. All of them need to purchase your copyright and patents without having to prove that they were generated &amp;ldquo;On the clock,&amp;rdquo; so they will all try to do this, unless the company is being negligent and has not arranged for appropriate contracts to be in place, in which case, the company is probably being badly mismanaged and there&amp;rsquo;s another reason not to work there. If you leave and start a competitive company or even a half-competitive company, we will use this contract to bring you to tears.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;well-what-started-as-an-r-programmerhumor-joke-is-now-a-real-programming-language-enter-coding-a-stack-based-markup-language-https-github-com-molarmanful-codinglang&#34;&gt;&lt;a href=&#34;https://github.com/molarmanful/codinglang&#34;&gt; Well, what started as an r/ProgrammerHumor joke is now a real programming language. Enter Coding, a stack-based markup language. &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Coding has 2 stacks, one for strings and another for HTML output. Parentheses push to the string stack; for example, would push asdf to the string stack. The standard library has a function S that can push from the string stack to the output stack. &amp;gt;: Pops top string stack element, wraps with a tag name, and pushes to output stack. Adds an attribute to the top output stack element using the popped top string stack element. S: Push the top string stack element to the output stack in text form. Se: Push the HTML string form of the top output stack element to the string stack.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;announcing-typescript-2-1-https-blogs-msdn-microsoft-com-typescript-2016-12-07-announcing-typescript-2-1&#34;&gt;&lt;a href=&#34;https://blogs.msdn.microsoft.com/typescript/2016/12/07/announcing-typescript-2-1/&#34;&gt; Announcing TypeScript 2.1 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Function get&lt;T, K extends keyof T&gt;(obj: T, propertyName: K): T[K] let x = ; let foo = get(x, &amp;ldquo;Foo&amp;rdquo;); // has type &amp;lsquo;number&amp;rsquo; let bar = get(x, &amp;ldquo;Bar&amp;rdquo;); // has type &amp;lsquo;string&amp;rsquo; let oops = get(x, &amp;ldquo;Wargarbl&amp;rdquo;); // error! Mapped Types. Mapped types are definitely the most interesting feature in TypeScript 2.1. Mapped types are produced by taking a union of literal types, and computing a set of properties for a new object type. Notice how we leveraged TypeScript 2.1&amp;rsquo;s new indexed access types here by writing out T[P]. So instead of defining a completely new type like PartialPerson, we can just write Partial&lt;Person&gt;. Originally, we planned to ship a type operator in TypeScript 2.1 named partial which could create an all-optional version of an existing type. Because the Partial and Readonly types we used above are so useful, they&amp;rsquo;ll be included in TypeScript 2.1. Do be careful though - TypeScript will assume the package has the type any, meaning you can do anything with it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;trendmicro-starts-a-server-in-your-machine-and-was-allowing-remote-code-execution-from-an-http-request-https-bugs-chromium-org-p-project-zero-issues-detail-id-693&#34;&gt;&lt;a href=&#34;https://bugs.chromium.org/p/project-zero/issues/detail?id=693&#34;&gt; TrendMicro starts a server in your machine and was allowing remote code execution from an HTTP request &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When you install TrendMicro Antivirus on Windows, by default a component called Password Manager is also installed and automatically launched on startup. Html This product is primarily written in JavaScript with node. Js, and opens multiple HTTP RPC ports for handling API requests. It took about 30 seconds to spot one that permits arbitrary command execution, openUrlInDefaultBrowser, which eventually maps to ShellExecute(). This means any website can launch arbitrary commands, like this: x = new XMLHttpRequest() x.open(&amp;ldquo;GET&amp;rdquo;, &amp;ldquo;&lt;a href=&#34;Https://localhost:49155/api/openUrlInDefaultBrowser?url=c:/windows/system32/calc.exe&amp;quot;&#34;&gt;Https://localhost:49155/api/openUrlInDefaultBrowser?url=c:/windows/system32/calc.exe&amp;quot;&lt;/a&gt;, true); try catch ;. This bug is subject to a 90 day disclosure deadline. If 90 days elapse without a broadly available patch, then the bug report will automatically become visible to the public.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;saving-the-internet-2000-terabytes-a-day-fixing-font-awesome-s-fonts-https-pixelambacht-nl-2016-font-awesome-fixed&#34;&gt;&lt;a href=&#34;https://pixelambacht.nl/2016/font-awesome-fixed/&#34;&gt; Saving the internet 2000 terabytes a day: fixing Font Awesome&amp;rsquo;s fonts &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Font Awesome, the most ubiquitous icon font on the web, just succesfully finished a Kickstarter campaign flushing a million dollars towards its creators to revamp the icon set. With a clear signal that Font Awesome isn&amp;rsquo;t going away anytime soon, let&amp;rsquo;s take a look at the technical integrity of its fonts. A font like Font Awesome has about 100.000 coordinates for all glyphs combined, resulting in a potential savings of 100kB! Long story short: the original unitsPerEm of Font Awesome&amp;rsquo;s fonts is 1792. Running our font through it reduces the font down from 150508 to 141376 bytes, saving another 9kB. Not super much, but since it was all dead weight anyway I say good riddance. If each day 73 million websites serve the Font Awesome WOFF to an average of a thousand visitors who don&amp;rsquo;t have these fonts in the browser&amp;rsquo;s cache, at a 26kB savings on the WOFF, we&amp;rsquo;ve saved. If they&amp;rsquo;re sticking to icon fonts instead of SVG, Font Awesome better make their font files awesome too.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;what-s-new-in-python-3-6-https-docs-python-org-3-6-whatsnew-3-6-html&#34;&gt;&lt;a href=&#34;https://docs.python.org/3.6/whatsnew/3.6.html&#34;&gt; What’s New In Python 3.6 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This article explains the new features in Python 3.6, compared to 3.5. Whenever a new class is defined, the new method will be called on all descriptors included in the definition, providing them with a reference to the class being defined and the name given to the descriptor within the class namespace. The new PYTHONMALLOC environment variable allows setting the Python memory allocators and installing debug hooks. The new Collection abstract base class has been added to represent sized iterable container classes. The new DomainFilter filter class has been added to filter block traces by their address space. Since the typing module was provisional in Python 3.5, all changes introduced in Python 3.6 have also been backported to Python 3.5.x. The typing module has a much improved support for generic type aliases. The &amp;ldquo;Object allocated at&amp;rdquo; traceback is new and is only displayed if tracemalloc is tracing Python memory allocations and if the warnings module was already imported.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;talks-that-changed-the-way-i-think-about-programming-http-www-opowell-com-post-talks-that-changed-the-way-i-think-about-programming&#34;&gt;&lt;a href=&#34;http://www.opowell.com/post/talks-that-changed-the-way-i-think-about-programming/&#34;&gt; Talks that changed the way I think about programming &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Here are some talks which have given me new insight into programming, and in particular what good programming is and isn&amp;rsquo;t. Software is the platform Code should be designed around a model of the world Code is more important than data Jonathan Blow: How to program independent games. One of the most important metrics to optimize for is hours of your life spent programming something. Eskil Steenberg: How I program in C. In the beginning all you want is results, in the end, all you want is control. Brian Will: Why OOP is Bad. Almost everything that&amp;rsquo;s interesting in a non-trivial program are &amp;lsquo;cross-cutting&amp;rsquo; concerns. When faced with the reality of real word programs, promises of encapsulation tend to be broken, and object graphs quickly become tangled webs. The emphasis of programming should be on solving problems, and not on the code itself.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;neovim-state-and-progress-update-https-neovim-io-news-2016-11&#34;&gt;&lt;a href=&#34;https://neovim.io/news/2016/11/&#34;&gt; Neovim State and Progress Update &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Neovim is a refactor of Vim to make it viable for another 30 years of hacking. Neovim very intentionally builds on the long history of Vim community knowledge and user habits. If you find an article about Vim, it likely also applies to Neovim, unless it&amp;rsquo;s about :smile. App is a macOS Neovim GUI available via homebrew for macOS 10.9+. nvim-hs is a host to enable writing Neovim plugins in Haskell. ZyX-I, a prolific committer to Neovim and Vim, agreed to take the role of &amp;ldquo;Lead developer&amp;rdquo;, i.e. the developer who receives the funding. If the project makes you happy, let the pledge continue! API. The Neovim API is one of the defining technical and &amp;ldquo;Soft&amp;rdquo; features of the project. C will be separated into modules, marking a point where Neovim&amp;rsquo;s VimL implementation diverges from Vim&amp;rsquo;s.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;10-features-in-c-that-you-really-should-learn-and-use-https-hownot2code-com-2016-11-24-10-features-in-c-that-you-really-should-learn-and-use&#34;&gt;&lt;a href=&#34;https://hownot2code.com/2016/11/24/10-features-in-c-that-you-really-should-learn-and-use/&#34;&gt; 10 Features in C# That You Really Should Learn (and use!) &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you start exploring C# or decide to expand your knowledge, you should learn these useful language features, which will help you to simplify the code, avoid errors and save a lot of time. The async / await-pattern works by letting the code continue executing even if something is blocking the execution. The above example can be really useful in unit testing but should be avoided in other contexts as instances of classes should be created using a constructor. These features are practically a necessity in many cases, make sure to actually learn when and how to use them. GetValue(); var defaultValue = 23 //result will be 23 if someValue is null var result = someValue ?? defaultValue;. Format(&amp;ldquo;Some data: , some more data:&amp;ldquo;, someVariable, someOtherVariable); //NewWay var someString = $&amp;ldquo;Some data: , some more data:&amp;ldquo;;. So the new nameof-expression might not seem important, but it really has it value.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;write-a-shell-in-c-https-brennan-io-2015-01-16-write-a-shell-in-c&#34;&gt;&lt;a href=&#34;https://brennan.io/2015/01/16/write-a-shell-in-c/&#34;&gt; Write a Shell in C &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This is a walkthrough on how I wrote my own simplistic Unix shell in C, in the hopes that it makes other people feel that way too. The code for the shell described here, dubbed lsh, is available on GitHub. University students beware! Many classes have assignments that ask you to write a shell, and some faculty are aware of this tutorial and code. Terminate: After its commands are executed, the shell executes any shutdown commands, frees up any memory, and terminates. These steps are so general that they could apply to many programs, but we&amp;rsquo;re going to use them for the basis for our shell. Our shell will be so simple that there won&amp;rsquo;t be any configuration files, and there won&amp;rsquo;t be any shutdown command. Reading a line from stdin sounds so simple, but in C it can be a hassle.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;pdf-concepts-the-future-of-generic-programming-by-bjarne-stroustrup-http-www-stroustrup-com-good-concepts-pdf&#34;&gt;&lt;a href=&#34;http://www.stroustrup.com/good_concepts.pdf&#34;&gt; [PDF] &amp;ldquo;Concepts: The Future of Generic Programming&amp;rdquo; by Bjarne Stroustrup &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Designing with concepts What makes a good concept? Ideally, a concept represents a fundamental concept in some domain, hence the name &amp;ldquo;Concept.&amp;rdquo; A concept has semantics; it means something; it is not just a set of unrelated operations and types. Examples are C/C++ built-in type concepts: arithmetic, integral, and floating STL concepts like iterators and containers Mathematical concepts like monad, group, ring, and field Graph concepts like edges and vertices; graph, DAG, etc. The first step to design a good concept is to consider what is a complete set of properties to match the domain concept, taking into account the semantics of that domain concept. We call such overly simple or incomplete concepts &amp;ldquo;Constraints&amp;rdquo; to distinguish them from the &amp;ldquo;Real concepts.&amp;rdquo; 12/11/2016 Page 12 of 23 Stroustrup D-R-A-F-T Concepts 5.5 Matching types to concepts How can a writer of a new type be sure it matches a concept? That&amp;rsquo;s easy: We simply static assert the desired concept matches. Overload resolution based on concepts is fundamentally simple: If a function matches the requirements of one concept only, call it If a function matches the requirements of no concept, the call is an error If the function matches the requirements of two concepts, see if the requirements of one of those concepts is a subset of the requirements of the other. 8.7 Concepts like classes Based on experience with other languages and experimentation with C++0x concepts, some people are convinced that concepts should be defined like classes. We have worked together on concepts for many years and share some favorite examples that we have used in the design of concepts and to explain concepts.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;this-is-unfortunate-and-we-re-stuck-with-it-forever-https-facundoolano-wordpress-com-2016-12-09-this-is-unfortunate-and-were-stuck-with-it-forever&#34;&gt;&lt;a href=&#34;https://facundoolano.wordpress.com/2016/12/09/this-is-unfortunate-and-were-stuck-with-it-forever/&#34;&gt; This is unfortunate and we&amp;rsquo;re stuck with it forever &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The phrase immediately resounded in my head, because to me it was a perfect definition of JavaScript, or at least the current state of JavaScript. II. Douglas Crockford published JavaScript: The Good Parts about eight years ago. It&amp;rsquo;s a masterpiece to me, with a lot of takeaways: JavaScript is loaded with crap; there&amp;rsquo;s a great functional language somewhere in there, striving to get out; sometimes, a lot of the times, less is more. We can make a better language out of JavaScript by subsetting it. IV. Unlike any other language, JavaScript runs in browsers. V. I always wonder how is it like to learn JavaScript in 2016, for new programmers and for programmers coming from other languages. Can&amp;rsquo;t the browsers manage multiple versions of JavaScript? is it worth their save, especially now that this uneven language has crawled its way to the server and the desktop?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-discord-handles-push-request-bursts-of-over-a-million-per-minute-with-elixir-s-genstage-https-discord-engineering-how-discord-handles-push-request-bursts-of-over-a-million-per-minute-with-elixirs-genstage-8f899f0221b4-u29lfn92n&#34;&gt;&lt;a href=&#34;https://discord.engineering/how-discord-handles-push-request-bursts-of-over-a-million-per-minute-with-elixirs-genstage-8f899f0221b4#.u29lfn92n&#34;&gt; How Discord handles push request bursts of over a million per minute with Elixir’s GenStage &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Stage 1 - the Push Collector: The Push Collector is a producer that collects push requests. Stage 2 - the Pusher: The Pusher is a consumer that demands push requests from the Push Collector and pushes the requests to Firebase. The Push Collector never sends a request to a Pusher unless the Pusher asks for one. Since the Pushers put back-pressure on the Push Collector, we now have a potential bottleneck at the Push Collector. In the Push Collector, we specify how many push requests to buffer. If there are way too many messages moving through the system and the buffer fills up then the Push Collector will shed incoming push requests. The bottom graph is the number of push requests buffered by the Push Collector.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;dart-1-21-released-with-generic-gethod-syntax-http-news-dartlang-org-2016-12-dart-121-generic-method-syntax-html&#34;&gt;&lt;a href=&#34;http://news.dartlang.org/2016/12/dart-121-generic-method-syntax.html&#34;&gt; Dart 1.21 released, with generic gethod syntax &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It introduces support for generic method syntax along with a few popular convenience features. Dart 1.21 introduces syntax allowing type arguments on methods and functions. For more examples, check out the Using Generic Methods article. We&amp;rsquo;ve had generic methods and functions for a while in strong mode. 1.21 introduces support for generic method syntax even without strong mode. Libraries can use this feature and work in both contexts, providing a stepping stone to full generic methods in all Dart code. X is T will not work outside strong mode if T is a method type argument.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2016 week 48 in programming</title>
+      <link>http://iszlai.github.io/post/2016_week_48_in_programming/</link>
+      <pubDate>Sat, 03 Dec 2016 21:27:26 +0100</pubDate>
+      
+      <guid>http://iszlai.github.io/post/2016_week_48_in_programming/</guid>
+      <description>
+
+&lt;h2 id=&#34;crypto-101-an-introductory-course-on-cryptography-freely-available-for-programmers-of-all-ages-and-skill-levels-https-www-crypto101-io&#34;&gt;&lt;a href=&#34;https://www.crypto101.io/&#34;&gt; Crypto 101 - an introductory course on cryptography, freely available for programmers of all ages and skill levels &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It tries to go through all of the major dramatis personae of cryptography to make TLS work in 45 minutes. This book is the natural extension of that, with an extensive focus on breaking cryptography.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-the-singapore-circle-line-rogue-train-was-caught-with-data-https-blog-data-gov-sg-how-we-caught-the-circle-line-rogue-train-with-data-79405c86ab6a&#34;&gt;&lt;a href=&#34;https://blog.data.gov.sg/how-we-caught-the-circle-line-rogue-train-with-data-79405c86ab6a&#34;&gt; How the Singapore Circle Line rogue train was caught with data &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;What we&amp;rsquo;d established was that there seemed to be a pattern over time and location: Incidents were happening one after another, in the opposite direction of the previous incident. Could it be something that was not in our dataset that caused the incidents? Imaginary lines connecting the incidents looked suspiciously similar to those in a Marey Chart. We then grouped all related pairs of incidents into larger sets using a disjoint-set data structure. Next, we calculated the percentage of the incidents that could be explained by our clustering algorithm. 189, 259, 0.7297297297297297)What it means: Of the 259 emergency braking incidents in our dataset, 189 cases - or 73% of them - could be explained by the &amp;ldquo;Rogue train&amp;rdquo; hypothesis. We coloured the incident chart based on the clustering results.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;do-while-0-in-macros-http-www-pixelstech-net-article-1390482950-do-7b-7d-while-280-29-in-macros&#34;&gt;&lt;a href=&#34;http://www.pixelstech.net/article/1390482950-do-%7B-%7D-while-%280%29-in-macros&#34;&gt; do {&amp;hellip;} while (0) in macros &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you are a C programmer, you must be familiar with macros. If you don&amp;rsquo;t define macros carefully, they may bite you and drive you crazy. There are many this kind of macros which uses do while(0) in Linux kernels and other popular C libraries. Do while(0) is the only construct in C that lets you define macros that always work the same way, so that a semicolon after your macro always has the same effect, regardless of how the macro is used. It isn&amp;rsquo;t possible to write multistatement macros that do the right thing in all situations. You can&amp;rsquo;t make macros behave like functions-without do/while(0). In conclusion, macros in Linux and other codebases wrap their logic in do/while(0) because it ensures the macro always behaves the same, regardless of how semicolons and curly-brackets are used in the invoking code.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;let-s-stop-bashing-c-http-h2co3-org-blog-index-php-2016-12-01-lets-stop-bashing-c&#34;&gt;&lt;a href=&#34;http://h2co3.org/blog/index.php/2016/12/01/lets-stop-bashing-c/&#34;&gt; Let’s Stop Bashing C &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The point the author makes about integer division is that it can confuse beginners. The reason for it is simple: when one is working with integers, one often has a problem related to integers in the first place. Performance is not even the point; floating-point numbers are much more complex than integers, and above all, they have different semantics. Bashing the increment and decrement operators became quite popular since Swift has taken the side of their omission. In particular, in C, it&amp;rsquo;s not equivalent with the postfix increment operator. With regards to semicolons: you can&amp;rsquo;t just interpret every newline as if it was a semicolon, because newlines become context-sensitive in this way. Treating newlines as statement endings is hard to remember correctly for humans, too, however appealing it might be at first glance.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;google-s-new-public-ntp-servers-provide-smeared-time-https-cloudplatform-googleblog-com-2016-11-making-every-leap-second-count-with-our-new-public-ntp-servers-html&#34;&gt;&lt;a href=&#34;https://cloudplatform.googleblog.com/2016/11/making-every-leap-second-count-with-our-new-public-NTP-servers.html&#34;&gt; Google&amp;rsquo;s new public NTP servers provide smeared time &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;rust-128-bit-integers-preparing-to-be-released-https-github-com-rust-lang-rust-pull-37900-issuecomment-264676043&#34;&gt;&lt;a href=&#34;https://github.com/rust-lang/rust/pull/37900#issuecomment-264676043&#34;&gt; Rust: 128 bit integers preparing to be released &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;writing-c-without-the-standard-library-linux-edition-http-weeb-ddns-net-0-programming-c-without-standard-library-linux-txt&#34;&gt;&lt;a href=&#34;http://weeb.ddns.net/0/programming/c_without_standard_library_linux.txt&#34;&gt; Writing C without the standard library - Linux Edition &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;How do we find out which syscall puts uses? We can either lookthrough the syscall list, or simply install strace to tracesyscalls and write a simple program that uses puts. If you don&amp;rsquo;t know how todo something with syscalls, do it with libc and then strace it tosee which syscalls it uses on the target architecture. Oh no! The &amp;ldquo;Write&amp;rdquo; function is part of the standard library!How do we invoke syscalls without having to link the standard lib? Takes the syscall number followed by either pointers or integersas parameters- sets rax to the syscall number- sets rdi, rsi, rdx, r10, r8 and r9 to the parameters. Syscall numbers are usually named SYS followed by the syscall nameYou can also add the -m32 flags to check values for 32-bit. Legacy syscalls on i386###################################################################There are a few things you should be extremely careful with whendealing with syscalls, especially when targeting multiplearchitectures. Here&amp;rsquo;s our fixed stat struct:&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-typedef uintptr dev t;typedef intptr syscall slong t;typedef uintptr syscall ulong t;typedef uintptr time t;. typedef struct.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-practice-of-code-review-https-zerohour-productions-net-q-node-242&#34;&gt;&lt;a href=&#34;https://zerohour-productions.net/?q=node/242&#34;&gt; The Practice of Code Review &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This process can go by different names: code review, peer review, programmer quality assurance, and probably a few others. Code review is a skill that takes a lot of time and practice to become proficient, and it takes even longer to master it. At first you&amp;rsquo;re more likely going to be the one having your code reviewed. Working with production code is very different than stuff learned in a classroom. Code reviewers will quickly tell you if your code is hard/impossible to follow. How much thought do you put into naming conventions? Do you use nondescript variable names like a, b, c? That won&amp;rsquo;t fly with code review. If you don&amp;rsquo;t have someone to review your code, find someone.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;let-s-stop-copying-c-https-eev-ee-blog-2016-12-01-lets-stop-copying-c&#34;&gt;&lt;a href=&#34;https://eev.ee/blog/2016/12/01/lets-stop-copying-c/&#34;&gt; Let&amp;rsquo;s Stop Copying C &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;C is fairly old - 44 years, now! - and comes from a time when there were possibly more architectures than programming languages. Alas, the popularity of C has led to a number of programming languages&amp;rsquo; taking significant cues from its design, and parts of its design are slightly questionable. I&amp;rsquo;ve listed some languages that do or don&amp;rsquo;t take the same approach as C. Plenty of the listed languages have no relation to C, and some even predate it - this is meant as a cross-reference of the landscape, not a genealogy. In languages with C-like header files, most headers include other headers include more headers, so who knows how any particular declaration is actually ending up in your code? Oh, and there&amp;rsquo;s the whole include guards thing. I think it&amp;rsquo;s considerably worse in a statically typed language like C, because the whole point is that you can rely on the types. The language explicitly leaves type concerns in my hands. So if you&amp;rsquo;re designing a language, don&amp;rsquo;t just copy C. Don&amp;rsquo;t just copy C++ or Java.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;i-made-this-a-multiplayer-game-where-you-code-to-play-http-www-machinegame-com&#34;&gt;&lt;a href=&#34;http://www.machinegame.com&#34;&gt; I made this: a multiplayer game where you code to play &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;arduboy-the-game-system-the-size-of-a-credit-card-create-your-own-games-learn-to-program-or-download-from-a-library-of-open-source-games-for-free-https-www-arduboy-com&#34;&gt;&lt;a href=&#34;https://www.arduboy.com/&#34;&gt; Arduboy, the game system the size of a credit card. Create your own games, learn to program or download from a library of open source games for free! &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Arduboy is a miniature open-source game system that you can program yourself! If you don&amp;rsquo;t know how to program yet, it&amp;rsquo;s a great way to learn! If you already are an expert developer, join our community and show off your skills! Arduboy is a game system the size of your imagination! Recently funded on Kickstarter and on display at Maker Faires around the world, everyone loves Arduboy!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;visualizing-how-developers-rate-their-own-programming-skills-http-minimaxir-com-2016-07-stack-overflow&#34;&gt;&lt;a href=&#34;http://minimaxir.com/2016/07/stack-overflow/&#34;&gt; Visualizing How Developers Rate Their Own Programming Skills &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;On average, developers rate themselves 7.09 / 10. Employing traditional regression analysis to build a model for predicting programming ability would be tricky: does having more experience cause programming skill to improve, or does having strong innate technical skill cause developers to remain in the industry and grow? We can easily confirm that a positive correlation exists between programming activity and experience, with newbie developers rating their skills 5.02 / 10 on average, and extremely experienced developers rating their skills three whole ranks higher at 8.13 / 10. What&amp;rsquo;s also notable is the range of values selected: for developers with less than 1 years of experience, the distribution is almost completely flat between 1-7, showing that they are more honest with the self-assessment of their programming skills. Do freelance / contract developers believe they are better programmers than full-time developers? What about repository commit activity by developers? Are developers who commit more better? One could argue that a developer who commits code often is either vigilant with accounting for functional code changes, or polluting the codebase in an attempt to show productivity. Are developers who use Stack Overflow as a resource better developers who know how to properly use external references in times of crisis, or are they developers who use it as a crutch to compensate for weak coding skills?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;a-curated-awesome-list-of-lists-of-interview-questions-https-github-com-maximabramchuck-awesome-interview-questions&#34;&gt;&lt;a href=&#34;https://github.com/MaximAbramchuck/awesome-interview-questions&#34;&gt; A curated awesome list of lists of interview questions. &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;undocumented-instructions-in-production-why-some-nes-games-use-undocumented-1-byte-and-2-byte-nops-http-retrocomputing-stackexchange-com-q-1839-621&#34;&gt;&lt;a href=&#34;http://retrocomputing.stackexchange.com/q/1839/621&#34;&gt; Undocumented Instructions in Production - Why some NES games use undocumented 1-byte and 2-byte NOPs &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The instruction $89 on the 6502 is a two-byte NOP. Based on adjacent instructions in the opcode matrix, especially LDA #ii, it would have been STA #ii, a store to an immediate value, which makes no sense. On the 65C02, this instruction is changed to BIT #ii, which almost behaves as a two-byte NOP. One hypothesis is that a programmer working on both NES projects and projects for some 65C02-based system forgot that the original 6502 lacked BIT #ii, but because the instruction does so little anyway, the programmer didn&amp;rsquo;t notice any difference. A clockslide is a is a sequence of instructions that wastes a small constant amount of cycles plus one cycle per executed byte, no matter whether it&amp;rsquo;s entered on an odd or even address. With official instructions, one can construct a clockslide from CMP instructions: &amp;hellip; C9 C9 C9 C9 C5 EA:. Disassemble from the start and you get CMP #$C9 CMP #$C9 CMP $00EA. Disassemble one byte in and you get CMP #$C9 CMP #$C5 NOP. A calculated start address into a clockslide can be used with indirect jumps or LDA highbyte PHA LDA lowbyte PHA RTS) to precisely control timing, such as when playing PCM audio or sending video register changes to the PPU in a raster effect. CMP has a side effect of destroying most of the processor status flags, but unofficial instructions that skip one byte can be used to preserve them. As LOIS 16192 mentioned, the official NOP instruction can be inserted at random places in a particular subroutine that isn&amp;rsquo;t an inner loop. It adds even more entropy to use unofficial NOPs, two-byte NOPs, or two-byte NOPs that read the zero page.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;openai-universe-https-openai-com-blog-universe&#34;&gt;&lt;a href=&#34;https://openai.com/blog/universe/&#34;&gt; OpenAI Universe &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Universe exposes a wide range of environments through a common interface: the agent operates a remote desktop by observing pixels of a screen and producing keyboard and mouse commands. The environment exposes a VNC server and the universe library turns the agent into a VNC client. Universe includes browser-based environments which require AI agents to read, navigate, and use the web just like people - using pixels, keyboard, and mouse. Universe agents must deal with real-world griminess that traditional RL agents are shielded from: agents must run in real-time and account for fluctuating action and observation lag. Pong is one of the easiest Atari games, but it had the potential to be intractable as a Universe task, since the agent has to learn to perform very precise maneuvers at 4x realtime. While solving Universe will require an agent far outside the reach of current techniques, these videos show that many interesting Universe environments can be fruitfully approached with today&amp;rsquo;s algorithms. Each of these agents uses the same code and hyperparameters as the Flash game agents.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;introducing-amazon-lightsail-https-aws-amazon-com-blogs-aws-amazon-lightsail-the-power-of-aws-the-simplicity-of-a-vps&#34;&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/aws/amazon-lightsail-the-power-of-aws-the-simplicity-of-a-vps/&#34;&gt; Introducing Amazon Lightsail &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You get the simplicity of a VPS, backed by the power, reliability, and security of AWS. As your needs grow, you will have the ability to smoothly step outside of the initial boundaries and connect to additional AWS database, messaging, and content distribution services. A Quick TourLet&amp;rsquo;s take a quick tour of Amazon Lightsail! Each page of the Lightsail console includes a Quick Assist tab. Advanced Lightsail - APIs and VPC PeeringBefore I wrap up, let&amp;rsquo;s talk about a few of the more advanced features of Amazon Lightsail - APIs and VPC Peering. CreateInstances - Create one or more Lightsail instances. All of the Lightsail instances within an account run within a &amp;ldquo;Shadow&amp;rdquo; VPC that is not visible in the AWS Management Console. If the code that you are running on your Lightsail instances needs access to other AWS resources, you can set up VPC peering between the shadow VPC and another one in your account, and create the resources therein. You can now connect your Lightsail apps to other AWS resources that are running within a VPC. Pricing and AvailabilityWe are launching Amazon Lightsail today in the US East Region, and plan to expand it to other regions in the near future.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-cyber-swiss-army-knife-https-gchq-github-io-cyberchef&#34;&gt;&lt;a href=&#34;https://gchq.github.io/CyberChef/&#34;&gt; The cyber Swiss Army knife &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There are well over 100 operations in CyberChef allowing you to carry simple and complex tasks easily. CyberChef encourages both technical and non-technical people to explore data formats, encryption and compression. Digital data comes in all shapes, sizes and formats in the modern world - CyberChef helps to make sense of this data all on one easy-to-use platform. For those comfortable writing code, CyberChef is a quick and efficient way to prototype solutions to a problem which can then be scripted once proven to work. It is expected that CyberChef will be useful for cybersecurity and antivirus companies. It is hoped that by releasing CyberChef through GitHub, contributions can be added which can be rolled out into future versions of the tool. There are around 150 useful operations in CyberChef for anyone working on anything vaguely Internet-related, whether you just want to convert a timestamp to a different format, decompress gzipped data, create a SHA3 hash, or parse an X.509 certificate to find out who issued it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;sql-injections-vulnerabilities-in-stack-overflow-php-questions-https-laurent22-github-io-so-injections&#34;&gt;&lt;a href=&#34;https://laurent22.github.io/so-injections/&#34;&gt; SQL injections vulnerabilities in Stack Overflow PHP questions &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;parsing-c-is-literally-undecidable-http-blog-reverberate-org-2013-08-parsing-c-is-literally-undecidable-html&#34;&gt;&lt;a href=&#34;http://blog.reverberate.org/2013/08/parsing-c-is-literally-undecidable.html&#34;&gt; Parsing C++ is literally undecidable &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Many programmers are aware that C++ templates are Turing-complete, and this was proved in the 2003 paper C++ Templates are Turing Complete. The C++ FQA has a section showing that parsing C++ is undecidable, but many people have misinterpreted the full implications of this. Some people misinterpret this statement to simply mean that fully compiling a C++ program is undecidable, or that showing the program valid is undecidable. This line of thinking presumes that constructing a parse tree is decidable, but only further stages of the compiler such as template instantiation are undecidable. Simply producing a parse tree for a C++ program is undecidable, because producing a parse tree can require arbitrary template instantiation. Struct SomeType ; template &amp;lt;&amp;hellip;&amp;gt; struct TuringMachine ; template &lt;typename T&gt; struct S ; template&amp;lt;&amp;gt; struct S&lt;SomeType&gt; ; int x; int main(). The parse tree itself depends on arbitrary template instantiation, and is therefore the parsing step is undecidable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;dolphin-progress-report-november-2016-https-dolphin-emu-org-blog-2016-12-01-dolphin-progress-report-november-2016&#34;&gt;&lt;a href=&#34;https://dolphin-emu.org/blog/2016/12/01/dolphin-progress-report-november-2016/&#34;&gt; Dolphin Progress Report: November 2016 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;On the 22nd of November, Marcan of Hackmii.com released the Homebrew Channel as an open source application, removed the anti-emulation hooks, and fixed a few bugs in Dolphin so that it could run properly! Nearly a decade after its inception, the homebrew channel is finally emulated! Admittedly, it has very little use for Dolphin it is extremely cool to have. Some packed Wii homebrew elfs will only run in Dolphin from the homebrew channel currently. One more thing of importance: If you are running Linux and have a Sandy Bridge, Ivy Bridge, Haswell, or Broadwell CPU, you may be having some weird performance issues with Dolphin. In order to make the highest quality video dumps from within Dolphin, users will want to use the built-in framedump features. There are people who use Dolphin&amp;rsquo;s Android builds, and some very high end devices can handle Dolphin in some situations. While Dolphin will currently invalidate UIDs on new builds, this is not necessary and with the proper infrastructure they will only be invalidated on actual shader generation changes. While it&amp;rsquo;s been rather maligned by users and developers alike, it remains the most complete UI for Dolphin.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;what-s-new-in-git-2-11-https-medium-com-kannonboy-whats-new-in-git-2-11-64860aea6c4f&#34;&gt;&lt;a href=&#34;https://medium.com/@kannonboy/whats-new-in-git-2-11-64860aea6c4f&#34;&gt; What’s new in Git 2.11? &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Git diff -submodule=short displays the old commit and new commit from the submodule referenced by your project: git diff -submodule=log is a bit more useful, and displays the summary line from the commit message of any new or removed commits in the updated submodule: Git 2.11 introduces a third option: -submodule=diff. Git stash show 1$ git stash apply 1$ git stash pop 1And so forth. Git LFS reduces your repository size by using a clean filter to squirrel away large file content in the LFS cache, and adds a tiny &amp;ldquo;Pointer&amp;rdquo; file to the Git object store instead. Smudge filters are the opposite of clean filters - hence the name. The Git LFS smudge filter transforms pointer files by replacing them with the corresponding large file, either from your LFS cache or by reading through to your Git LFS store on Bitbucket. As of Git 2.11, smudge and clean filters can be defined as long running processes that are invoked once for the first filtered file, then fed subsequent files that need smudging or cleaning until the parent Git operation exits. Git cat-file -filtersAnother small improvement for users of Git LFS and other filter-based extensions is the new -filters option for the git cat-file command. Png happens to be tracked with Git LFS, and git cat-file skips the Git LFS smudge filter, so rather than getting our image back we just get the contents of the Git LFS pointer file.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;get-ready-for-advent-of-code-http-adventofcode-com&#34;&gt;&lt;a href=&#34;http://adventofcode.com/&#34;&gt; Get ready for Advent of Code!! :) &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;a-whole-mess-of-documentation-aggregated-in-an-easy-to-read-searchable-site-with-offline-mode-http-devdocs-io&#34;&gt;&lt;a href=&#34;http://devdocs.io/&#34;&gt; A whole mess of documentation aggregated in an easy to read, searchable site, with offline mode. &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;no-excuses-write-unit-tests-https-dev-to-jackmarchant-no-excuses-write-unit-tests&#34;&gt;&lt;a href=&#34;https://dev.to/jackmarchant/no-excuses-write-unit-tests&#34;&gt; No excuses, write unit tests &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Unit testing can sometimes be a tricky subject no matter what language you&amp;rsquo;re writing in. There&amp;rsquo;s fear unit testing will take time your team doesn&amp;rsquo;t have Your team can&amp;rsquo;t agree on an acceptable level of test coverage or get stuck bike-shedding* People are frustrated by breaking tests when changing code. Unit testing your code takes some extra time upfront, because of course, you need to write extra code - the tests. If tests did not break, and that code went out to production, now everywhere else the code was used is now broken, you&amp;rsquo;ve got 99 problems but lucky you, testing ain&amp;rsquo;t one. This rule can be applied to unit testing in a number of ways, but the most useful I&amp;rsquo;ve found is to first write the code to make the thing work, preferably small functions and then write a test for it. After you&amp;rsquo;ve been going writing tests for a while, you should start to notice more things you change will break existing tests. In my experience, I see no reason good enough not to at least have some unit testing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;zero-cost-abstractions-https-ruudvanasseldonk-com-2016-11-30-zero-cost-abstractions&#34;&gt;&lt;a href=&#34;https://ruudvanasseldonk.com/2016/11/30/zero-cost-abstractions&#34;&gt; Zero-cost abstractions &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Iterating over it with a for loop implicitly creates an iterator, however in the case of Range that iterator is the structure itself. Iter() constructs a slice iterator, and the call to zip implicitly constructs an iterator for the buffer slice as well. Zip and map both wrap their input iterators in a new iterator structure. Sum repeatedly calls next() on its input iterator, pattern matches on the result, and adds up the values until the iterator is exhausted. Iterators also introduce extra control flow: zip will terminate after one of its inner iterators is exhausted, so in principle it has to branch twice on every iteration. The input slices have a fixed size of 12 elements, and despite the use of iterators, the compiler was able to unroll everything here. In this post I&amp;rsquo;ve shown a small snippet of code that uses high-level constructs such as closures and iterator combinators, yet the code compiles down to the same instructions that a hand-written C program would compile to.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>2016 week 47 in programming</title>
