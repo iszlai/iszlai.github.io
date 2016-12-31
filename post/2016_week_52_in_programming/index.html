@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>2016 week 52 in programming &middot; iszlai - data,coffee and code</title>
+    <meta name="author" content="Lehel Iszlai">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.16" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="http://iszlai.github.io/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://iszlai.github.io/css/screen.css">
+    <link rel="stylesheet" href="http://iszlai.github.io/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://iszlai.github.io/">iszlai</a></h1>
+	
+	
+	<h1 class="blog-subtitle">data,coffee and code</h1>
+	
+</header>
+    
+<nav class="menu" role="nav">
+    <ul>
+        
+        	<li class="nav nav-current"><a href="/post/about-me/">About me</a></li>
+      	
+    </ul>
+</nav>
+
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">2016 week 52 in programming</h1>
+	        <div class="post-meta"><time datetime="31 December 2016">31 December 2016</time></div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<h2 id="creating-an-elf-virus-using-assembly-https-cranklin-wordpress-com-2016-12-26-how-to-create-a-virus-using-the-assembly-language"><a href="https://cranklin.wordpress.com/2016/12/26/how-to-create-a-virus-using-the-assembly-language/"> Creating an ELF Virus using Assembly </a></h2>
+
+<blockquote>
+<p>With even more luck, your virus would gain notoriety like the Whale Virus or the Michelangelo Virus. The way to achieve this is to: - change the entry point to the end of the text section - add the page size to the offset for the section header table - increase the file size and memory size of the text segment by the size of the virus code - for each program header that resides after the virus, increase the offset by the page size - find the last section header in the TEXT segment and increase the section size - for each section header that exists after the virus, increase the offset by the page size - insert the actual virus at the end of the text section - insert code that jumps to the original host entry point. The way we achieve this is: - add the virus size to the offset for the section header table, - in the text segment program header, decrease the virtual address by the size of the virus - in the text segment program header, increase the file size and memory size by the size of the virus - for each program header with an offset greater than the text segment, increase it by the size of the virus - change the entry point to the original text segment virtual address - the size of the virus - increase the program header offset by the size of the virus - insert the actual virus at the beginning of the text section. Increase the section header offset by the size of the virus - change the entry point to the end of the data segment - in the data segment program header, increase the page and memory size by the size of the virus - increase the bss offset by the size of the virus - set the executable permission bit on the DATA segment. A question you may ask yourself is, how does a virus grab its own code? How does a virus determine its own size? These are very good questions. Mov eax, 4 mov ecx, v start ; attach the virus portion mov edx, v stop - v start ; size of virus bytes int 80h. The size of the virus will calculate just fine, but the reference to the beginning of the virus code will fail after the first infection. Mov eax, 4 lea ecx, ; attach the virus portion mov edx, v stop - v start ; size of virus bytes int 80h. Notice that I didn&rsquo;t include the system exit call in the virus.</p>
+</blockquote>
+
+<h2 id="microsoft-word-for-windows-version-1-1a-source-code-http-www-computerhistory-org-atchm-microsoft-word-for-windows-1-1a-source-code"><a href="http://www.computerhistory.org/atchm/microsoft-word-for-windows-1-1a-source-code"> Microsoft Word for Windows Version 1.1a Source Code </a></h2>
+
+<blockquote>
+<p>Microsoft Word for DOS, which had been released in 1983, was an also-ran. With the permission of Microsoft Corporation, the Computer History Museum is pleased to make available, for non-commercial use, the source code of Word for Windows version 1.1a as it was on January 10, 1991. In the summer of 1982 Brodie began working with others at Microsoft on a word processor to be controlled by a mouse. Free demonstration copies of Microsoft Word for MS-DOS were bundled with the November 1983 issue of PC World magazine. The first version for Microsoft Windows was released in late 1989 at a single-user price of $495. It received a glowing review in Inforworld that didn&rsquo;t flinch at the price: &ldquo;If your system is powerful enough to support Microsoft Windows, at $495 it is an excellent value.&rdquo; Microsoft Word For Windows had started its remarkable climb to 90% market share. We are grateful to Roy Levin, Managing Director of Microsoft Research, Silicon Valley, for working hard to find the source code and getting permission for us to release it.</p>
+</blockquote>
+
+<h2 id="the-death-of-cyanogenmod-and-what-it-means-for-development-https-www-xda-developers-com-the-death-of-cyangenmod-and-whats-in-store-for-the-future"><a href="https://www.xda-developers.com/the-death-of-cyangenmod-and-whats-in-store-for-the-future/"> The Death of CyanogenMod and What it Means for Development </a></h2>
+
+<blockquote>
+<p>Cyanogen Inc. has finally delivered a bullet to the brain - of CyanogenMod. CyanogenMod will no longer receive nightly builds after December 31st. But wait, what if the team simply finds another host to build nightlies? The CyanogenMod team will not continue official development on the project. Cyanogen Inc. owns the rights to the brand, so the CyanogenMod team has decided that it is no longer worth continuing development for the open source distribution without monetary or infrastructural support. Even if the team were to find an alternative revenue stream, the trouble isn&rsquo;t worth it due to the potential legal issues that could be involved if Cyanogen Inc., and all brands that the company owns including CyanogenMod, were to be sold to another company. Plus, the team argues that the CyanogenMod brand has been tainted due to its association with Cyanogen, so new users may be wary of installing CyanogenMod. In this case, many devices may suffer a development drought as the development community largely relied on CyanogenMod to provide a stable branch that individuals could then fork. Whether or not the death of CyanogenMod spells the death of stable custom ROM development on certain devices will be up to developers and users alike.</p>
+</blockquote>
+
+<h2 id="coding-standards-horror-story-http-www-lhotka-net-weblog-codingstandardshorrorstory-aspx"><a href="http://www.lhotka.net/weblog/CodingStandardsHorrorStory.aspx"> Coding standards horror story </a></h2>
+
+<blockquote>
+<p>He and I would butt heads constantly over coding standards and coding style. Mark had defined a strict set of coding standards and a style guide, and he&rsquo;d dial back into work from home at night to review our code. Several months after starting to work with Mark, and absorbing this rigorous standards-based approach to coding, our company was purchased by another company. Another developer clearly learned to program on an Apple ][ and his VAX Basic code had line numbers. My point is that everyone in that dev shop had radically different coding styles and approaches. Yes, it is truly painful to adapt to the idea of living within strict coding and style guidelines. Ever since that experience I insist on consistency of coding standards and styles within each project where I work.</p>
+</blockquote>
+
+<h2 id="building-microservices-here-is-what-you-should-know-https-cloudncode-wordpress-com-2016-07-22-msa-getting-started"><a href="https://cloudncode.wordpress.com/2016/07/22/msa-getting-started/"> Building Microservices? Here is what you should know </a></h2>
+
+<blockquote>
+<p>Just to refresh our memories, micro service architecture is an evolution of the SOA architecture, whereas SOA was focused on integration of various applications, Micro services architecture aims to create small modular services which belong to a single application. One other major advantage with MSA and often overlooked is that now independent services can be written and re-written in different languages which is best suited for the service, or just because it has too much bloat which would otherwise spark off a multi-year re-write project and we all know where that leads us. When building an application through MSA, it is a common problem to get carried away and make the services simply too small, so small that the overhead and complexities of so many services begin to outweigh the benefits, such services are known as nano-services so yes, they are a bad thing. Every time a service is being called in another service plumbing code needs to be written to integrate with the service, including models, connectors etc, if you are one of those super organized teams which churn out clients after every time a service is built for every language that other teams uses, then rule this statement out. The circuit breaker pattern is rather simple, in the pattern the code keeps a counter of what is happening to any particular service and if a threshold number of errors have been continuously returned by the service, it &ldquo;Opens&rdquo; the circuit and fails fast all the subsequent requests to the same service for a predetermined amount of time thereby giving the errant service time to recover rather than bombarding it with more messages preventing it from healing itself again usually by standing up more servers and warming up. The best answer, database per service allows each service to be independent, gets deployed independently, gets the power to choose a different persistence technology per service. One thing which is possible is that each service has its own dedicated set of tables and development processes keep services to use other service&rsquo;s tables.</p>
+</blockquote>
+
+<h2 id="markdown-css-make-html-look-like-plain-text-http-mrcoles-com-demo-markdown-css"><a href="http://mrcoles.com/demo/markdown-css/"> Markdown.css - make HTML look like plain-text </a></h2>
+
+<blockquote>
+<p>Css it looks like plain-text, despite being HTML. Inspect it with firebug or click on <HTML/> to see the markup. Lists they look like this it&rsquo;s how you&rsquo;d format them in pure markdown, if you took the time to indent when it wrapped to a new line. Ordered lists here&rsquo;s one line from a numbered list here&rsquo;s another in markdown, the actual numbers don&rsquo;t matter-you can toggle this with the class markdown-ones Block quotes This is a blockquote that extendsto multiple lines. Code blocks )() Different headers h4 header h5 header h6 header. Since sharing this with people, I have learned about an older markdown CSS project that does the same sort of things in a very similar way.</p>
+</blockquote>
+
+<h2 id="8bitworkshop-an-ide-for-8-bit-retro-game-consoles-right-now-it-supports-the-atari-2600-http-8bitworkshop-com-platform-vcs-file-examples-2fhello"><a href="http://8bitworkshop.com/?platform=vcs&amp;file=examples%2Fhello"> 8bitworkshop - an IDE for 8-bit retro game consoles. Right now it supports the Atari 2600 </a></h2>
+
+<blockquote>
+<p>Right now it supports the Atari 2600/VCS. Enter 6502 source code on the left, and we&rsquo;ll assemble it and show you the result on the right. You can also select a sample program from the pulldown at the top-left of the page. Edits are saved to your browser&rsquo;s local storage.</p>
+</blockquote>
+
+<h2 id="for-god-s-sake-secure-your-mongo-redis-etc-https-medium-com-shahinism-for-gods-sake-secure-your-mongo-redis-etc-4f310cf1bed2-m01e3zylf"><a href="https://medium.com/@shahinism/for-gods-sake-secure-your-mongo-redis-etc-4f310cf1bed2#.m01e3zylf"> For God’s sake, secure your Mongo/Redis/etc! </a></h2>
+
+<blockquote>
+<p>Well apparently, I&rsquo;m too late to the party, it is out there since 2009.Before finding Shodan, I always assumed that gathering data about system security, needs some basic knowledge about what you are looking for and at least access to some scanners like Nmap, but now, it&rsquo;s just a click away! Use a simple redis-cli -h x.x.x.x to access any server on that list. In versions greater than 3, Mongo suggests that binding to global access 0.0.0.0 is unnecessary and warns you. For Redis, you will face a horrible story about older versions bound to global access, yet still, newer versions are not that much safe to just reveal its access to the world! Mongo provides an authentication system which is a good thing to have and will protect you from unwanted access. Not binding your database systems to global access and using an authentication system, will provide you a minimum required security. Ufw default deny #Deny all incoming requests$ ufw enableJust like that you can reject any unnecessary access to your server and buy yourself some confidence.</p>
+</blockquote>
+
+<h2 id="the-little-book-about-os-development-http-littleosbook-github-io"><a href="http://littleosbook.github.io"> The little book about OS development </a></h2>
+
+<blockquote>
+<p>In chapter 2 and 3 we set up our development environment and boot up our OS kernel in a virtual machine, eventually starting to write code in C. We continue in chapter 4 with writing to the screen and the serial port, and then we dive into segmentation in chapter 5 and interrupts and input in chapter 6. When developing an OS it is very convenient to be able to run your code in a virtual machine instead of on a physical computer, since starting your OS in a virtual machine is much faster than getting your OS onto a physical medium and then running it on a physical machine. The only difference between an interrupt handler and a trap handler is that the interrupt handler disables interrupts, which means you cannot get an interrupt while at the same time handling an interrupt. Since the CPU does not push the interrupt number on the stack it is a little tricky to write a generic interrupt handler. The OS can set up the programmable interval timer to raise an interrupt after a short period of time, for example 20 ms. In the interrupt handler for the PIT interrupt the OS will change the running process to a new one. Interrupting a process in kernel mode is a little bit different than interrupting a process in user mode, due to the way the CPU sets up the stack at interrupts.</p>
+</blockquote>
+
+<h2 id="threadtone-half-tone-circular-loom-image-with-threads-http-www-thevelop-nl-blog-2016-12-25-threadtone"><a href="http://www.thevelop.nl/blog/2016-12-25/ThreadTone/"> ThreadTone - half-tone circular loom image with threads </a></h2>
+
+<blockquote>
+<p>First a little image pre-processing is done to various input images for threading. To allow image processing on a pixel level we use openCV. Let&rsquo;s get started and do some initial processing of the image. Import cv2 import numpy as np # Invert grayscale image def invertImage(image): return # Apply circular mask to image def maskImage(image, radius): y, x = np. Ogrid mask = x<strong>2 + y</strong>2 &gt; radius**2 image[mask] = 0 return image # Load image image = cv2. Once the image is of the correct size it is converted to a gray-scale image and inverted. Int)-1). Using the functions above the algorithm iteratively adds lines to the image until either the maximum number of lines is reached or the stopping criteria is reached. Move over the image in question to see the original image.</p>
+</blockquote>
+
+<h2 id="the-art-of-defensive-programming-https-medium-com-web-engineering-vox-the-art-of-defensive-programming-6789a9743ed4"><a href="https://medium.com/web-engineering-vox/the-art-of-defensive-programming-6789a9743ed4"> The Art of Defensive Programming </a></h2>
+
+<blockquote>
+<p>A first sight to Defensive ProgrammingWhy do I think Defensive Programming is a good approach to issue these problems in certain kind of projects? There are many definitions for Defensive Programming, it also depends on the level of &ldquo;Security&rdquo; and level of resources you need for your software projects. Defensive programming practices are often used where high availability, safety or security is needed - Wikipedia. Let&rsquo;s explore some of my diluted key points in order to achieve a Defensive Programming approach. Don&rsquo;t trust developersDefensive programming can be related to something called Defensive Driving. In Defensive Driving we assume that everyone around us can potentially and possibly make mistakes. The same concept applies to Defensive Programming where us, as developers shouldn&rsquo;t trust others developers&rsquo; code.</p>
+</blockquote>
+
+<h2 id="an-amazing-set-of-resources-for-optimizing-c-and-assembly-for-different-processors-and-operating-systems-http-www-agner-org-optimize"><a href="http://www.agner.org/optimize/"> An amazing set of resources for optimizing C++ and assembly for different processors and operating systems. </a></h2>
+
+<blockquote>
+<p>Optimizing software in C++: An optimization guide for Windows, Linux and Mac platforms This is an optimization manual for advanced C++ programmers. Optimizing subroutines in assembly language: An optimization guide for x86 platforms This is an optimization manual for advanced assembly language programmers and compiler makers. The microarchitecture of Intel, AMD and VIA CPUs: An optimization guide for assembly programmers and compiler makers This manual contains details about the internal working of various microprocessors from Intel, AMD and VIA. Topics include: Out-of-order execution, register renaming, pipeline structure, execution unit organization and branch prediction algorithms for each type of microprocessor. Intended as a source of reference for programmers who want to make function libraries compatible with multiple compilers or operating systems and for makers of compilers and other development tools who want their tools to be compatible with existing tools. Supports many different compilers under Windows, Linux, BSD and Mac OS X operating systems, 32 and 64 bits. The ForwardCom instruction set has variable-length vector registers and a special addressing mode that allows the software to automatically adapt to different microprocessors with different maximum vector lengths and make efficient loops through arrays regardless of whether the array size is divisible by the vector length. Pdf, size: 461263, last modified: 2016-Dec-08.Download. Test programs that I have used for my research.</p>
+</blockquote>
+
+<h2 id="bearssl-constant-time-crypto-https-www-bearssl-org-constanttime-html"><a href="https://www.bearssl.org/constanttime.html"> BearSSL - Constant-Time Crypto </a></h2>
+
+<blockquote>
+<p>Constant-time implementations are pieces of code that do not leak secret information through timing analysis. Even if a strong RNG is available at some level, bringing it to the implementation of a nominally deterministic algorithm can be troublesome in terms of internal API. For these reasons, BearSSL aims for constant-time implementations for all algorithms, or at least all implementations used by default. Using a signed type would be a bit weird, but it would make some sort of sense if the developer is in fact converting an existing implementation in Java to C code, because Java does not have unsigned types, and guarantees modular arithmetics. A very good source on how to implement constant-time operations in C is the Cryptography Coding Standard, a collaborative effort for describing issues related to secure implementation of cryptographic algorithms, and, more generally, of code that processes secret data elements. The &ldquo;Big&rdquo; implementation is a classic, table-based implementation, which is not constant-time. The &ldquo;Size&rdquo; values correspond to the total code footprint for CBC and CTR implementations, respectively. Current BearSSL implementation of elliptic curve cryptography uses the same generic big integer code as RSA. It thus inherits its constant-time characteristics.</p>
+</blockquote>
+
+<h2 id="autovpn-a-script-to-create-an-openvpn-endpoint-on-aws-https-github-com-ttlequals0-autovpn"><a href="https://github.com/ttlequals0/autovpn"> autovpn - a Script to create an OpenVPN Endpoint on AWS </a></h2>
+
+<blockquote>
+<p>Script that allows the easy creation of OpenVPN endpoints in any AWS region. Once instance is configured an OpenVPN configuration file is downloaded and ready to use. Execute autovpn with -C -k and -r options to deploy to AWS./autovpn -C -r us-east-1 -k macbook OpenVPN config files are downloaded to current working directory. EXAMPLES: Create OpenVPN endpoint: autovpn -C -r us-east-1 -k macbook Generate keypair in a region. Autovpn -G -r us-east-1 Get running instances autovpn -S -r us-east-1 Terminate OpenVPN endpoint autovpn -T -r us-east-1 -z i-b933e00c Using custom options autovpn -C -r us-east-1 -k macbook -a ami-fce3c696 -u ec2 user -i m3. Create on demand OpenVPN Endpoints in AWS that can easily be destroyed after done only pay for what you use. Autovpn -C -r <region> -k <region> vpnkey Start OpenVPN If everything is working, you should have the file <region> aws vpn.</p>
+</blockquote>
+
+<h2 id="crystal-new-year-resolutions-for-2017-1-0-https-crystal-lang-org-2016-12-29-crystal-new-year-resolutions-for-2017-1-0-html"><a href="https://crystal-lang.org/2016/12/29/crystal-new-year-resolutions-for-2017-1-0.html"> Crystal new year resolutions for 2017: 1.0 </a></h2>
+
+<blockquote>
+<p>Our primary goal for Crystal is to see it thrive: we love to hear success stories of fellow devs, from many getting to know the language, to others using it at work to solve real-life problems. While Crystal is a beautiful language to play with, investing on using it at work to implement a system that should be maintained for the long run seems risky for many developers. And in line with our goal of seeing the language grow, we are setting a new year resolution to have Crystal reach the 1.0 milestone in 2017. Windows support: We are aware that there is a significant portion of the development community working on Windows who would like to get their hands on Crystal; also, Windows support would allow Crystal to be a good fit for developing cross-platform desktop apps. Part of the work before 1.0 will be to review them, and make sure they play along well with the rest of the language, as we don&rsquo;t want to have any breaking changes to the macro language after 1.0. We want to make sure it&rsquo;s clear what Crystal is and what it is not, especially with so many people coming directly from a dynamic languages background. We will focus not just in documentation but in tutorials as well, and assist in defining use cases for Crystal that could in turn shape the language itself.</p>
+</blockquote>
+
+<h2 id="adopt-python-3-https-medium-com-broken-window-python-3-support-for-third-party-libraries-dcd7a156e5bd-u3u5hb34l"><a href="https://medium.com/broken-window/python-3-support-for-third-party-libraries-dcd7a156e5bd#.u3u5hb34l"> Adopt Python 3 </a></h2>
+
+<blockquote>
+<p>In the midst of all the celebration, many of you were still asking if it is safe to drop Python 2 and move over to Python 3. Let&rsquo;s start with popular packages i.e packages that have the highest download counts on PyPI. Python 3 Wall of Superpowers and Python 3 Readiness are two websites that maintain a list of 200 and 360 most popular packages respectively. If you open these sites today, you will see that <sup>187</sup>&frasl;<sub>200</sub>, and <sup>341</sup>&frasl;<sub>360</sub> packages support Python 3. Total Python 3 coverage is at 72 %. That&rsquo;s not so bad given that Python 3 came out in 2008 and 2020 is the official EOL of Python 2.7. The small packages shouldn&rsquo;t hold anyone back from Python 3, because if you desperately need them at some point, you should be able to port them yourself without much overhead. A whopping 75 % of such Python2-only packages are small and easy-to-port. If you need them and there isn&rsquo;t a Python 3 compatible alternative, then you are stuck with Python 2. You can adopt Python 3 and enjoy all the goodies that come along with it!</p>
+</blockquote>
+
+<h2 id="writing-a-tiny-x86-bootloader-http-joebergeron-io-posts-post-two-html"><a href="http://joebergeron.io/posts/post_two.html"> Writing a Tiny x86 Bootloader </a></h2>
+
+<blockquote>
+<p>Movecursor: push bp mov bp, sp pusha mov dx, [bp+4] # get the argument from the stack. Bp| = 2, |arg| = 2 mov ah, 0x02 # set cursor position mov bh, 0x00 # page 0 - doesn&rsquo;t matter, we&rsquo;re not using double-buffering int 0x10 popa mov sp, bp pop bp ret. The only thing that might look unusual is the mov dx, [bp+4]. We use some more labels and a conditional jump, but at risk of being too verbose, understanding the code is left as an excercise to the reader ;). print: push bp mov bp, sp pusha mov si, [bp+4] # grab the pointer to the data mov bh, 0x00 # page number, 0 again mov bl, 0x00 # foreground color, irrelevant - in text mode mov ah, 0x0E # print character to TTY.char: mov al, [si] # get the current char from our pointer position add si, 1 # keep incrementing si until we see a null char or al, 0 je. Bits 16 mov ax, 0x07C0 mov ds, ax mov ax, 0x07E0 # 07E0h =/10h, beginning of stack segment. Bp| = 2, |arg| = 2 mov ah, 0x02 # set cursor position mov bh, 0x00 # page 0 - doesn&rsquo;t matter, we&rsquo;re not using double-buffering int 0x10 popa mov sp, bp pop bp ret print: push bp mov bp, sp pusha mov si, [bp+4] # grab the pointer to the data mov bh, 0x00 # page number, 0 again mov bl, 0x00 # foreground color, irrelevant - in text mode mov ah, 0x0E # print character to TTY.char: mov al, [si] # get the current char from our pointer position add si, 1 # keep incrementing si until we see a null char or al, 0 je. Return: popa mov sp, bp pop bp ret msg: db &ldquo;Oh boy do I sure love assembly!&rdquo;, 0 times 510-($-$$) db 0 dw 0xAA55.</p>
+</blockquote>
+
+<h2 id="we-re-bringing-gitlab-pages-to-the-community-edition-https-about-gitlab-com-2016-12-24-were-bringing-gitlab-pages-to-community-edition"><a href="https://about.gitlab.com/2016/12/24/were-bringing-gitlab-pages-to-community-edition/?"> We’re bringing GitLab Pages to the Community Edition </a></h2>
+
+<blockquote>
+<p>The wider community asked us open source GitLab pages. Inspired by the holiday-spirit we&rsquo;re happy to bring GitLab Pages to the Community Edition of GitLab. GitLab Pages allows you to host static websites straight from GitLab, with any kind of static site generator. My personal website is hosted through GitLab Pages on GitLab.com using my favorite static site generator Middleman. Until today, GitLab Pages was exclusive to the Enterprise Edition of GitLab. More than a hundred people voted and discussed bringing GitLab Pages to our open-source MIT-licensed Community Edition. In this case, I&rsquo;m happy to announce that we will be bringing GitLab Pages to the Community Edition.</p>
+</blockquote>
+
+<h2 id="why-physicists-still-use-fortran-http-www-moreisdifferent-com-2015-07-16-why-physicsts-still-use-fortran"><a href="http://www.moreisdifferent.com/2015/07/16/why-physicsts-still-use-fortran/"> Why physicists still use Fortran </a></h2>
+
+<blockquote>
+<p>The heavy use of Fortran by physicists often confounds computer scientists and other outsiders who tend to view Fortran as a historical anachronism. Fortran has legacy codeGiven the long history of Fortran, it is no surprise that a large amount of legacy code in physics is written in Fortran. In a survey of Fortran users at the 2014 Supercomputing Convention, 100% of respondents said they thought they would still be using Fortran in five years. Anticipating the increased mixing of Fortran and C code, the Fortran 2015 specification will have greater features for code interoperability. The computer scientists who bash physicists for using Fortran fail to realize that Fortran remains uniquely suited for doing what it was named for - FOrmula TRANslation, or converting physics formulas into code. On the other hand, even the most modern Fortran standard retains backwards compatibility to Fortran 77 and most of Fortran 66. Further reading:&ldquo;The Ideal HPC Programming Language&rdquo; - A software engineer does a detailed analysis and concludes Fortran comes closest to the ideal language for HPC.Is Fortran faster than C? - The first answer to this StackOverflow question explains why Fortran&rsquo;s assumption of no aliasing of memory makes it faster than C.Implicit None - a blog written by a Fortran enthusiast.</p>
+</blockquote>
+
+<h2 id="writing-software-is-hard-https-m-signalvnoise-com-writing-software-is-hard-388d5e982ad9"><a href="https://m.signalvnoise.com/writing-software-is-hard-388d5e982ad9"> Writing software is hard </a></h2>
+
+<blockquote>
+<p>Good software is uncommon because writing it is hard. This is classic cognitive dissonance: Accepting that writing software is hard, but expecting that all of it should be good. When we expect good software to be the most likely outcome from the hardship of writing it, we&rsquo;re setting ourselves up for inevitable disappointment. Anyway, that&rsquo;s a big preamble to arrive at a basic yet uncomfortable truth: Software frequently fails to be good because its creators simply aren&rsquo;t competent enough software writers. To stop expecting that everyone who sets out to write software is going to end up with beautiful code and maintainable structures as the most likely outcome. The true purpose of finding the right tools is how it helps the software writer progress in their journey towards mastery. You&rsquo;re more likely to do that if accept the odds: You will write poor software for a long time.</p>
+</blockquote>
+
+<h2 id="cryptography-coding-standard-https-cryptocoding-net-index-php-cryptography-coding-standard"><a href="https://cryptocoding.net/index.php/Cryptography_Coding_Standard"> Cryptography Coding Standard </a></h2>
+
+<blockquote>
+<p>Welcome to the Cryptography Coding Standard homepage. The Cryptography Coding Standard is a set of coding rules to prevent the most common weaknesses in software cryptographic implementations. CCS was first presented and discussed at the Internet crypto workshop on Jan 23, 2013. Coding rules: the list of coding rules, with for each rule a statement of the problem addressed and one or more proposed solutions. These pages can also be accessed with the navigation bar on the left.</p>
+</blockquote>
+
+<h2 id="how-to-find-size-of-an-array-in-c-without-sizeof-http-arjunsreedharan-org-post-69303442896-the-difference-between-arr-and-arr-how-to-find"><a href="http://arjunsreedharan.org/post/69303442896/the-difference-between-arr-and-arr-how-to-find"> How to find size of an array in C without sizeof </a></h2>
+
+<blockquote>
+<p>Int n = sizeof(arr) / sizeof(arr );. Here we take the size of the array in bytes; then divide it by the size of an individual array element. Since an int takes up 4 bytes, points to the second element of the array. Taking the size of int into consideration, is 5 int-sizes away from the beginning of the array. Points to the memory address after the end of the array. &amp;arr points to the entire array where as arr points to the first element of the array. Gives us the address after the end of the array and arr that of the first element of the array. A: C doesn&rsquo;t allow access to memory beyond the end of the array.</p>
+</blockquote>
+
+<h2 id="8bitworkshop-online-6502-ide-that-targets-the-atari-2600-http-8bitworkshop-com"><a href="http://8bitworkshop.com/"> 8bitworkshop: Online 6502 IDE that targets the Atari 2600 </a></h2>
+
+<blockquote>
+<p>Right now it supports the Atari 2600/VCS. Enter 6502 source code on the left, and we&rsquo;ll assemble it and show you the result on the right. You can also select a sample program from the pulldown at the top-left of the page. Edits are saved to your browser&rsquo;s local storage.</p>
+</blockquote>
+
+<h2 id="computer-science-from-the-bottom-up-https-www-bottomupcs-com"><a href="https://www.bottomupcs.com/"> Computer Science from the Bottom Up </a></h2>
+
+<blockquote>
+<p>None</p>
+</blockquote>
+
+<h2 id="moving-to-gitlab-github-censors-daplie-s-letsencrypt-module-https-daplie-com-articles-why-github-took-down-daplie"><a href="https://daplie.com/articles/why-github-took-down-daplie/"> Moving to GitLab: GitHub Censors Daplie&rsquo;s LetsEncrypt Module </a></h2>
+
+<blockquote>
+<p>So I shoot off an email to support immediately and reach out to my network to see if I still know anyone working at github. If Github legally or morally doesn&rsquo;t agree with the content that we&rsquo;re publishing, it would be nice if you would have invited me to leave before taking down all of the documentation and web access to our various projects. Our end goal was never to give away total control of our assets and pay rent to someone else for access - which is what we&rsquo;re all doing when we use GitHub. If you pay in dollars you can keep code private, otherwise you pay in bringing GitHub greater brand recognition and source that they&rsquo;re free to use for their needs. If Github is going to tell me what a README should be used for, then are they also going to start telling me what a LICENSE should be used for too? or that I can&rsquo;t use semicolons in my JavaScript? Our message reached our market in the &ldquo;Right way&rdquo; GitHub documented their policy GitHub communicated with us as a process, not just shut us down. There&rsquo;s a good chance that when the higher-ups see the situation they&rsquo;ll reinstate our account but&hellip; the &ldquo;Barrier of Convenience&rdquo; that kept us tied to GitHub in the first place has been removed and we&rsquo;re already gone.</p>
+</blockquote>
+
+	        </section>
+
+	        <section class="post-tags" style="padding-bottom:60px;">
+	            <div class="post-meta tags">
+	            <i class="fa fa-fw fa-tag"></i>
+	            
+	            </div>
+	        </section>
+			
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coffemon';
+    var disqus_identifier = 'http:\/\/iszlai.github.io\/post\/2016_week_52_in_programming\/';
+    var disqus_title = '2016 week 52 in programming';
+    var disqus_url = 'http:\/\/iszlai.github.io\/post\/2016_week_52_in_programming\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+			
+			
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+	            <p class="info prompt">Share</p>
+	            <a href="http://twitter.com/share?text=2016%20week%2052%20in%20programming&url=http%3a%2f%2fiszlai.github.io%2fpost%2f2016_week_52_in_programming%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fiszlai.github.io%2fpost%2f2016_week_52_in_programming%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fiszlai.github.io%2fpost%2f2016_week_52_in_programming%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+	        </section>
+
+	        <footer class="post-footer">
+	            <section class="author">
+    <div class="authorimage" style="background: url(http://iszlai.github.io/img/avatar.jpg)"></div>
+    <h4>Lehel Iszlai</h4>
+    <p class="bio">software developer, coffee addict,tech enthusiast and personal rants</p>
+    <p class="meta">
+      
+    </p>
+</section>
+	        </footer>
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+			
+		    <a href="//twitter.com/iszlailehel" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+		    
+		    
+		    <a href="//github.com/iszlai" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+		    
+		    <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+		</section>
+
+		<section class="copyright">&copy; 2016 <a href="http://iszlai.github.io/">Lehel Iszlai</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://iszlai.github.io/js/index.js"></script>
+<script src="http://iszlai.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-54428146-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>
