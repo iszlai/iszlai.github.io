@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>2017 week 2 in programming &middot; iszlai - data,coffee and code</title>
+    <meta name="author" content="Lehel Iszlai">
+    <meta name="description" content="Your description of the blog">
+    <meta name="generator" content="Hugo 0.16" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="http://iszlai.github.io/img/favicon.ico">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="http://iszlai.github.io/css/screen.css">
+    <link rel="stylesheet" href="http://iszlai.github.io/css/github.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/default.min.css">
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #33cc99;}
+    .pagination a {color: #33cc99;}
+    .gist .gist-file .gist-meta a:visited {color: #33cc99 !important;}
+    a:focus, a:hover {color: #178b6b;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #178b6b;}
+    .older-posts:hover, .newer-posts:hover {color: #178b6b;}
+</style>
+</head>
+
+<body class="post-template">
+
+    <header id="site-head">
+	
+	<h1 class="blog-title"><a href="http://iszlai.github.io/">iszlai</a></h1>
+	
+	
+	<h1 class="blog-subtitle">data,coffee and code</h1>
+	
+</header>
+    
+<nav class="menu" role="nav">
+    <ul>
+        
+        	<li class="nav nav-current"><a href="/post/about-me/">About me</a></li>
+      	
+    </ul>
+</nav>
+
+
+    <main class="content" role="main">
+	    <article class="post">
+	        <header>
+	        <h1 class="post-title">2017 week 2 in programming</h1>
+	        <div class="post-meta"><time datetime="08 January 2017">08 January 2017</time></div>
+	        </header>
+
+	        <section class="post-content">
+	            
+
+<h2 id="a-simple-demo-of-phishing-by-abusing-the-browser-autofill-feature-https-github-com-anttiviljami-browser-autofill-phishing"><a href="https://github.com/anttiviljami/browser-autofill-phishing"> A simple demo of phishing by abusing the browser autofill feature </a></h2>
+
+<blockquote>
+<p>None</p>
+</blockquote>
+
+<h2 id="the-programmer-s-guide-to-booking-a-plane-https-hackernoon-com-the-programmers-guide-to-booking-a-plane-11e37d610045"><a href="https://hackernoon.com/the-programmers-guide-to-booking-a-plane-11e37d610045"> The Programmer’s Guide to Booking a Plane </a></h2>
+
+<blockquote>
+<p>Crawling the Southwest websiteA quick look at Southwest&rsquo;s site revealed no API.I figured that straight up scraping their website would be an effective approach. It&rsquo;s printing out fare prices, but I&rsquo;m not really sure what to do with all of this data. So what did I do? I hooked up Twilio to send me a text message whenever a fare hit a certain threshold. Since I didn&rsquo;t think it through, I also chose to send the text message at a low interval so that it would keep pinging me until I stopped the script, even if I was out on a date with my lovely wife. Plotting the DataAfter a few days, I got kind of annoyed with looking at a stream of text and thought of complex ways to make it more appealing to look at for the few seconds that I looked at it every day. Booking the FlightDays later, on a normal Tuesday night, it happened: the prices dropped dramatically, something that did not happen every Tuesday, but rather quite randomly. You can check out the project on GitHub if you&rsquo;d also like to go on a nice vacation.</p>
+</blockquote>
+
+<h2 id="i-wrote-a-faster-sorting-algorithm-https-probablydance-com-2016-12-27-i-wrote-a-faster-sorting-algorithm"><a href="https://probablydance.com/2016/12/27/i-wrote-a-faster-sorting-algorithm/"> I Wrote a Faster Sorting Algorithm </a></h2>
+
+<blockquote>
+<p>These days it&rsquo;s a pretty bold claim if you say that you invented a sorting algorithm that&rsquo;s 30% faster than state of the art. I have implemented this sorting algorithm using Timo Bingmann&rsquo;s Sound of Sorting. So my final sort algorithm actually looks at the number of elements in the collection, and if it&rsquo;s less than 128 I call std::sort, if it&rsquo;s less than 1024 I call American Flag Sort, and if it&rsquo;s more than that I run my new sorting algorithm. So if you&rsquo;re sorting log messages and you have a lot of messages that start with &ldquo;Warning:&rdquo; or &ldquo;Error:&rdquo; then my implementation of radix sort would first sort those into separate partitions, and then within each of those partitions it would skip over the common prefix and continue sorting at the first differing character. Is an in-place radix sort algorithm Sorts one byte at a time Falls back to std::sort if a collection contains less than some threshold of items Uses the inner loop of American Flag Sort if a collection contains less than a larger threshold of items Uses Ska Byte Sort if the collection is larger than that Calls itself recursively on each of the 256 partitions using the next byte as the sort key Falls back to std::sort if it recurses too many times Uses std::partition to sort booleans Automatically converts signed integers, floats and char types to the correct unsigned integer type Automatically deals with pairs, tuples, strings, vectors and arrays by sorting one element at a time Skips over common prefixes of collections. The sorting algorithm still succeeded at splitting the data into many smaller partitions, so when I fall back to std::sort, it has a much easier time than it would have had sorting the whole range. Since the interface of this sorting algorithm works differently from existing sorting algorithms, I have to invent new customization points.</p>
+</blockquote>
+
+<h2 id="add-asshole-driven-development-http-scottberkun-com-2007-asshole-driven-development"><a href="http://scottberkun.com/2007/asshole-driven-development/"> Add : asshole driven development </a></h2>
+
+<blockquote>
+<p>From Agile, to Extreme Programming , to Test Driven Development, the acronyms and frameworks keep piling up. Others say it&rsquo;s because software people like making things up and can&rsquo;t help themselves. Asshole-Driven development - Any team where the biggest jerk makes all the big decisions is asshole driven development. Cognitive Dissonance development - In any organization where there are two or more divergent beliefs on how software should be made. Development By Denial - Everybody pretends there is a method for what&rsquo;s being done, and that things are going ok, when in reality, things are a mess and the process is on the floor. The worse things get, the more people depend on their denial of what&rsquo;s really happening, or their isolation in their own small part of the project, to survive. Get Me Promoted Methodology - People write code and design things to increase their visibility, satisfy their boss&rsquo;s whims, and accelerate their path to a raise or the corner office no matter how far outside of stated goals their efforts go.</p>
+</blockquote>
+
+<h2 id="grumpy-go-running-python-by-google-https-opensource-googleblog-com-2017-01-grumpy-go-running-python-html"><a href="https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html"> Grumpy: Go running Python! by Google </a></h2>
+
+<blockquote>
+<p>None</p>
+</blockquote>
+
+<h2 id="network-cheatsheet-https-github-com-espadrine-solve-data-in-code-blob-master-misc-network-md"><a href="https://github.com/espadrine/Solve-Data-In-Code/blob/master/misc/network.md"> Network cheatsheet </a></h2>
+
+<blockquote>
+<p>Source port in 2 bytes, destination port in 2 bytes, sequence number in 4 bytes: in a SYN, this is the client Initial Sequence Number, picked usually randomly, otherwise it is + 1 + number of bytes previously sent, ensuring that packets can be reordered to obtain the original segment. Data offset in 4 bits, the size of the TCP header in 32-bit words, 000, flags in 9 bits: NS, CWR, ECE, URG, ACK, PSH, RST, SYN, FIN, window size in 2 bytes, allowing flow and congestion control, checksum in 2 bytes to check header and data corruption, urgent pointer in 2 bytes pointing to a sequence number, options eg. IPv4 addresses fit in 4 bytes, commonly written in dot-separated decimal, eg. IPv6 addresses fit in 16 bytes, with pairs of bytes represented as colon-separated hexadecimal numbers, with adjacent zeros replaced by :: once in the address. Preamble: 7 bytes to ensure we know this is a frame, not a lower-level header, and to synchronize clocks, Start of Frame Delimiter: 1 byte to break the pattern of the preamble and mark the start of the frame metadata, destination Media Access Control address of the target machine: each machine knows the MAC address of all machines it is directly connected to. Among its 6 bytes, it contains two special bits: the Universal vs. Local bit is 0 if the MAC is separated in 3 bytes identifying the network card&rsquo;s constructor, and 3 bytes arbitrarily but uniquely assigned by the constructor for each card. EtherType indicates what protocol is used in the payload; if the value is &lt; 1536, it represents the payload size in bytes, payload: up to 1500 bytes of data from the layer above, typically IP, Frame Check Sequence, a common wireless protocol.</p>
+</blockquote>
+
+<h2 id="cracking-sublime-text-3-http-blog-fernandodominguez-me-cracking-sublime-text-3"><a href="http://blog.fernandodominguez.me/cracking-sublime-text-3"> Cracking Sublime Text 3 </a></h2>
+
+<blockquote>
+<p>Our goal will be to stop the annoying Sublime Text pop-up from reminding you to buy a license each now and then. If g valid license is 0x0, i.e: FALSE and the pop-up has not been shown for a while, show it. As cmp byte , 0x0 compares g valid license to 0x0 and jne 0x100072b0 jumps to the specified address if the comparison &lsquo;returned&rsquo; not equal, i.e: the license is valid, efectively skipping the part of the procedure that shows the pop-up. Aand that&rsquo;s pretty much it, the license pop-up will not bother you again. Rax = check license(var 30, g license name, g license seats, var 4C); *(int8 t *) g valid license = COND BYTE SET(E);. 0x1: License is valid, as the message Thanks for purchasing will show. 0x2: License is invalid, as the message That license key doesn&rsquo;t appear to be valid.</p>
+</blockquote>
+
+<h2 id="ai-algorithm-of-snake-game-share-opinions-if-you-have-interests-https-github-com-stevennl-snake"><a href="https://github.com/stevennL/Snake"> AI algorithm of snake game. Share opinions if you have interests! </a></h2>
+
+<blockquote>
+<p>Keyboard Controls Key Feature W move up A move left S move down D move right Space pause/resume the snake Esc exit game. Tips: When the snake is running, you could press the Space key to pause the snake and then press the W/A/S/D key to move the snake step by step. Anytime if you want the snake to start running again, just press Space key again. DecideNext(): compute the next move direction D of the snake S1. Compute the shortest path P1 from snake S1&rsquo;s head to the food. Direct a virtual snake, S2, to eat the food along path P1. Compute the longest path P2 from snake S2&rsquo;s head to its tail. Compute the longest path P3 from snake S1&rsquo;s head to its tail. Let D be the direction that moves the snake along the longest path to the food.</p>
+</blockquote>
+
+<h2 id="sublime-text-vs-visual-studio-code-vs-atom-performance-test-dec-2016-https-blog-xinhong-me-post-sublime-text-vs-vscode-vs-atom-performance-dec-2016"><a href="https://blog.xinhong.me/post/sublime-text-vs-vscode-vs-atom-performance-dec-2016/"> Sublime Text vs Visual Studio Code vs Atom Performance Test (Dec 2016) </a></h2>
+
+<blockquote>
+<p>The reason I sticked with Sublime Text was performance: Atom was slow, even after when Atom 1.0 was announced. These days, I Googled &ldquo;Sublime Text vs Atom 2016&rdquo;, trying to see if Atom has significant improvement when I found Visual Studio Code. Visual Studio is also built using Web Technology like Atom, but reviewers said it is faster. Visual Studio Code did not allow me to open &ldquo;10m lines&rdquo; file saying &ldquo;Very large&rdquo;. Visual Studio Code could not keep syntax highlighting when openning the &ldquo;1m lines&rdquo; file. Atom and Visual Studio Code perform significantly worse compared to Sublime Text and TextEdit: launching and Opening windows are seconds slower which it is noticeable and they occupied much more RAM. Visual Studio Code has advantages over Atom in opening files and RAM usage. Sublime Text is still the speedy king, Visual Studio Code second and Atom is the last.</p>
+</blockquote>
+
+<h2 id="deep-learning-enables-you-to-hide-screen-when-your-boss-is-approaching-http-ahogrammer-com-2016-11-15-deep-learning-enables-you-to-hide-screen-when-your-boss-is-approaching"><a href="http://ahogrammer.com/2016/11/15/deep-learning-enables-you-to-hide-screen-when-your-boss-is-approaching/"> Deep Learning Enables You to Hide Screen when Your Boss is Approaching </a></h2>
+
+<blockquote>
+<p>Specifically, Keras is used to implement neural network for learning his face, a web camera is used to recognize that he is approaching, and switching the screen. First, let the computer learn the face of the boss with deep learning. Taking face image Recognizing face image Switching screen. Next, we use machine learning so that the computer can recognize the face of the boss. First of all, I need to collect a large number of images for learning. Now, when learned model recognize the face of the boss, I need to change the screen. In this time, I combined the real-time image acquisition from Web camera with face recognition using Keras to recognize my boss and hide the screen.</p>
+</blockquote>
+
+<h2 id="cross-platform-graphics-in-net-core-https-medium-com-cameronaavik-cross-platform-graphics-in-net-core-901be29dabd7-hx5e67krd"><a href="https://medium.com/@cameronaavik/cross-platform-graphics-in-net-core-901be29dabd7#.hx5e67krd"> Cross-Platform Graphics in .NET Core </a></h2>
+
+<blockquote>
+<p>NET Core and Framework provide the ability to access structs, callbacks, and functions in unmanaged libraries using something called Platform Invoke. Another nice thing about GLFW is the permissive license that allowed me to redistribute the library freely. The first hurdle I knew I had to figure out was to somehow reference different GLFW libraries depending on the platform it was running on as I had a glfw. The name of the library had to be specified at compile time, and could not be decided at runtime. Outputs for each platformAfter searching through many documents, I came across this section of an article about how to include native dependencies in libraries and thought this was just what I wanted. Referencing the right OpenGL librarySo, it turns out that the OpenGL library is not called libopengl32. NET Core, I&rsquo;d probably take a look at the stuff he is working on.</p>
+</blockquote>
+
+<h2 id="i-m-learning-to-code-at-56-here-s-an-epic-beat-down-of-my-critical-inner-self-https-medium-freecodecamp-com-yes-im-56-and-learning-to-code-f33abea6fd4c-taav0dfn4"><a href="https://medium.freecodecamp.com/yes-im-56-and-learning-to-code-f33abea6fd4c#.taav0dfn4"> I’m learning to code at 56. Here’s an epic beat-down of my critical inner self. </a></h2>
+
+<blockquote>
+<p>What 20-year-old stays with their first developer job that long? Chances are an entry level developer job will pay me less than I&rsquo;m making now. There&rsquo;s no guarantee that the job I have now will last. Most programming jobs aren&rsquo;t even in the technology industry. Me: First things first, I&rsquo;m going to apply to a lot of jobs, build a network of hiring managers, and make sure I get a lot of interviews. At my current job, I show up every day knowing that somebody at work has something to teach me. That&rsquo;s how I&rsquo;ve fit in at every job I&rsquo;ve had over the last 36 years.</p>
+</blockquote>
+
+<h2 id="google-s-new-website-to-learn-computer-science-and-programming-https-www-google-com-edu-cs-learn-html"><a href="https://www.google.com/edu/cs/learn.html"> Google’s New Website To Learn Computer Science and Programming </a></h2>
+
+<blockquote>
+<p>Computers are everywhere in our world today and being an educated citizen requires an understanding of the fundamentals of computer science and its underlying problem-solving methodology of computational thinking. Not every child should become a computer scientist, but all children should have the opportunity to explore and create with computing. Google has developed programs, tools and resources that advance computer science education and provide opportunities for exploration and learning in school, in informal settings and at home.</p>
+</blockquote>
+
+<h2 id="alacritty-a-gpu-accelerated-terminal-emulator-written-in-rust-http-blog-jwilm-io-announcing-alacritty"><a href="http://blog.jwilm.io/announcing-alacritty/"> Alacritty, a GPU-accelerated terminal emulator written in Rust </a></h2>
+
+<blockquote>
+<p>Alacritty is a blazing fast, GPU accelerated terminal emulator. Alacritty is the result of frustration with existing terminal emulators. Correctness: Alacritty should be able to properly render modern terminal applications like tmux and vim. Performance: Alacritty should be the fastest terminal emulator available anywhere. Alacritty&rsquo;s biggest claim is that it&rsquo;s the fastest terminal emulator available. Nominally, Alacritty will draw a new frame whenever the terminal state changes, and only when the state changes. Alacritty is a very fast and usable terminal emulator.</p>
+</blockquote>
+
+<h2 id="super-nintendo-entertainment-system-features-pt-01-graphics-palettes-https-www-youtube-com-watch-v-57ibhdu2sai-t-0s"><a href="https://www.youtube.com/watch?v=57ibhDU2SAI&amp;t=0s"> Super Nintendo Entertainment System Features - Pt. 01: Graphics &amp; Palettes </a></h2>
+
+<blockquote>
+<p>None</p>
+</blockquote>
+
+<h2 id="how-we-ported-linux-to-the-ps4-https-fail0verflow-com-blog-2016-console-hacking-2016-postscript"><a href="https://fail0verflow.com/blog/2016/console-hacking-2016-postscript/"> How we ported Linux to the PS4 </a></h2>
+
+<blockquote>
+<p>Last year we demoed Linux on the PS4. Since then, we&rsquo;ve gotten 3D graphics working, polished a number of drivers, and wrote some new ones. Linux on the PS4 is now actually quite a usable OS, with some minor caveats. Continuing last year&rsquo;s theme of focusing on the Linux port and loader instead of on exploits, this year&rsquo;s talk focused on the hardware and what it takes to bring up Linux on a very much non-PC-compatible x86 platform. What&rsquo;s next? Well, last year we said we&rsquo;d like to upstream some of the work into the Linux kernel, and we still plan to do so. Linux currently boots on it, but the GPU driver needs fixups. As we said last year, we are not planning to release our exploits, as we believe that there are plenty of people capable of developing their own exploits for the PS4 userland and kernel; we are leaving that to the community. We had several people do so throughout the year and that helped fix some Linux bugs and improve ps4-kexec.</p>
+</blockquote>
+
+<h2 id="til-visual-studio-has-pascal-case-based-intellisense-https-blogs-msdn-microsoft-com-zainnab-2010-02-09-using-the-new-intellisense-pascal-case"><a href="https://blogs.msdn.microsoft.com/zainnab/2010/02/09/using-the-new-intellisense-pascal-case/"> TIL - Visual Studio has pascal case based intellisense </a></h2>
+
+<blockquote>
+<p>None</p>
+</blockquote>
+
+<h2 id="visualise-your-css-before-you-write-it-with-cssreference-io-http-cssreference-io"><a href="http://cssreference.io/"> Visualise your CSS before you write it with cssreference.io </a></h2>
+
+<blockquote>
+<p>Border-bottom-color border-bottom-left-radius border-bottom-right-radius border-bottom-style border-bottom-width In collection: box-model. Border-bottom border-collapse border-color border-left-color border-left-style border-left-width In collection: box-model. Border-left border-radius border-right-color border-right-style border-right-width In collection: box-model. Border-right border-style border-top-color border-top-left-radius border-top-right-radius border-top-style border-top-width In collection: box-model. List-style-image list-style-position list-style-type list-style margin-bottom In collection: box-model. Outline-color outline-style outline-width outline overflow-wrap overflow-x overflow-y overflow padding-bottom In collection: box-model. Transform-origin transform transition-delay In collection: transitions.</p>
+</blockquote>
+
+<h2 id="openstreetmap-plugin-for-unreal-engine-4-https-github-com-ue4plugins-streetmap"><a href="https://github.com/ue4plugins/StreetMap"> OpenStreetMap plugin for Unreal Engine 4 </a></h2>
+
+<blockquote>
+<p>This plugin allows you to import OpenStreetMap XML data into your Unreal Engine 4 project as a new StreetMap asset type. You can now drag and drop OpenStreetMap XML files into Content Browser to import map data! Of course, there are many other places you can find raw OpenStreetMap XML data on the web also, but keep in mind the plugin has only been tested with files exported directly from OpenStreetMap so far. When you import an OSM file, the plugin will create a new Street Map asset to represent the map data in UE4. All mesh data is generated at load time from the cartographic data in the map asset, including colorized road strips and simple building meshes with triangulated roof polygons. While importing OpenStreetMap XML files, we store all of the data that&rsquo;s interesting to us in an FOSMFile data structure in memory. Finally, a big thanks to the OpenStreetMap Foundation and the fantastic community who contribute map data and maintain the database.</p>
+</blockquote>
+
+<h2 id="an-absolute-beginner-s-guide-to-machine-learning-and-image-classification-with-neural-networks-https-github-com-humphd-have-fun-with-machine-learning"><a href="https://github.com/humphd/have-fun-with-machine-learning"> An absolute beginner&rsquo;s guide to Machine Learning and Image Classification with Neural Networks </a></h2>
+
+<blockquote>
+<p>This is a hands-on guide to machine learning for programmers with no background in AI. Using a neural network doesn&rsquo;t require a PhD, and you don&rsquo;t need to be the person who makes the next breakthrough in AI in order to use what exists today. Setup and use existing, open source machine learning technologies, specifically Caffe and DIGITS Create a dataset of images Train a neural network from scratch Test our neural network on images it has never seen before Improve our neural network&rsquo;s accuracy by fine tuning existing neural networks Deploy and use our neural network. This guide won&rsquo;t teach you how neural networks are designed, cover much theory, or use a single mathematical expression. Installing DIGITS. nVidia&rsquo;s Deep Learning GPU Training System, or DIGITS, is BSD-licensed Python web app for training neural networks. Fine tuning takes advantage of the layout of deep neural networks, and uses pretrained networks to do the hard work of initial object detection. We&rsquo;ll throw away the final classification layer(s) and retrain the network with our image dataset, fine tuning it to our image classes. Deciding whether or not it&rsquo;s worth investing time in learning the theories of machine learning and neural networks is easier when you&rsquo;ve been able to see it work in a small way.</p>
+</blockquote>
+
+<h2 id="a-tourist-s-guide-to-the-llvm-source-code-http-blog-regehr-org-archives-1453"><a href="http://blog.regehr.org/archives/1453"> A Tourist’s Guide to the LLVM Source Code </a></h2>
+
+<blockquote>
+<p>The core LLVM representation lives in RAM and is manipulated using a large C++ API. This representation can be dumped to readable text and parsed back into memory, but this is only a convenience for debugging: during a normal compilation using LLVM, textual IR is never generated. The second subdirectory, llvm, is a biggie: it contains 878 header files that define all of the LLVM APIs. Projects doesn&rsquo;t contain anything by default but it&rsquo;s where you checkout LLVM components such as compiler-rt, OpenMP support, and the LLVM C++ library that live in separate repos. AsmParser: parse textual IR into memory Bitcode: serialize IR into the compact format and read it back into RAM CodeGen: the LLVM target-independent code generator, basically a framework that LLVM backends fit into and also a bunch of library functions that backends can use. DebugInfo is a library for maintaining mappings between LLVM instructions and source code locations. ExecutionEngine: Although LLVM is usually translated into assembly code or machine code, it can be directly executed using an interpreter. Fuzzer: this is libFuzzer, a coverage-guided fuzzer similar to AFL. It doesn&rsquo;t fuzz LLVM components, but rather uses LLVM functionality in order to perform fuzzing of programs that are compiled using LLVM. IR: sort of a grab-bag of IR-related code, with no other obvious unifying theme.</p>
+</blockquote>
+
+<h2 id="getting-past-c-http-blog-ntpsec-org-2017-01-03-getting-past-c-html"><a href="http://blog.ntpsec.org/2017/01/03/getting-past-c.html"> Getting Past C </a></h2>
+
+<blockquote>
+<p>One of the medium-term possibilities we&rsquo;re seriously considering for NTPsec is moving the entire codebase out of C into a language with no buffer overruns, and in general much stronger security and correctness guarantees. These are not going to translate into any language with the correctness properties we want. Another necessary step will be to corral the few remaining platform dependencies into well-isolated library modules, so the vast bulk of the code will in principle translate mechanically into whatever binding of the ANSI/POSIX API the new language supports. There&rsquo;s lots of web evangelism around both languages, so I&rsquo;m not going to attempt a detailed comparison here. If it&rsquo;s not, maybe I can up-gun it until it is - language parsing and translation is a kind of problem I&rsquo;m pretty good at and enjoy working. In the end it might come down to which language I feel more comfortable in. Despite my huge investment of time in the language, I&rsquo;m ready.</p>
+</blockquote>
+
+<h2 id="imperative-vs-declarative-programming-https-tylermcginnis-com-imperative-vs-declarative-programming"><a href="https://tylermcginnis.com/imperative-vs-declarative-programming/"> Imperative vs Declarative Programming </a></h2>
+
+<blockquote>
+<p>Sadly, you probably encountered a definition similar to this, &ldquo;You know, imperative programming is like how you do something, and declarative programming is more like what you do, or something.&rdquo; Let&rsquo;s go back to the initial definition I made fun of, &ldquo;Imperative programming is like&rdquo;How&rdquo; you do something and declarative programming is more like &ldquo;What&rdquo; you do. Before we dive into code, it&rsquo;s important to realize that many declarative approaches have some sort of imperative abstraction layer. The declarative response to the Red Lobster employee is assuming that the Red Lobster employee knows all the imperative steps to get us to the table. To make the leap more graceful, let&rsquo;s look at some programming &ldquo;Languages&rdquo; that are inherently declarative versus those which are imperative by nature. Declarative Programming is programming with declarations, i.e. declarative sentences. Declarative languages contrast with imperative languages which specify explicit manipulation of the computer&rsquo;s internal state; or procedural languages which specify an explicit sequence of steps to follow.</p>
+</blockquote>
+
+<h2 id="tensorkart-self-driving-mariokart-with-tensorflow-http-kevinhughes-ca-blog-tensor-kart"><a href="http://kevinhughes.ca/blog/tensor-kart"> TensorKart: self-driving MarioKart with TensorFlow </a></h2>
+
+<blockquote>
+<p>Project - use TensorFlow to train an agent that can play MarioKart 64. To train a TensorFlow model, you have to define a function for TensorFlow to optimize. Higher level machine learning frameworks might abstract this, but TensorFlow forces the developer to think about what is happening and helps dispel the magic around machine learning. TensorFlow has great documentation and there are plenty of tutorials and source code available. With my model trained, I was ready to let it loose on MarioKart 64. With this in mind I played more MarioKart to record new training data. TensorFlow is super cool despite being a lower level abstraction than tools I used several years ago.</p>
+</blockquote>
+
+<h2 id="how-i-write-tests-https-blog-nelhage-com-2016-12-how-i-test"><a href="https://blog.nelhage.com/2016/12/how-i-test/"> How I Write Tests </a></h2>
+
+<blockquote>
+<p>I do try to write a lot of tests, these days and I do try to write my code with tests in mind. If your interface is too complex, you can still provide a &ldquo;Programmable&rdquo; fake that lets tests configure or plug in its behavior in appropriate ways, instrucing it how to respond to inputs. The &ldquo;Sarama&rdquo; Go Kafka client implements such a programmable fake kafka broker, which is used repeatedly in the library&rsquo;s own tests, and can also be used by consumers wishing to construct more end-to-end tests. In order to make these tests self-contained, and able to express many varieties of tests, GCC developers have built a custom annotation/directive system to instruct the test harness how to interpret this test case, and what to check for. Building a runner for these test cases is a bit of upfront investment, but it&rsquo;s well worth it; By making it easier to write tests, you&rsquo;ll ensure that you and other contributors write more tests, and your future selves will thank you for the effort. Regression tests, Regression tests, Regression tests. There are probably nigh-infinitely many bugs you could write, but the set of desired behaviors of your system is relatively finite, and the set of bugs you&rsquo;re likely to write is similarly limited, and if you turn every bug into a test on one of those behaviors, you&rsquo;ll eventually converge on testing for most of the important failure modes of your system.</p>
+</blockquote>
+
+	        </section>
+
+	        <section class="post-tags" style="padding-bottom:60px;">
+	            <div class="post-meta tags">
+	            <i class="fa fa-fw fa-tag"></i>
+	            
+	            </div>
+	        </section>
+			
+			
+	        	<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'coffemon';
+    var disqus_identifier = 'http:\/\/iszlai.github.io\/post\/2017_week_02_in_programming\/';
+    var disqus_title = '2017 week 2 in programming';
+    var disqus_url = 'http:\/\/iszlai.github.io\/post\/2017_week_02_in_programming\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+			
+			
+
+	        <section class="share">
+	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+	            <p class="info prompt">Share</p>
+	            <a href="http://twitter.com/share?text=2017%20week%202%20in%20programming&url=http%3a%2f%2fiszlai.github.io%2fpost%2f2017_week_02_in_programming%2f" title="Share on Twitter"
+	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+	            </a>
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fiszlai.github.io%2fpost%2f2017_week_02_in_programming%2f" title="Share on Facebook"
+	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+	            </a>
+	            <a href="https://plus.google.com/share?url=http%3a%2f%2fiszlai.github.io%2fpost%2f2017_week_02_in_programming%2f" title="Share on Google+"
+	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+	            </a>
+	        </section>
+
+	        <footer class="post-footer">
+	            <section class="author">
+    <div class="authorimage" style="background: url(http://iszlai.github.io/img/avatar.jpg)"></div>
+    <h4>Lehel Iszlai</h4>
+    <p class="bio">software developer, coffee addict,tech enthusiast and personal rants</p>
+    <p class="meta">
+      
+    </p>
+</section>
+	        </footer>
+	    </article>
+	</main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+			
+		    <a href="//twitter.com/iszlailehel" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+		    
+		    
+		    <a href="//github.com/iszlai" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+		    
+		    <a href="" target="_blank" title="RSS"><i class="fa fa-2x fa-fw fa-rss"></i> <span class="hidden">RSS</span></a>
+		</section>
+
+		<section class="copyright">&copy; 2017 <a href="http://iszlai.github.io/">Lehel Iszlai</a>. Released under the MIT license.</section>
+	</div>
+</footer>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://iszlai.github.io/js/index.js"></script>
+<script src="http://iszlai.github.io/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<!-- Google Analytics -->
+<script>
+  var _gaq=[['_setAccount','UA-54428146-1'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+
+</body>
+</html>

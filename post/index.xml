@@ -6,8 +6,488 @@
     <description>Recent content in Posts on iszlai - data,coffee and code</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Dec 2016 10:59:35 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 22 Jan 2017 17:45:27 +0100</lastBuildDate>
     <atom:link href="http://iszlai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>2017 week 04 in programming</title>
+      <link>http://iszlai.github.io/post/2017_week_04_in_programming/</link>
+      <pubDate>Sun, 22 Jan 2017 17:45:27 +0100</pubDate>
+      
+      <guid>http://iszlai.github.io/post/2017_week_04_in_programming/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-line-of-death-https-textslashplain-com-2017-01-14-the-line-of-death&#34;&gt;&lt;a href=&#34;https://textslashplain.com/2017/01/14/the-line-of-death/&#34;&gt; The Line of Death &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In web browsers, the browser itself usually fully controls the top of the window, while pixels under the top are under control of the site. If a user trusts pixels above the line of death, the thinking goes, they&amp;rsquo;ll be safe, but if they can be convinced to trust the pixels below the line, they&amp;rsquo;re gonna die. The bigger problem is that some attacker data is allowed above the LoD; while trusting the content below the LoD will kill your security, there are also areas of death above the line. &amp;ldquo;It&amp;rsquo;s a picture of an IE7 browser running on Windows Vista in the transparent Aero Glass theme with a page containing a JPEG of an IE7 browser running on Windows XP in the Luna aka Fisher Price theme?&amp;rdquo; I pointed out. Personally, my favorite approach was Tyler Close&amp;rsquo;s idea that the browser should use PetNames for site identity- think of them as a Gravatar icon for salted certificate hashes- not only would they make every HTTPS site&amp;rsquo;s identity look unique to each user, but this could also be used as a means of detecting fraudulent or misissued certificates. One enterprising security tester in Windows made a visually-perfect spoofing site of Paypal, where even the user gestures that displayed the ephemeral browser UI were intercepted and fake indicators were shown. Historically, some operating systems have attempted to mitigate the problem by introducing a secure user gesture that always shows trusted UI, but such measures tend to confuse users and often get &amp;ldquo;Optimized away&amp;rdquo; when the UX team&amp;rsquo;s designers get ahold of the product.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;i-analyzed-2tb-of-code-to-build-an-index-of-the-most-common-words-in-programming-languages-https-anvaka-github-io-common-words-lang-js&#34;&gt;&lt;a href=&#34;https://anvaka.github.io/common-words/#?lang=js&#34;&gt; I analyzed ~2TB of code to build an index of the most common words in programming languages &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;naughty-strings-a-list-of-strings-likely-to-cause-issues-as-user-input-data-https-github-com-minimaxir-big-list-of-naughty-strings&#34;&gt;&lt;a href=&#34;https://github.com/minimaxir/big-list-of-naughty-strings&#34;&gt; Naughty Strings: A list of strings likely to cause issues as user-input data &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The Big List of Naughty Strings is an evolving list of strings which have a high probability of causing issues when used as user-input data. The Big List of Naughty Strings is intended to help reveal such issues. Txt consists of newline-delimited strings and comments which are preceded with #. The comments divide the strings into sections for easy manual reading and copy/pasting into input forms. Please do not send pull requests with very-long strings, as that makes the list much more difficult to view. The Big List of Naughty Strings is intended to be used for software you own and manage. Some of the Naughty Strings can indicate security vulnerabilities, and as a result using such strings with third-party software may be a crime. The Big List of Naughty Strings is not a fully-comprehensive substitute for formal security/penetration testing for your service.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;django-2-0-will-not-support-python-2-https-github-com-django-django-pull-7867-files&#34;&gt;&lt;a href=&#34;https://github.com/django/django/pull/7867/files&#34;&gt; Django 2.0 will not support Python 2 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;code-that-doesn-t-exist-is-the-code-you-don-t-need-to-debug-https-medium-com-fagnerbrack-code-that-dont-exist-is-the-code-you-don-t-need-to-debug-88985ed9604&#34;&gt;&lt;a href=&#34;https://medium.com/@fagnerbrack/code-that-dont-exist-is-the-code-you-don-t-need-to-debug-88985ed9604&#34;&gt; Code That Doesn&amp;rsquo;t Exist Is The Code You Don&amp;rsquo;t Need To Debug &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The less code we have the less complexity we need to handle and the fewer concerns we need to take care of. The important aspect is the response contains more data than what the code actually uses. There&amp;rsquo;s no unused response in the testThe dataset won&amp;rsquo;t be huge, so it&amp;rsquo;s easier to reason about itIf the code starts requiring more data from the response because of another test on the same function, the test will fail and we can start adding the rest of the response on an ad-hoc basisIf we always change code by changing the tests first, when the code starts requiring fewer data, we will always be removing it from the tests first in order to keep the minimum amount of code necessary to test itTDD forces us to write the minimum amount of code that satisfies a use case. In the last example, if we had used TDD it would have forced us to write the minimum amount of code in the dataset until we needed more data. The act of deleting code helps drive the system to a state where there&amp;rsquo;s only code that is necessary, a state where there&amp;rsquo;s less Software Entropy. Removing useless code should be rewardableBesides complexity, useless code can also represent part of a functionality that doesn&amp;rsquo;t provide any value. What we need is to reinforce the culture of removing code, for that the code that doesn&amp;rsquo;t exist is the code you don&amp;rsquo;t need to worry about.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-discord-stores-billions-of-messages-https-blog-discordapp-com-how-discord-stores-billions-of-messages-7fa6ec7ee4c7-fdhp3rxlo&#34;&gt;&lt;a href=&#34;https://blog.discordapp.com/how-discord-stores-billions-of-messages-7fa6ec7ee4c7#.fdhp3rxlo&#34;&gt; How Discord Stores Billions of Messages &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Voice chat heavy Discord servers send almost no messages. Private text chat heavy Discord servers send a decent number of messages, easily reaching between 100 thousand to 1 million messages a year. Large public Discord servers send a lot of messages. We looked at the largest channels on Discord and determined if we stored about 10 days of messages within a bucket that we could comfortably stay under 100MB. Buckets had to be derivable from the message id or a timestamp. We believe this will continue to work for a long time but as Discord continues to grow there is a distant future where we are storing billions of messages per day. We went from over 100 million total messages to more than 120 million messages a day, with performance and stability staying consistent. In a follow-up to this post we will explore how we make billions of messages searchable.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;caching-at-reddit-https-redditblog-com-2017-1-17-caching-at-reddit&#34;&gt;&lt;a href=&#34;https://redditblog.com/2017/1/17/caching-at-reddit/&#34;&gt; Caching at Reddit &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;At Reddit, we cache a wide variety of things, including database objects, query results, and memoization of function calls. The cache key is generated based on the contents of the context provided to the template-if that changes, a cache miss happens and the resulting template is re-cached. Our memoize cache provides an easy way for developers to cache the results of function calls. For the cached /r/all results we talked about earlier sets are replicated to all available caches, and reads happen from random caches with failover going to a different random cache. Cache requests for the trophy list for a user would first go to the new caches, a miss would occur, and the data would be retrieved from the old caches and added to the new ones. The subsequent update of the new trophies goes to the new cache, but the old cache is left un-updated. Though Reddit still has a relatively small engineering team, we do manage to make a lot of changes, and cache patterns can certainly change over the course of months.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;reading-uber-s-internal-emails-uber-bug-bounty-report-worth-10-000-http-blog-pentestnepal-tech-post-149985438982-reading-ubers-internal-emails-uber-bug-bounty&#34;&gt;&lt;a href=&#34;http://blog.pentestnepal.tech/post/149985438982/reading-ubers-internal-emails-uber-bug-bounty&#34;&gt; Reading Uber’s Internal Emails [Uber Bug Bounty report worth $10,000] &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This is a small proof of concept regarding &amp;ldquo;Reflective Cross-Site Scripting [ R-XSS ]&amp;rdquo; which I had found on Ebay. I am not an active participant in bug bounty programs, but one day I had finished all my office works so I was surfing on Facebook and received a message from my brother, Samir, asking for advice regarding some musical instruments. Once on eBay, I logged into the site to view details, and suddenly noticed &amp;ldquo;Help &amp;amp; Contact&amp;rdquo; menu, I followed that menu and went to &amp;ldquo;Customer Service&amp;rdquo; page where I saw a search field, I decided to check for &amp;ldquo;Cross-Site Scripting [ XSS ]&amp;rdquo; vulnerability and unexpectedly found POST type R-XSS. Testing For XSS. &amp;ldquo;As all security researchers do, I also have certain pathways to find vulnerabilities. I always use &amp;lsquo;&amp;gt;Test12345&amp;lt;&amp;rdquo; as it contains number, letter and syntax. This allows me to see how a website handles user inputs. Some questions like &amp;ldquo;Is the user input sanitized? how sensitive is user input?&amp;rdquo; can be answered from this idea.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-do-i-declare-a-function-pointer-in-c-http-fuckingfunctionpointers-com&#34;&gt;&lt;a href=&#34;http://fuckingfunctionpointers.com/&#34;&gt; How do I declare a function pointer in C? &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;pixie-a-small-fast-native-lisp-with-magical-powers-http-pixielang-org&#34;&gt;&lt;a href=&#34;http://pixielang.org/&#34;&gt; Pixie - A small, fast, native lisp with &amp;ldquo;magical&amp;rdquo; powers &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Pixie is a lightweight lisp suitable for both general use as well as shell scripting. It is written in RPython and as such supports a fairly fast GC and an amazingly fast tracing JIT. Pixie implements its own virtual machine. If you like Clojure, but are unhappy with the start-up time, or if you want something outside of the JVM ecosystem, then Pixie may be for you. Make build with jit will compile Pixie using the PyPy toolchain. The guts are written in RPython, just like the guts of most lisp interpreters are written in C. At runtime the only thing that is interpreted is the Pixie bytecode, that is until the JIT kicks in&amp;hellip;. What&amp;rsquo;s this bit about &amp;ldquo;Magical powers&amp;rdquo;First of all, the word &amp;ldquo;Magic&amp;rdquo; is in quotes as it&amp;rsquo;s partly a play on words, pixies are small, light and often considered to have magical powers. The performance penalty of such a polymorphic call is completely removed by the RPython generated JIT. Influencing the JIT from user code. The origins of Pixie &amp;ldquo;I&amp;rsquo;ve always had it in the back of my head that a lisp on RPython would be a good project.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;announcing-rust-language-server-alpha-release-http-www-jonathanturner-org-2017-01-rls-alpha-release-html&#34;&gt;&lt;a href=&#34;http://www.jonathanturner.org/2017/01/rls-alpha-release.html&#34;&gt; Announcing Rust Language Server Alpha Release &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The RLS has now reached a level of maturity where it should be able to run against most Cargo-based Rust projects. Rather than leaving each editor plugin to have to parse and understand the types in your program and provide you with capabilities like refactoring, the RLS centralizes all this logic and provides it to the editor via a standard language server protocol. The alpha release of the RLS has been run successfully on Linux, Mac, and Windows. Step 3: Set the RLS ROOT environment variable to point to where you checked out the RLS:. export RLS ROOT=/Source/rls. The current version of the RLS is built from a combination of two tools: racer and the Rust compiler. In the future, as we improve the rls integration with the main Rust tools, this will no longer be an issue. Contribute an editor plugin - there are already at least six plugins that follow the Language Server Protocol that the RLS uses, each in its own state of completion.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;trying-to-build-a-mac-os-8-application-on-macos-sierra-featuring-think-c-beos-codewarrior-powerplant-and-other-mac-programming-nostalgia-from-the-1990s-https-www-cocoawithlove-com-blog-porting-from-macos8-to-sierra-html&#34;&gt;&lt;a href=&#34;https://www.cocoawithlove.com/blog/porting-from-macos8-to-sierra.html&#34;&gt; Trying to build a Mac OS 8 application on macOS Sierra (featuring Think C, BeOS, CodeWarrior, PowerPlant and other Mac programming nostalgia from the 1990s). &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Motorola completely fumbled the Mac OS X transition and Mac programmers largely moved to Apple&amp;rsquo;s Project Builder. PowerPlant requires the Mac OS X 10.6 SDK or earlier to build - it won&amp;rsquo;t build against the 10.7 SDK and certainly won&amp;rsquo;t against the 10.12 SDK. The last versions of Xcode to include the 10.6 SDK were the Xcode 4.3 series for Mac OS X 10.7 Lion. Unlike PowerPlant - which had been updated for Mac OS X - I had not tried to run or compile the Mines application since Mac OS 8.5.1 back in 1999. I&amp;rsquo;ve never ported any apps from classic Mac OS to Mac OS X so I don&amp;rsquo;t know how smooth it will be. Of course, none of this has ever applied to Mac OS X. All the HLock, MoveHHi, MoreMasterPointers and other related Handle functions have always been no-ops on Mac OS X and Handles are now non-relocatable, relying on paging and better heap allocators to mediate fragmentation. Remember that you still need to obtain a copy of the Mac OS X 10.6 SDK and modify the Mac OS X platform Info.plist file or you&amp;rsquo;ll get errors about a missing SDK when you try to build. Updating my own Mines application code for PowerPlant and Mac OS changes required less than 20 minutes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;rethinkdb-why-we-failed-http-www-defstartup-org-2017-01-18-why-rethinkdb-failed-html&#34;&gt;&lt;a href=&#34;http://www.defstartup.org/2017/01/18/why-rethinkdb-failed.html&#34;&gt; RethinkDB: why we failed &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In the HN discussion thread people proposed many reasons for why RethinkDB failed, from inexplicable perversity of human nature and clever machinations of MongoDB&amp;rsquo;s marketing people, to failure to build an experienced go-to-market team, to lack of numeric type support beyond 64-bit float. New companies aren&amp;rsquo;t getting built on top of Oracle, so there is a window of opportunity to build a new infrastructure company. If we build a product that captures some of that market, we&amp;rsquo;ll end up building a very successful company. We set out to build a good database system, but users wanted a good way to do X. It&amp;rsquo;s not that we didn&amp;rsquo;t try to ship quickly, make RethinkDB fast, and build the ecosystem around it to make doing useful work easy. We had no intuition for products or markets, so we&amp;rsquo;d go through the motions of building a company without actually understanding what we were doing. Engineers love building developer tools, so they badly want developer tools companies to thrive. If you do set out to build a developer tools company, tread carefully.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-to-make-a-neural-network-intro-to-deep-learning-https-www-youtube-com-watch-v-p69khggr1jo&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=p69khggr1Jo&#34;&gt; How to Make a Neural Network - Intro to Deep Learning &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;How do we learn? In this video, I&amp;rsquo;ll discuss our brain&amp;rsquo;s biological neural network, then we&amp;rsquo;ll talk about how an artificial neural network works. We&amp;rsquo;ll create our own single layer feedforward network in Python, demo it, and analyze the implications of our results. This is the 2nd weekly video in my intro to deep learning series. Github.io/2015/07/27&amp;hellip;. The guy at the beginning is my Jeet Kune Do instructor. Special thanks Catherine Olsson of OpenAI for being the hook to my backpropagation rap.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;toolkits-for-the-mind-how-tech-companies-are-shaped-by-programming-languages-https-www-technologyreview-com-s-536356-toolkits-for-the-mind&#34;&gt;&lt;a href=&#34;https://www.technologyreview.com/s/536356/toolkits-for-the-mind/&#34;&gt; Toolkits for the Mind: How Tech Companies Are Shaped By Programming Languages &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Software developers as a species tend to be convinced that programming languages have a grip on the mind strong enough to change the way you approach problems-even to change which problems you think to solve. If you want to know why Facebook looks and works the way it does and what kinds of things it can do for and to us next, you need to know something about PHP, the programming language Mark Zuckerberg built it with. Among programmers, PHP is perhaps the least respected of all programming languages. The programming language PHP ­created and sustains Facebook&amp;rsquo;s move-fast, hacker-oriented corporate culture. Programs written with a type system tend to be far more reliable than those written without one-useful when a program might trade $30 billion on a big day. The language&amp;rsquo;s rigor is like catnip to some people giving Jane Street an unusual advantage in the tight hiring market for programmers. Programming-language designer Guido van Rossum, who spent seven years at Google and now works at Dropbox, says that once a software company gets to be a certain size, the only way to stave off chaos is to use a language that requires more from the programmer up front.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;i-made-a-crash-course-on-web-security-for-people-who-have-never-dealt-with-it-before-http-www-sohamkamani-com-blog-2017-01-16-web-security-essentials&#34;&gt;&lt;a href=&#34;http://www.sohamkamani.com/blog/2017/01/16/web-security-essentials/&#34;&gt; I made a crash course on web security, for people who have never dealt with it before &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Securing a web application is hard, but it&amp;rsquo;s also extremely important. There is so much to learn, and the learning curve is so steep, that newcomers to web development are often overwhelmed when they look at all that goes into making a simple login authenticated website. I made this crash course because I too faced a lot of trouble in learning and implementing most of the security features that come with standard web applications. This was because most of the resources on these topics are scattered and explained in a way not suitable for people just getting started. This course is aimed at newcomers who want to get up to speed with some of the most basic and important concepts like password management, session cookies, and some of the most common types of attacks. All posts are kept short, contain examples, and can be completed in a few days. These topics are compiled based on my experience in web development.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;ranges-the-stl-to-the-next-level-http-arne-mertz-de-2017-01-ranges-stl-next-level&#34;&gt;&lt;a href=&#34;http://arne-mertz.de/2017/01/ranges-stl-next-level/&#34;&gt; Ranges: the STL to the Next Level &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Ranges provide a different approach to the STL that solves these two issues in a very elegant manner. Ranges were already used in some way by code using the STL before the Range concept was defined, but clumsily. Most of the time, what you are really trying to represent is a range, which corresponds better to the level of abstraction of your code. Such algorithms reuse the STL versions in their implementation, by forwarding the begin and the end of the range to the native STL versions. A range adaptor is an object that can be combined with a range in order to produce a new range. An important thing to note is that the ranges resulting from associations with range adaptors, although they are merely view over the ranges they adapt and don&amp;rsquo;t actually store elements, answer to the range interface so they are themselves ranges. Ranges raise the level of abstraction of code using the STL, therefore clearing up code using the STL from superfluous iterators.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-lost-art-of-3d-rendering-without-shaders-http-machinethink-net-blog-3d-rendering-without-shaders&#34;&gt;&lt;a href=&#34;http://machinethink.net/blog/3d-rendering-without-shaders/&#34;&gt; The lost art of 3D rendering without shaders &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The model is made up of triangles because triangles are easy to draw. A vertex describes an position in 3D space, but also the color of the triangle at that vertex and a normal vector for lighting calculations. To implement the 3D model for the cube we just need to provide a list of these triangles. The cube not only has vertices and triangles that determine its shape, but it also has a position in the 3D world, a scale, and an orientation that is given by three rotation angles. Func render() // 3: Take the cube, place it in the 3D world, adjust the viewpoint for // the camera, and project everything to two-dimensional triangles. In math terms, we need to project our triangles from 3D to 2D somehow. The depth buffer makes sure that a triangle that is further away does not obscure a triangle that is closer to the camera.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-a-robot-got-super-mario-64-and-portal-running-on-an-snes-http-arstechnica-com-gaming-2017-01-how-a-robot-got-super-mario-64-and-portal-running-on-an-snes&#34;&gt;&lt;a href=&#34;http://arstechnica.com/gaming/2017/01/how-a-robot-got-super-mario-64-and-portal-running-on-an-snes/&#34;&gt; How a robot got Super Mario 64 and Portal “running” on an SNES &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Can you really, playably emulate games like Super Mario 64 and Portal on a stock standard SNES only by hacking in through the controller ports? The answer is still no, but for a brief moment at this week&amp;rsquo;s Awesome Games Done Quick speedrunning marathon, it certainly looked like the impossible finally became possible. TASBot moved on to a few &amp;ldquo;Total control runs,&amp;rdquo; exploiting known glitches in Super Mario Bros. The method was taken to ridiculous extremes last year, when TASbot managed to &amp;ldquo;Beat&amp;rdquo; Super Mario Bros. After a few minutes of setup, the Zelda screen faded out, then faded back in on a bordered window with an ersatz logo for the &amp;ldquo;Super N64.&amp;rdquo; Without any forthcoming explanation from the runners on stage, TASBot started apparently playing through a glitch-filled speedrun of Super Mario 64 on the Super NES, following it up with a similar glitch-filled speedrun through Valve&amp;rsquo;s PC classic Portal. Streaming audio to the NES. To unwind how the TASBot team &amp;ldquo;Played&amp;rdquo; relatively modern games through 25-year-old SNES hardware, we need to go back to China&amp;rsquo;s Geekpwn hacking conference a few months ago. After taking total control of the SNES through a known Link to the Past glitch, TASBot essentially turns the SNES into a dumb pipe for video data. While the AGDQ SM64 and Portal TASBot runs were really just pre-recorded video and audio streaming through the SNES, Cecil said it would be theoretically possible to let a speedrunner actually play those games live on the SNES. Using a fixed, &amp;ldquo;Good enough&amp;rdquo; palette of 256 colors and no pre-processing, TASBot would be able to pipe through 10 fps gameplay with about 100 ms of latency, he said.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;webpack-2-is-finally-here-https-github-com-webpack-webpack-releases&#34;&gt;&lt;a href=&#34;https://github.com/webpack/webpack/releases&#34;&gt; Webpack 2 is finally here &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-first-few-chapters-of-my-free-book-on-implementing-programming-languages-are-up-now-http-www-craftinginterpreters-com&#34;&gt;&lt;a href=&#34;http://www.craftinginterpreters.com/&#34;&gt; The first few chapters of my free book on implementing programming languages are up now &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This book contains everything you need to implement a full-featured, efficient scripting language. You&amp;rsquo;ll learn both high-level concepts around parsing and semantics and gritty details like bytecode representation and garbage collection. Starting from main(), you&amp;rsquo;ll build a language that features rich syntax, dynamic typing, garbage collection, lexical scope, first-class functions, closures, classes, and inheritance. I got bitten by the language bug eight years ago when I was on paternity leave with a lot of free time between middle of the night feedings. I&amp;rsquo;ve cobbled together a number of languages of various ilk before worming my way into an honest-to-God full-time programming language job. Before I fell in love with languages, I was a game developer for eight years at Electronic Arts. If you like the book, you&amp;rsquo;ll probably like it too.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;everything-you-need-to-know-about-http-security-headers-https-blog-appcanary-com-2017-http-security-headers-html&#34;&gt;&lt;a href=&#34;https://blog.appcanary.com/2017/http-security-headers.html&#34;&gt; Everything you need to know about HTTP security headers &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This article explains what secure headers are and how to implement these headers in Rails, Django, //blog. Js Use helmet Go Use unrolled/secure Nginx add header X-XSS-Protection &amp;ldquo;1; mode=block&amp;rdquo;; Apache Header always set X-XSS-Protection &amp;ldquo;1; mode=block&amp;rdquo; I want to know more. Content Security Policy can be thought of as much more advanced version of the X-XSS-Protection header above. If you&amp;rsquo;re an intrepid reader and went ahead and checked the headers appcanary.com returns2, you&amp;rsquo;ll see that we don&amp;rsquo;t have CSP implemented yet. The HSTS header solves the meta-problem: how do you know if the person you&amp;rsquo;re talking to actually supports encryption? Js Use helmet Go Use unrolled/secure Nginx add header X-Frame-Options &amp;ldquo;deny&amp;rdquo;; Apache Header always set X-Frame-Options &amp;ldquo;deny&amp;rdquo; I want to know more X-Content-Type-Options X-Content-Type-Options: nosniff; Why? The X-Content-Type-Options headers exist to tell the browser to shut up and set the damn content type to what I tell you, thank you.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;and-that-kids-is-why-we-call-it-a-patch-https-twitter-com-codealike-status-819990490774904833&#34;&gt;&lt;a href=&#34;https://twitter.com/Codealike/status/819990490774904833&#34;&gt; And that, kids, is why we call it a &amp;ldquo;Patch&amp;rdquo; &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-practice-of-programming-18-years-later-https-blog-kjamistan-com-the-practice-of-programming-18-years-later&#34;&gt;&lt;a href=&#34;https://blog.kjamistan.com/the-practice-of-programming-18-years-later/&#34;&gt; The Practice of Programming: 18 Years Later &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Over the new year holiday time I had a chance to get away from it all, and snuck up to Finland to sit in a lodge on the Gulf of Finland, sip coffee, take saunas and read. I brought along a few books, the only programming one being Brian W. Kernighan and Rob Pike&amp;rsquo;s &amp;ldquo;The Practice of Programming.&amp;rdquo; You want to provide the owner with as good a test case as you can manage. As a fan of testing, this chapter stood out; not just for it&amp;rsquo;s methodical evaluation of how, when and why to write tests, but also it&amp;rsquo;s use of data validation and test automation. It&amp;rsquo;s easy to delude yourself about how carefully you are testing, so try to ignore the code and think of the hard cases, not the easy ones. To quote Don Knuth describing how he creates tests for the TEX formatter, &amp;ldquo;I get into the meanest, nastiest frame of mind that I can manage, and I write the nastiest [testing] code I can think of; then I turn around and embed that in even nastier constructions that are almost obscene.&amp;rdquo; How many times have I written the obvious test instead of devoting a day or a few hours figuring out how to break my own code? 2. Code to roll your own RegEx parser in C. Telnetting from machine to machine to copy files and using checksum to test if the copy was properly performed.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-problem-with-amp-https-80x24-net-post-the-problem-with-amp&#34;&gt;&lt;a href=&#34;https://80x24.net/post/the-problem-with-amp/&#34;&gt; The Problem With AMP &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Google&amp;rsquo;s Accelerated Mobile Pages or AMP is a markup language similar to HTML that allows publishers to write mobile optimized content that loads &amp;ldquo;Instantly&amp;rdquo;. The goal of the AMP project is to make websites faster by essentially disabling external JavaScript and caching all pages on Google&amp;rsquo;s CDN. While the intentions of the project seem good, there are a number of issues with AMP that both promote lock-in and provide a poor user experience. These bugs are simply unacceptable for a standard that has been in use and promoted by Google for over a year, and there have been numerous complaints from users about AMP. The largest complaint by far is that the URLs for AMP links differ from the canonical URLs for the same content, making sharing difficult. Clicking on an AMP link feels like you never even leave the search page, and links to AMP content are displayed prominently in Google&amp;rsquo;s news carousel. Google has the ability to further change the AMP HTML specification to keep publishers in their ecosystem. Despite touting AMP HTML as an open standard, every one of the AMP Project&amp;rsquo;s core developers appears to be a Google employee. The AMP HTML Specification states that all AMP HTML pages must load a JavaScript file from &lt;a href=&#34;https://cdn&#34;&gt;https://cdn&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2017 week 3 in programming</title>
+      <link>http://iszlai.github.io/post/2017_week_03_in_programming/</link>
+      <pubDate>Sun, 15 Jan 2017 17:45:18 +0100</pubDate>
+      
+      <guid>http://iszlai.github.io/post/2017_week_03_in_programming/</guid>
+      <description>
+
+&lt;h2 id=&#34;trello-is-being-acquired-by-atlassian-http-blog-trello-com-trello-atlassian&#34;&gt;&lt;a href=&#34;http://blog.trello.com/trello-atlassian&#34;&gt; Trello Is Being Acquired By Atlassian &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We wanted Trello to be fluid and adaptable to a huge range of problems that all revolved around getting people on the same page. We&amp;rsquo;ve been humbled and excited to see the millions of use cases for Trello around the world, and we build the product each day proudly knowing we&amp;rsquo;re helping teams do great things. As part of Atlassian, Trello will be able to leverage investments in R&amp;amp;D that will enhance the product in meaningful ways. We are certain that Atlassian understands the unique and novel reasons why Trello is so successful and well-loved. In short: you can expect Trello to become even more awesome and more fun than it is today. Thank you to all the Trello users out there who have helped make Trello what it is today. Your passion, feedback, and love for Trello inspire all of us to continue to make Trello more useful and delightful.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;things-you-probably-didn-t-know-you-could-do-with-chrome-s-developer-console-https-medium-freecodecamp-com-10-tips-to-maximize-your-javascript-debugging-experience-b69a75859329-8mba7zmqr&#34;&gt;&lt;a href=&#34;https://medium.freecodecamp.com/10-tips-to-maximize-your-javascript-debugging-experience-b69a75859329#.8mba7zmqr&#34;&gt; Things you probably didn’t know you could do with Chrome’s Developer Console &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You can again go ahead and select a particular element among them by specifying the position of that element in the array. &amp;lsquo;.className&amp;rsquo;) will give you all the elements that have the class className, and $$(&amp;lsquo;.className&amp;rsquo;) and $$(&amp;lsquo;.className&amp;rsquo;) will give you the first and the second element respectively. Find Events Associated with an Element in the DOMWhile debugging, you must be interested in finding the event listeners bound to an element in the DOM. The developer console makes it easier to find these. Monitor EventsIf you want to monitor the events bound to a particular element in the DOM while they are executed, you can this in the console as well. MonitorEvents($(&amp;lsquo;selector&amp;rsquo; will monitor all the events associated with the element with your selector, then log them in the console as soon as they&amp;rsquo;re fired. Inspect($(&amp;lsquo;selector&amp;rsquo; will inspect the element that matches the selector and take you to the Elements tab in the Chrome Developer Tools. List the Properties of an ElementIf you want to list all the properties of an element, you can do that directly from the Console.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;debugging-mechanism-in-intel-cpus-allows-seizing-control-via-usb-port-https-www-scmagazine-com-debugging-mechanism-in-intel-cpus-allows-seizing-control-via-usb-port-article-630480&#34;&gt;&lt;a href=&#34;https://www.scmagazine.com/debugging-mechanism-in-intel-cpus-allows-seizing-control-via-usb-port/article/630480/?&#34;&gt; Debugging mechanism in Intel CPUs allows seizing control via USB port &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Researchers from Positive Technologies have revealed that some new Intel CPUs contain a debugging interface, accessible via USB 3.0 ports, that can be used to obtain full control over a system and perform attacks that are undetectable by current security tools. The JTAG debugging interface, now accessible via USB, has the potential to enable dangerous and virtually undetectable attacks. On older Intel CPUs, accessing JTAG required connecting a special device to a debugging port on the motherboard. Starting with the Skylake processor family in 2015, Intel introduced the Direct Connect Interface which provides access to the JTAG debugging interface via common USB 3.0 ports. Goryachy and Ermolov speculated that this mechanism in Intel CPUs could lead to a whole new class of Bad USB-like attacks, but at a deeper and even more dangerous level than their predecessor. SC asked Goryachy if he would compare this vulnerability to Stuxnet, to which he said: &amp;ldquo;This mechanism can be used on a hacked system regardless of the OS installed. Stuxnet was infecting only Windows machines, meanwhile the DCI can be used on any system with Intel U-series processor. This series is used on laptops and NUC. As of today, no publicly available security system will detect it.&amp;rdquo; Goryachy told SC, &amp;ldquo;We have reported this case to Intel. As of today, this mechanism can be exploited only on Intel U-series processors.&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;simple-and-terrifying-encryption-story-https-blog-elpassion-com-simple-and-terrifying-encryption-story-c1f1d6707c07-kmlwibas7&#34;&gt;&lt;a href=&#34;https://blog.elpassion.com/simple-and-terrifying-encryption-story-c1f1d6707c07#.kmlwibas7&#34;&gt; Simple and Terrifying Encryption Story &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ProblemI wanted to build an app where users can encrypt and decrypt messages. AES seemed to be a reasonable choice for such a symmetric encryption, so my first step was to find a proper AES library. SolutionI was programming in Ruby, so I did what every Rubyist would do - I googled &amp;ldquo;Ruby gem aes&amp;rdquo;. I wrote a test for decoding messages with wrong keys. To be more specific, I replaced the key first char with some other chars. As a result it is possible to decrypt messages with almost any key. The problem is that it&amp;rsquo;s the first Google search result for &amp;ldquo;Aes gem&amp;rdquo; or &amp;ldquo;Ruby aes gem&amp;rdquo; query and we don&amp;rsquo;t question top Google results very often.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;learn-opengl-extensive-tutorial-resource-for-learning-modern-opengl-https-learnopengl-com&#34;&gt;&lt;a href=&#34;https://learnopengl.com/&#34;&gt; Learn OpenGL, extensive tutorial resource for learning Modern OpenGL &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;does-anyone-else-have-trouble-finishing-their-side-programming-projects-http-www-jacksimpson-co-finishing-being-productive-busy&#34;&gt;&lt;a href=&#34;http://www.jacksimpson.co/finishing-being-productive-busy/&#34;&gt; Does anyone else have trouble finishing their side-programming projects? &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If you&amp;rsquo;re always starting interesting projects and not finishing, then no matter how hard you work, you&amp;rsquo;re just busy, not productive. In a lot of ways they are not a waste - I definitely learn a lot from these projects and gain a new skill. The same applies to the projects we work on: even if you dedicate many hours to a task and it&amp;rsquo;s 80% of the way there, if you never finish then no-one will care. Now I have written out a list of every one of my projects, and broken them down into steps I can attack piece-by-piece, and I focus on making sure that every day I cross-off at least one item, so I&amp;rsquo;m getting closer to moving a project from my &amp;lsquo;to-do&amp;rsquo; list, and into my &amp;lsquo;finished&amp;rsquo; list. What is the minimal state of completion this project needs to reach for me to consider it a success and having been worth my time? If I cannot realistically commit to the amount of time required to bring the project to that state, am I better off putting my energy into finishing projects that I am currently working on? Taking on a project that you do not have the time to finish is going to burn more bridges than telling people you don&amp;rsquo;t have the time to contribute. I have a list of projects that every day I am whittling down, and I intend to follow up this post at the end of the year with a list of my projects that are finally complete.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;stackoverflow-a-post-mortem-on-the-recent-developer-story-information-leak-http-meta-stackoverflow-com-questions-340960-a-post-mortem-on-the-recent-developer-story-information-leak&#34;&gt;&lt;a href=&#34;http://meta.stackoverflow.com/questions/340960/a-post-mortem-on-the-recent-developer-story-information-leak&#34;&gt; StackOverflow | A Post-Mortem on the Recent Developer Story Information Leak &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The information wasn&amp;rsquo;t actually printed to browsers, but was present in the page&amp;rsquo;s HTML source markup. Discovery of the information was possible only through very specific searches containing the user&amp;rsquo;s email address or phone number. Our second priority was to get in touch with major search engines in order to get the accidentally disclosed information out of their indexes. Personally-identifiable information is something that every developer needs to handle with care. It&amp;rsquo;s extremely important, if not critical, to know when you&amp;rsquo;re working with something that in any way transmits personally-identifiable information in any way. Identification of PII in the code base and database, so developers immediately know if the code they&amp;rsquo;re working with stores or transmits PII and precisely the kind of information that needs to be considered. We take our responsibility as custodians of your information and trust very seriously; now that we&amp;rsquo;ve taken every possible measure to mitigate any potential inconvenience to those affected, we feel that we owe it to you to be as transparent about what happened as possible.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;chris-lattner-joins-tesla-https-www-tesla-com-blog-welcome-chris-lattner&#34;&gt;&lt;a href=&#34;https://www.tesla.com/blog/welcome-chris-lattner&#34;&gt; Chris Lattner Joins Tesla &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;We would like to welcome Chris Lattner, who will join Tesla as our Vice President of Autopilot Software. Chris&amp;rsquo;s reputation for engineering excellence is well known. He comes to Tesla after 11 years at Apple where he was primarily responsible for creating Swift, the programming language for building apps on Apple platforms and one of the fastest growing languages for doing so on Linux. Prior to Apple, Chris was lead author of the LLVM Compiler Infrastructure, an open source umbrella project that is widely used in commercial products and academic research today. As Chris joins Tesla, we would like to give a special thanks to Jinnah Hosein, SpaceX&amp;rsquo;s Vice President of Software, who has been serving a dual role as the interim Vice President of Tesla Autopilot Software and will now be heading back to SpaceX full-time. We would like to thank Jinnah for the efforts needed to achieve excellence in both roles, David Nister, our Vice President of Autopilot Vision, and the team for their exceptional work in advancing Autopilot. We are very excited that Chris is joining Tesla to lead our Autopilot engineering team and accelerate the future of autonomous driving.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;disassembling-jak-daxter-which-has-one-of-the-best-game-engine-ever-created-http-www-codersnotes-com-notes-disassembling-jak&#34;&gt;&lt;a href=&#34;http://www.codersnotes.com/notes/disassembling-jak/&#34;&gt; Disassembling Jak &amp;amp; Daxter (which has one of the best Game Engine ever created) &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The only part of the game not written in GOAL is the loader/linker, which is written in C++. This is the equivalent of their DLL loader; it&amp;rsquo;s just a simple stub program to load the rest. So where does the loader get its data from? First we need to examine the file formats used here. It&amp;rsquo;s not really fair to call this &amp;ldquo;Hotloading&amp;rdquo;, it&amp;rsquo;s really just &amp;ldquo;Loading&amp;rdquo;, as updating the game with new code/data is no different than loading it in the first place. These are loaded in-place by the loader, which makes loading very efficient. What we&amp;rsquo;re doing is loading the address of a function and storing it at an offset into the global symbol table. So that&amp;rsquo;s pretty much all there is to loading compiled GO files. You can disassemble the ELF loader to figure out the exact file format, and what with having the ELF symbols for the loader available, it&amp;rsquo;s not that hard to replicate the function of the loader ourselves.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;deeply-typed-programming-languages-response-to-the-dark-path-by-uncle-bob-http-typeinference-com-languages-2017-01-12-deeply-typed-programming-languages-html&#34;&gt;&lt;a href=&#34;http://typeinference.com/languages/2017/01/12/deeply-typed-programming-languages.html&#34;&gt; Deeply typed programming languages (response to The Dark Path by Uncle Bob) &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Some months ago he wrote Type Wars, a post to defend static type systems are not really needed if you do TDD. Now he&amp;rsquo;s back. In his latest post, The Dark Path he brings new weapons for the dynamic languages enthusiasts to tell everyone else all these static type checks are useless. Uncle Bob is right saying there are multiple risks using many features of the programming languages. That&amp;rsquo;s the way we have to evaluate whether a programming language feature is appropriate or not. Obviously, if I&amp;rsquo;m just in the playground with a new language as Uncle Bob was with Swift and Kotlin, I&amp;rsquo;m quite far to experiment any benefit from the depth of the type system. In my experience, many programmers coming from dynamic languages see no benefit on static typing because of that: in the hundred lines they wrote following the language getting start guide, they saw no benefit from the type system. In summary, I&amp;rsquo;m really proud of walking on the dark path of deeply typed programming languages.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;chris-lattner-leaves-apple-https-lists-swift-org-pipermail-swift-evolution-week-of-mon-20170109-030063-html&#34;&gt;&lt;a href=&#34;https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20170109/030063.html&#34;&gt; Chris Lattner leaves Apple &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Update on the Swift Project Lead Chris Lattner clattner at apple.com Tue Jan 10 11:07:09 CST 2017 Since Apple launched Swift at WWDC 2014, the Swift team has worked closely with our developer community. When we made Swift open source and launched Swift.org we put a lot of effort into defining a strong community structure. This structure has enabled Apple and the amazingly vibrant Swift community to work together to evolve Swift into a powerful, mature language powering software used by hundreds of millions of people. I&amp;rsquo;m happy to announce that Ted Kremenek will be taking over for me as &amp;ldquo;Project Lead&amp;rdquo; for the Swift project, managing the administrative and leadership responsibility for Swift.org. I plan to remain an active member of the Swift Core Team, as well as a contributor to the swift-evolution mailing list. Working with many phenomenal teams at Apple to launch Swift has been a unique life experience. Swift is in great shape today, and Swift 4 will be a really strong release with Ted as the Project Lead. Note that this isn&amp;rsquo;t a change to the structure - just to who sits in which role - so we don&amp;rsquo;t expect it to impact day-to-day operations in the Swift Core Team in any significant way.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;fast-haskell-competing-with-c-at-parsing-xml-http-chrisdone-com-posts-fast-haskell-c-parsing-xml&#34;&gt;&lt;a href=&#34;http://chrisdone.com/posts/fast-haskell-c-parsing-xml&#34;&gt; Fast Haskell: Competing with C at parsing XML &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In this post we&amp;rsquo;re going to look at parsing XML in Haskell, how it compares with an efficient C parser, and steps you can take in Haskell to build a fast library from the ground up. In the very limited benchmarks I&amp;rsquo;ve done it is typically just over 2x faster at parsing than Pugixml, where Pugixml is the gold standard for fast XML DOM parsers. C is really fast right? Like 100s of times faster than Haskell! It&amp;rsquo;s worth the risk. Using the Criterion benchmarking package, we can compare Hexml against the pretty old Haskell xml package. Case Bytes GCs Check 4kb parse 26,096 0 OK 42kb parse 65,696 0 OK 52kb parse 102,128 0 OK Benchmark xeno-memory-bench: FINISH Benchmark xeno-speed-bench: RUNNING&amp;hellip; benchmarking 4KB/hexml time 6.225 μs benchmarking 4KB/xeno time 10.34 μs. The first thing that should jump out at you is the allocations. Case Bytes GCs Check 4kb parse 1,160 0 OK 42kb parse 1,160 0 OK 52kb parse 1,472 0 OK Benchmark xeno-memory-bench: FINISH Benchmark xeno-speed-bench: RUNNING&amp;hellip; benchmarking 4KB/hexml time 6.190 μs benchmarking 4KB/xeno time 4.215 μs. Down to 4.215 μs. That&amp;rsquo;s not as fast as our pre-name-parsing 2.691 μs. But we had to pay something for the extra operations per tag. Benchmarking 1MB/hexml-dom time 1.225 ms 1.000 R² mean 1.239 ms std dev 25.23 μs benchmarking 1MB/xeno-sax time 1.206 ms 1.000 R² mean 1.213 ms std dev 14.58 μs benchmarking 1MB/xeno-dom time 2.768 ms 1.000 R² mean 2.801 ms std dev 41.10 μs. Tada! We matched Hexml, in pure Haskell, using safe accessor functions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;a-beginner-s-guide-to-the-many-different-ways-to-join-tables-in-sql-https-blog-jooq-org-2017-01-12-a-probably-incomplete-comprehensive-guide-to-the-many-different-ways-to-join-tables-in-sql&#34;&gt;&lt;a href=&#34;https://blog.jooq.org/2017/01/12/a-probably-incomplete-comprehensive-guide-to-the-many-different-ways-to-join-tables-in-sql/&#34;&gt; A beginner&amp;rsquo;s Guide to the many different ways to JOIN tables in SQL &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;SELECT * FROM generate series( &amp;lsquo;2017-01-01&amp;rsquo;::TIMESTAMP, &amp;lsquo;2017-01-01&amp;rsquo;::TIMESTAMP + INTERVAL &amp;lsquo;1 month -1 day&amp;rsquo;, INTERVAL &amp;lsquo;1 day&amp;rsquo; ) AS days(day) - You can always JOIN. ON true - to turn an syntactic INNER JOIN into a semantic CROSS JOIN JOIN departments AS d ON true - &amp;hellip; and then turn the CROSS JOIN back into an INNER JOIN - by putting the JOIN predicate in the WHERE clause: WHERE day &amp;gt;= d.created at. EQUI JOIN. Sometimes, e.g. in literature, you will hear the term EQUI JOIN where &amp;ldquo;EQUI&amp;rdquo; isn&amp;rsquo;t really meant as a SQL keyword, but just as a specific way of writing a special kind of INNER JOIN. In fact, it is weird that &amp;ldquo;EQUI&amp;rdquo; JOIN is the special case, because it&amp;rsquo;s what we&amp;rsquo;re doing most in SQL, also in OLTP applications where we simply JOIN by primary key / foreign key relationship. Convenient syntax: SELECT * FROM a LEFT JOIN b ON &lt;predicate&gt; - Cumbersome, equivalent syntax: SELECT a.&lt;em&gt;, b.&lt;/em&gt; FROM a JOIN b ON &lt;predicate&gt; - LEFT JOIN part UNION ALL SELECT a.&lt;em&gt;, NULL, NULL, &amp;hellip;, NULL FROM a WHERE NOT EXISTS - RIGHT JOIN part UNION ALL SELECT NULL, NULL, &amp;hellip;, NULL, b.&lt;/em&gt; FROM b WHERE NOT EXISTS. Alternative syntaxes: &amp;ldquo;EQUI&amp;rdquo; OUTER JOIN. The above examples again used the &amp;ldquo;Cartesian product with filter&amp;rdquo; kind of JOIN. Much more common is the &amp;ldquo;EQUI&amp;rdquo; OUTER JOIN approach, where we join on a primary key / foreign key relationship. SELECT * FROM actor FULL JOIN film actor USING FULL JOIN film USING. And of course, this also works with NATURAL LEFT JOIN, NATURAL RIGHT JOIN, NATURAL FULL JOIN, but again, these aren&amp;rsquo;t useful at all, as we&amp;rsquo;d be joining again USING, which makes no sense at all. SEMI JOIN. In relational algebra, there is a notion of a semi join operation, which unfortunately doesn&amp;rsquo;t have a syntax representation in SQL. If it did, the syntax would probably be LEFT SEMI JOIN and RIGHT SEMI JOIN, just like the Cloudera Impala syntax extension offers. SELECT a.first name, a.last name, f.* FROM actor AS a LEFT OUTER JOIN LATERAL AS revenue FROM film AS f JOIN film actor AS fa USING JOIN inventory AS i USING JOIN rental AS r USING JOIN payment AS p USING WHERE fa. This was A Probably Incomplete, Comprehensive Guide to the Many Different Ways to JOIN Tables in SQL. I hope you&amp;rsquo;ve found 1-2 new tricks in this article.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;let-s-stop-ascribing-meaning-to-code-points-http-manishearth-github-io-blog-2017-01-14-stop-ascribing-meaning-to-unicode-code-points&#34;&gt;&lt;a href=&#34;http://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/&#34;&gt; Let’s Stop Ascribing Meaning to Code Points &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One very common misconception I&amp;rsquo;ve seen is that code points have cross-language intrinsic meaning. Folks start implying that code points mean something, and that O(1) indexing or slicing at code point boundaries is a useful operation. UTF8 encodes 7-bit code points as a single byte, 11-bit code points as two bytes, 16-bit code points as 3 bytes, and 21-bit code points as four bytes. UTF-32 encodes all code points as 4-byte code units. The flag emoji &amp;ldquo;🇺🇸&amp;rdquo; is also made of two code points,  + 🇸. One false assumption that&amp;rsquo;s often made is that code points are a single column wide. While the treatment of code points in editing contexts is not consistent, it seems like applications consistently do not consider code points as &amp;ldquo;Editing units&amp;rdquo;. Of course, APIs that work with code points are exposed too, you can iterate over the code points using.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;celebrating-telegram-1-0-by-using-it-as-a-network-tunnel-https-medium-com-stefan-musterschueler-celebrating-telegram-1-0-by-using-it-as-a-network-tunnel-fad2eb181baa-i037saaj5&#34;&gt;&lt;a href=&#34;https://medium.com/@stefan.musterschueler/celebrating-telegram-1-0-by-using-it-as-a-network-tunnel-fad2eb181baa#.i037saaj5&#34;&gt; Celebrating Telegram 1.0 by using it as a network tunnel &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;nim-0-16-released-http-nim-lang-org-news-e029-version-0-16-0-html&#34;&gt;&lt;a href=&#34;http://nim-lang.org/news/e029_version_0_16_0.html&#34;&gt; Nim 0.16 released &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The new Nimble release that is included with Nim 0.16.0 includes a variety of new features and bug fixes. Import compiler/ast, compiler/parser, compiler/lexer import compiler /. The two are equivalent, but the new latter syntax is less redundant. Library AdditionsAdded new parameter to error proc of macro module to provide better error message Added new deques module intended to replace queues. Language AdditionsThe emit pragma now takes a list of Nim expressions instead of a single string literal. Sh error: unknown processor: aarch64&amp;rdquo; Fixed &amp;ldquo;RFC: asyncdispatch. Poll behaviour&amp;rdquo; Fixed &amp;ldquo;Can&amp;rsquo;t access enum members through alias&amp;rdquo; Fixed &amp;ldquo;Type, declared in generic proc body, leads to incorrect codegen&amp;rdquo; Fixed &amp;ldquo;Compiler SIGSEGV when mixing method and proc&amp;rdquo; Fixed &amp;ldquo;Compile-time SIGSEGV when declaring. Importcpp method with return value &amp;rdquo; Fixed &amp;ldquo;Variable declaration incorrectly parsed&amp;rdquo; Fixed &amp;ldquo;Invalid C code when naming a object member &amp;ldquo;Linux&amp;rdquo; Fixed &amp;ldquo;[Windows] MinGW within Nim install is missing libraries&amp;rdquo; Fixed &amp;ldquo;Async: annoying warning for future.finished&amp;rdquo; Fixed &amp;ldquo;New import syntax doesn&amp;rsquo;t work?&amp;rdquo; Fixed &amp;ldquo;Fixes #1994&amp;rdquo; Fixed &amp;ldquo;Can&amp;rsquo;t tell return value of programs with staticExec&amp;rdquo; Fixed &amp;ldquo;StartProcess() on Windows with poInteractive: Second call fails&amp;rdquo;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-j-source-code-is-pretty-terrible-https-github-com-jsoftware-jsource-blob-master-jsrc-v2-c&#34;&gt;&lt;a href=&#34;https://github.com/jsoftware/jsource/blob/master/jsrc/v2.c&#34;&gt; The J source code is pretty terrible &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Verbs: Primes and Factoring &lt;em&gt;/ #include &amp;ldquo;j.h&amp;rdquo; #define MM 25000L /&lt;/em&gt; interval size to look for primes &lt;em&gt;/ #define PMAX 105097564L /&lt;/em&gt; upper limit of p: ; = p: PMAX &lt;em&gt;/ #define PT 500000L /&lt;/em&gt; interval size in ptt &lt;em&gt;/ static A p4792=0; /&lt;/em&gt; p: i.4792 &lt;em&gt;/ static I ptt[]= ; /&lt;/em&gt; p: PT*1+i. 210 */ static I ptn=sizeof(ptt)/SZI; static I jtsup(J jt,I n,I&lt;em&gt;wv) /&lt;/em&gt; &amp;lt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;optimization-chrome-by-adding-const-and-on-vc-by-deleting-it-https-randomascii-wordpress-com-2017-01-08-add-a-const-here-delete-a-const-there&#34;&gt;&lt;a href=&#34;https://randomascii.wordpress.com/2017/01/08/add-a-const-here-delete-a-const-there/&#34;&gt; Optimization Chrome by adding const (and, on VC++, by deleting it) &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Most executable formats have at least two data segments - one for read/write globals and one for read-only globals. If you have constant data, such as kBrotliDictionary, then it is best to have it in the read-only data segment, which is segment &amp;lsquo;2&amp;rsquo; in Chrome&amp;rsquo;s Windows binaries. Putting data in the read-only data segment has a few advantages. When my ShowGlobals tool showed that blink::serializedCharacterData was in the read/write data segment, and when investigation showed that it was never modified, I landed a change to add a const modifier, and it dutifully moved to the read-only data segment. With VC++ if you have a class/struct with a const member variable then any global objects of that type end up in the read/write data segment. For most of my changes the effect was just to move some data from the read/write data segment to the read-only data segment, as expected, but two of the changes did much more. Most importantly, the various globals involved in these two changes go from being mostly or completely per-process private data to being shared data, saving an estimated 200 KB of data per process.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;chrome-command-line-api-reference-a-more-complete-list-of-things-you-probably-didn-t-know-you-could-do-with-chrome-s-developer-console-https-developers-google-com-web-tools-chrome-devtools-console-command-line-reference&#34;&gt;&lt;a href=&#34;https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference&#34;&gt; Chrome Command Line API Reference - A more complete list of things you probably didn’t know you could do with Chrome’s Developer Console &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The Command Line API contains a collection of convenience functions for performing common tasks: selecting and inspecting DOM elements, displaying data in readable format, stopping and starting the profiler, and monitoring DOM events. 0 - $4. The $0, $1, $2, $3 and $4 commands work as a historical reference to the last five DOM elements inspected within the Elements panel or the last five JavaScript heap objects selected in the Profiles panel. Selector) returns the reference to the first DOM element with the specified CSS selector. Dirxml(object) prints an XML representation of the specified object, as seen in the Elements tab. GetEventListeners(object) returns the event listeners registered on the specified object. Log object data with table formatting by passing in a data object in with optional column headings. UnmonitorEvents(object[, events]) stops monitoring events for the specified object and events.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;big-list-of-interesting-open-source-projects-for-contributing-on-such-languages-as-c-c-golang-javascript-python-etc-https-github-com-lk-geimfari-awesomo&#34;&gt;&lt;a href=&#34;https://github.com/lk-geimfari/awesomo&#34;&gt; Big list of interesting open source projects for contributing on such languages as C, C++, Golang, JavaScript, Python etc. &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A.W.E.S.O.M. O: The really big list of really interesting open source projects. If you are interested in Open Source and are considering to join the community of Open Source developers, it is possible that in this list you will find the project that will suit you. Wanna support us? Just share this list with your friends on Twitter, Facebook, Medium or somewhere else. To the extent possible under law, the person who associated CC0 with awesomo has waived all copyright and related or neighboring rights to awesomo. You should have received a copy of the CC0 legalcode along with this work. If not, see &lt;a href=&#34;https://creativecommons.org/publicdomain/zero/1&#34;&gt;https://creativecommons.org/publicdomain/zero/1&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;uncle-bob-argues-for-languages-that-let-you-shoot-yourself-in-the-foot-http-blog-cleancoder-com-uncle-bob-2017-01-11-thedarkpath-html&#34;&gt;&lt;a href=&#34;http://blog.cleancoder.com/uncle-bob/2017/01/11/TheDarkPath.html&#34;&gt; Uncle Bob argues for languages that let you shoot yourself in the foot &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;These languages are both a far cry from a truly functional programming language; but every step in that direction is a good step. My problem is that both languages have doubled down on strong static typing. In the case of Swift, the parent language is the bizarre typeless hybrid of C and Smalltalk called Objective-C; so perhaps the emphasis on typing is understandable. The question is: Whose job is it to manage that risk? Is it the language&amp;rsquo;s job? Or is it the programmer&amp;rsquo;s job. The rules of the language insist that when you use a nullable variable, you must first check that variable for null. To become an expert in these languages, you must become a language lawyer. If your answer is that our languages don&amp;rsquo;t prevent them, then I strongly suggest that you quit your job and never think about being a programmer again; because defects are never the fault of our languages.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;senior-engineers-reduce-risk-https-hackernoon-com-senior-engineers-reduce-risk-5ab2adc13c97-vcy6izuud&#34;&gt;&lt;a href=&#34;https://hackernoon.com/senior-engineers-reduce-risk-5ab2adc13c97#.vcy6izuud&#34;&gt; Senior Engineers Reduce Risk &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;New users introduce technical risk but new hires introduce risk into the company&amp;rsquo;s processes and culture. The senior engineers may reduce risk deliberately, or simply have the right skill set at the right time. Senior engineers are storytellersMost risks, especially where managed effectively, never come to pass. If a senior engineer identifies a significant risk, they have to be able to concisely explain and prioritize it for a non-expert audience. Senior engineers choose companies with the right risksEvery company has different risks, and so every company expects something different from their senior engineers. Senior engineers know titles don&amp;rsquo;t mean muchWithout context, knowing someone was a &amp;ldquo;Senior engineer&amp;rdquo; tells you almost nothing. Titles can matter a lot in some environments, but in those cases titles are just another tool for reducing risk; if being a senior, or staff, or principal engineer is the only way to make your voice heard, then pursuing those titles is worthwhile.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;announcing-tokio-0-1-https-tokio-rs-blog-tokio-0-1&#34;&gt;&lt;a href=&#34;https://tokio.rs/blog/tokio-0-1/&#34;&gt; Announcing Tokio 0.1 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Today we are publishing the preliminary version of the Tokio stack, 0.1! Tokio is a platform for writing fast networking code in Rust. You can use the Tokio stack to handle a wide range of protocols, including streaming and multiplexed protocols, as well as more specialized servers like proxies. Tokio is primarily intended as a foundation for other libraries, in particular for high performance protocol implementations. Over time, we expect Tokio to grow a rich middleware ecosystem and ultimately to support various web and application frameworks. Hyper, for example, has been adding Tokio integration, and there&amp;rsquo;s a growing list of other protocol implementations as well. In general, we are eager to support the growing Tokio ecosystem.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;dgsh-directed-graph-shell-i-feel-like-i-have-been-waiting-for-something-like-this-my-whole-life-http-www-dmst-aueb-gr-dds-sw-dgsh&#34;&gt;&lt;a href=&#34;http://www.dmst.aueb.gr/dds/sw/dgsh/&#34;&gt; dgsh — directed graph shell &amp;ndash; I feel like I have been waiting for something like this my whole life! &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Process the git history, and create two PNG diagrams depicting committer activity over time. The most active committers appear at the center vertical of the diagram. Demonstrates image processing, mixining of synchronous and asynchronous processing in a scatter block, and the use of an dgsh-compliant join command.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-removing-caching-improved-mobile-performance-by-25-https-engineering-klarna-com-how-removing-caching-improved-mobile-performance-by-25-52a17cc339a2-w5j09dtib&#34;&gt;&lt;a href=&#34;https://engineering.klarna.com/how-removing-caching-improved-mobile-performance-by-25-52a17cc339a2#.w5j09dtib&#34;&gt; How removing caching improved mobile performance by 25% &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A colleague and I were looking at how our flagship product, Klarna Checkout, loads in the browser and contemplating ways to improve the performance. You tell the browser what your app needs to be offline via a manifest, the browser downloads everything in the manifest, and the next time a user hits your page, the browser will first load the cached content before checking over the network if the manifest file has changed. It wasn&amp;rsquo;t actually necessary since for our use case standard HTTP caching techniques already got us what we wanted - cached assets being loaded without going to the network. I still had questions about exactly how and when these files were downloaded and how the downloads affected potentially concurrent requests for the same assets from the HTML itself. On my machine, the application cache removal improved response time by half while the fullscreen deferral improved it by another 15%. w00t! When we put the changes into production, they had a dramatic effect on Chrome Mobile especially, cutting load times by 25%. The other browsers also had an improvement, but it was more modest. In his case, he sometimes had the awful performance I saw so I&amp;rsquo;m going to guess that it had something to do with my machine being newer and thus being able to get farther along in the load process before the &amp;lsquo;ready&amp;rsquo; event came in.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2017 week 2 in programming</title>
+      <link>http://iszlai.github.io/post/2017_week_02_in_programming/</link>
+      <pubDate>Sun, 08 Jan 2017 17:45:07 +0100</pubDate>
+      
+      <guid>http://iszlai.github.io/post/2017_week_02_in_programming/</guid>
+      <description>
+
+&lt;h2 id=&#34;a-simple-demo-of-phishing-by-abusing-the-browser-autofill-feature-https-github-com-anttiviljami-browser-autofill-phishing&#34;&gt;&lt;a href=&#34;https://github.com/anttiviljami/browser-autofill-phishing&#34;&gt; A simple demo of phishing by abusing the browser autofill feature &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;the-programmer-s-guide-to-booking-a-plane-https-hackernoon-com-the-programmers-guide-to-booking-a-plane-11e37d610045&#34;&gt;&lt;a href=&#34;https://hackernoon.com/the-programmers-guide-to-booking-a-plane-11e37d610045&#34;&gt; The Programmer’s Guide to Booking a Plane &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Crawling the Southwest websiteA quick look at Southwest&amp;rsquo;s site revealed no API.I figured that straight up scraping their website would be an effective approach. It&amp;rsquo;s printing out fare prices, but I&amp;rsquo;m not really sure what to do with all of this data. So what did I do? I hooked up Twilio to send me a text message whenever a fare hit a certain threshold. Since I didn&amp;rsquo;t think it through, I also chose to send the text message at a low interval so that it would keep pinging me until I stopped the script, even if I was out on a date with my lovely wife. Plotting the DataAfter a few days, I got kind of annoyed with looking at a stream of text and thought of complex ways to make it more appealing to look at for the few seconds that I looked at it every day. Booking the FlightDays later, on a normal Tuesday night, it happened: the prices dropped dramatically, something that did not happen every Tuesday, but rather quite randomly. You can check out the project on GitHub if you&amp;rsquo;d also like to go on a nice vacation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;i-wrote-a-faster-sorting-algorithm-https-probablydance-com-2016-12-27-i-wrote-a-faster-sorting-algorithm&#34;&gt;&lt;a href=&#34;https://probablydance.com/2016/12/27/i-wrote-a-faster-sorting-algorithm/&#34;&gt; I Wrote a Faster Sorting Algorithm &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;These days it&amp;rsquo;s a pretty bold claim if you say that you invented a sorting algorithm that&amp;rsquo;s 30% faster than state of the art. I have implemented this sorting algorithm using Timo Bingmann&amp;rsquo;s Sound of Sorting. So my final sort algorithm actually looks at the number of elements in the collection, and if it&amp;rsquo;s less than 128 I call std::sort, if it&amp;rsquo;s less than 1024 I call American Flag Sort, and if it&amp;rsquo;s more than that I run my new sorting algorithm. So if you&amp;rsquo;re sorting log messages and you have a lot of messages that start with &amp;ldquo;Warning:&amp;rdquo; or &amp;ldquo;Error:&amp;rdquo; then my implementation of radix sort would first sort those into separate partitions, and then within each of those partitions it would skip over the common prefix and continue sorting at the first differing character. Is an in-place radix sort algorithm Sorts one byte at a time Falls back to std::sort if a collection contains less than some threshold of items Uses the inner loop of American Flag Sort if a collection contains less than a larger threshold of items Uses Ska Byte Sort if the collection is larger than that Calls itself recursively on each of the 256 partitions using the next byte as the sort key Falls back to std::sort if it recurses too many times Uses std::partition to sort booleans Automatically converts signed integers, floats and char types to the correct unsigned integer type Automatically deals with pairs, tuples, strings, vectors and arrays by sorting one element at a time Skips over common prefixes of collections. The sorting algorithm still succeeded at splitting the data into many smaller partitions, so when I fall back to std::sort, it has a much easier time than it would have had sorting the whole range. Since the interface of this sorting algorithm works differently from existing sorting algorithms, I have to invent new customization points.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;add-asshole-driven-development-http-scottberkun-com-2007-asshole-driven-development&#34;&gt;&lt;a href=&#34;http://scottberkun.com/2007/asshole-driven-development/&#34;&gt; Add : asshole driven development &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;From Agile, to Extreme Programming , to Test Driven Development, the acronyms and frameworks keep piling up. Others say it&amp;rsquo;s because software people like making things up and can&amp;rsquo;t help themselves. Asshole-Driven development - Any team where the biggest jerk makes all the big decisions is asshole driven development. Cognitive Dissonance development - In any organization where there are two or more divergent beliefs on how software should be made. Development By Denial - Everybody pretends there is a method for what&amp;rsquo;s being done, and that things are going ok, when in reality, things are a mess and the process is on the floor. The worse things get, the more people depend on their denial of what&amp;rsquo;s really happening, or their isolation in their own small part of the project, to survive. Get Me Promoted Methodology - People write code and design things to increase their visibility, satisfy their boss&amp;rsquo;s whims, and accelerate their path to a raise or the corner office no matter how far outside of stated goals their efforts go.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;grumpy-go-running-python-by-google-https-opensource-googleblog-com-2017-01-grumpy-go-running-python-html&#34;&gt;&lt;a href=&#34;https://opensource.googleblog.com/2017/01/grumpy-go-running-python.html&#34;&gt; Grumpy: Go running Python! by Google &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;network-cheatsheet-https-github-com-espadrine-solve-data-in-code-blob-master-misc-network-md&#34;&gt;&lt;a href=&#34;https://github.com/espadrine/Solve-Data-In-Code/blob/master/misc/network.md&#34;&gt; Network cheatsheet &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Source port in 2 bytes, destination port in 2 bytes, sequence number in 4 bytes: in a SYN, this is the client Initial Sequence Number, picked usually randomly, otherwise it is + 1 + number of bytes previously sent, ensuring that packets can be reordered to obtain the original segment. Data offset in 4 bits, the size of the TCP header in 32-bit words, 000, flags in 9 bits: NS, CWR, ECE, URG, ACK, PSH, RST, SYN, FIN, window size in 2 bytes, allowing flow and congestion control, checksum in 2 bytes to check header and data corruption, urgent pointer in 2 bytes pointing to a sequence number, options eg. IPv4 addresses fit in 4 bytes, commonly written in dot-separated decimal, eg. IPv6 addresses fit in 16 bytes, with pairs of bytes represented as colon-separated hexadecimal numbers, with adjacent zeros replaced by :: once in the address. Preamble: 7 bytes to ensure we know this is a frame, not a lower-level header, and to synchronize clocks, Start of Frame Delimiter: 1 byte to break the pattern of the preamble and mark the start of the frame metadata, destination Media Access Control address of the target machine: each machine knows the MAC address of all machines it is directly connected to. Among its 6 bytes, it contains two special bits: the Universal vs. Local bit is 0 if the MAC is separated in 3 bytes identifying the network card&amp;rsquo;s constructor, and 3 bytes arbitrarily but uniquely assigned by the constructor for each card. EtherType indicates what protocol is used in the payload; if the value is &amp;lt; 1536, it represents the payload size in bytes, payload: up to 1500 bytes of data from the layer above, typically IP, Frame Check Sequence, a common wireless protocol.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;cracking-sublime-text-3-http-blog-fernandodominguez-me-cracking-sublime-text-3&#34;&gt;&lt;a href=&#34;http://blog.fernandodominguez.me/cracking-sublime-text-3&#34;&gt; Cracking Sublime Text 3 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Our goal will be to stop the annoying Sublime Text pop-up from reminding you to buy a license each now and then. If g valid license is 0x0, i.e: FALSE and the pop-up has not been shown for a while, show it. As cmp byte , 0x0 compares g valid license to 0x0 and jne 0x100072b0 jumps to the specified address if the comparison &amp;lsquo;returned&amp;rsquo; not equal, i.e: the license is valid, efectively skipping the part of the procedure that shows the pop-up. Aand that&amp;rsquo;s pretty much it, the license pop-up will not bother you again. Rax = check license(var 30, g license name, g license seats, var 4C); *(int8 t *) g valid license = COND BYTE SET(E);. 0x1: License is valid, as the message Thanks for purchasing will show. 0x2: License is invalid, as the message That license key doesn&amp;rsquo;t appear to be valid.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;ai-algorithm-of-snake-game-share-opinions-if-you-have-interests-https-github-com-stevennl-snake&#34;&gt;&lt;a href=&#34;https://github.com/stevennL/Snake&#34;&gt; AI algorithm of snake game. Share opinions if you have interests! &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Keyboard Controls Key Feature W move up A move left S move down D move right Space pause/resume the snake Esc exit game. Tips: When the snake is running, you could press the Space key to pause the snake and then press the W/A/S/D key to move the snake step by step. Anytime if you want the snake to start running again, just press Space key again. DecideNext(): compute the next move direction D of the snake S1. Compute the shortest path P1 from snake S1&amp;rsquo;s head to the food. Direct a virtual snake, S2, to eat the food along path P1. Compute the longest path P2 from snake S2&amp;rsquo;s head to its tail. Compute the longest path P3 from snake S1&amp;rsquo;s head to its tail. Let D be the direction that moves the snake along the longest path to the food.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;sublime-text-vs-visual-studio-code-vs-atom-performance-test-dec-2016-https-blog-xinhong-me-post-sublime-text-vs-vscode-vs-atom-performance-dec-2016&#34;&gt;&lt;a href=&#34;https://blog.xinhong.me/post/sublime-text-vs-vscode-vs-atom-performance-dec-2016/&#34;&gt; Sublime Text vs Visual Studio Code vs Atom Performance Test (Dec 2016) &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The reason I sticked with Sublime Text was performance: Atom was slow, even after when Atom 1.0 was announced. These days, I Googled &amp;ldquo;Sublime Text vs Atom 2016&amp;rdquo;, trying to see if Atom has significant improvement when I found Visual Studio Code. Visual Studio is also built using Web Technology like Atom, but reviewers said it is faster. Visual Studio Code did not allow me to open &amp;ldquo;10m lines&amp;rdquo; file saying &amp;ldquo;Very large&amp;rdquo;. Visual Studio Code could not keep syntax highlighting when openning the &amp;ldquo;1m lines&amp;rdquo; file. Atom and Visual Studio Code perform significantly worse compared to Sublime Text and TextEdit: launching and Opening windows are seconds slower which it is noticeable and they occupied much more RAM. Visual Studio Code has advantages over Atom in opening files and RAM usage. Sublime Text is still the speedy king, Visual Studio Code second and Atom is the last.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;deep-learning-enables-you-to-hide-screen-when-your-boss-is-approaching-http-ahogrammer-com-2016-11-15-deep-learning-enables-you-to-hide-screen-when-your-boss-is-approaching&#34;&gt;&lt;a href=&#34;http://ahogrammer.com/2016/11/15/deep-learning-enables-you-to-hide-screen-when-your-boss-is-approaching/&#34;&gt; Deep Learning Enables You to Hide Screen when Your Boss is Approaching &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Specifically, Keras is used to implement neural network for learning his face, a web camera is used to recognize that he is approaching, and switching the screen. First, let the computer learn the face of the boss with deep learning. Taking face image Recognizing face image Switching screen. Next, we use machine learning so that the computer can recognize the face of the boss. First of all, I need to collect a large number of images for learning. Now, when learned model recognize the face of the boss, I need to change the screen. In this time, I combined the real-time image acquisition from Web camera with face recognition using Keras to recognize my boss and hide the screen.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;cross-platform-graphics-in-net-core-https-medium-com-cameronaavik-cross-platform-graphics-in-net-core-901be29dabd7-hx5e67krd&#34;&gt;&lt;a href=&#34;https://medium.com/@cameronaavik/cross-platform-graphics-in-net-core-901be29dabd7#.hx5e67krd&#34;&gt; Cross-Platform Graphics in .NET Core &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;NET Core and Framework provide the ability to access structs, callbacks, and functions in unmanaged libraries using something called Platform Invoke. Another nice thing about GLFW is the permissive license that allowed me to redistribute the library freely. The first hurdle I knew I had to figure out was to somehow reference different GLFW libraries depending on the platform it was running on as I had a glfw. The name of the library had to be specified at compile time, and could not be decided at runtime. Outputs for each platformAfter searching through many documents, I came across this section of an article about how to include native dependencies in libraries and thought this was just what I wanted. Referencing the right OpenGL librarySo, it turns out that the OpenGL library is not called libopengl32. NET Core, I&amp;rsquo;d probably take a look at the stuff he is working on.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;i-m-learning-to-code-at-56-here-s-an-epic-beat-down-of-my-critical-inner-self-https-medium-freecodecamp-com-yes-im-56-and-learning-to-code-f33abea6fd4c-taav0dfn4&#34;&gt;&lt;a href=&#34;https://medium.freecodecamp.com/yes-im-56-and-learning-to-code-f33abea6fd4c#.taav0dfn4&#34;&gt; I’m learning to code at 56. Here’s an epic beat-down of my critical inner self. &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;What 20-year-old stays with their first developer job that long? Chances are an entry level developer job will pay me less than I&amp;rsquo;m making now. There&amp;rsquo;s no guarantee that the job I have now will last. Most programming jobs aren&amp;rsquo;t even in the technology industry. Me: First things first, I&amp;rsquo;m going to apply to a lot of jobs, build a network of hiring managers, and make sure I get a lot of interviews. At my current job, I show up every day knowing that somebody at work has something to teach me. That&amp;rsquo;s how I&amp;rsquo;ve fit in at every job I&amp;rsquo;ve had over the last 36 years.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;google-s-new-website-to-learn-computer-science-and-programming-https-www-google-com-edu-cs-learn-html&#34;&gt;&lt;a href=&#34;https://www.google.com/edu/cs/learn.html&#34;&gt; Google’s New Website To Learn Computer Science and Programming &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Computers are everywhere in our world today and being an educated citizen requires an understanding of the fundamentals of computer science and its underlying problem-solving methodology of computational thinking. Not every child should become a computer scientist, but all children should have the opportunity to explore and create with computing. Google has developed programs, tools and resources that advance computer science education and provide opportunities for exploration and learning in school, in informal settings and at home.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;alacritty-a-gpu-accelerated-terminal-emulator-written-in-rust-http-blog-jwilm-io-announcing-alacritty&#34;&gt;&lt;a href=&#34;http://blog.jwilm.io/announcing-alacritty/&#34;&gt; Alacritty, a GPU-accelerated terminal emulator written in Rust &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Alacritty is a blazing fast, GPU accelerated terminal emulator. Alacritty is the result of frustration with existing terminal emulators. Correctness: Alacritty should be able to properly render modern terminal applications like tmux and vim. Performance: Alacritty should be the fastest terminal emulator available anywhere. Alacritty&amp;rsquo;s biggest claim is that it&amp;rsquo;s the fastest terminal emulator available. Nominally, Alacritty will draw a new frame whenever the terminal state changes, and only when the state changes. Alacritty is a very fast and usable terminal emulator.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;super-nintendo-entertainment-system-features-pt-01-graphics-palettes-https-www-youtube-com-watch-v-57ibhdu2sai-t-0s&#34;&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=57ibhDU2SAI&amp;amp;t=0s&#34;&gt; Super Nintendo Entertainment System Features - Pt. 01: Graphics &amp;amp; Palettes &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-we-ported-linux-to-the-ps4-https-fail0verflow-com-blog-2016-console-hacking-2016-postscript&#34;&gt;&lt;a href=&#34;https://fail0verflow.com/blog/2016/console-hacking-2016-postscript/&#34;&gt; How we ported Linux to the PS4 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Last year we demoed Linux on the PS4. Since then, we&amp;rsquo;ve gotten 3D graphics working, polished a number of drivers, and wrote some new ones. Linux on the PS4 is now actually quite a usable OS, with some minor caveats. Continuing last year&amp;rsquo;s theme of focusing on the Linux port and loader instead of on exploits, this year&amp;rsquo;s talk focused on the hardware and what it takes to bring up Linux on a very much non-PC-compatible x86 platform. What&amp;rsquo;s next? Well, last year we said we&amp;rsquo;d like to upstream some of the work into the Linux kernel, and we still plan to do so. Linux currently boots on it, but the GPU driver needs fixups. As we said last year, we are not planning to release our exploits, as we believe that there are plenty of people capable of developing their own exploits for the PS4 userland and kernel; we are leaving that to the community. We had several people do so throughout the year and that helped fix some Linux bugs and improve ps4-kexec.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;til-visual-studio-has-pascal-case-based-intellisense-https-blogs-msdn-microsoft-com-zainnab-2010-02-09-using-the-new-intellisense-pascal-case&#34;&gt;&lt;a href=&#34;https://blogs.msdn.microsoft.com/zainnab/2010/02/09/using-the-new-intellisense-pascal-case/&#34;&gt; TIL - Visual Studio has pascal case based intellisense &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;None&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;visualise-your-css-before-you-write-it-with-cssreference-io-http-cssreference-io&#34;&gt;&lt;a href=&#34;http://cssreference.io/&#34;&gt; Visualise your CSS before you write it with cssreference.io &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Border-bottom-color border-bottom-left-radius border-bottom-right-radius border-bottom-style border-bottom-width In collection: box-model. Border-bottom border-collapse border-color border-left-color border-left-style border-left-width In collection: box-model. Border-left border-radius border-right-color border-right-style border-right-width In collection: box-model. Border-right border-style border-top-color border-top-left-radius border-top-right-radius border-top-style border-top-width In collection: box-model. List-style-image list-style-position list-style-type list-style margin-bottom In collection: box-model. Outline-color outline-style outline-width outline overflow-wrap overflow-x overflow-y overflow padding-bottom In collection: box-model. Transform-origin transform transition-delay In collection: transitions.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;openstreetmap-plugin-for-unreal-engine-4-https-github-com-ue4plugins-streetmap&#34;&gt;&lt;a href=&#34;https://github.com/ue4plugins/StreetMap&#34;&gt; OpenStreetMap plugin for Unreal Engine 4 &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This plugin allows you to import OpenStreetMap XML data into your Unreal Engine 4 project as a new StreetMap asset type. You can now drag and drop OpenStreetMap XML files into Content Browser to import map data! Of course, there are many other places you can find raw OpenStreetMap XML data on the web also, but keep in mind the plugin has only been tested with files exported directly from OpenStreetMap so far. When you import an OSM file, the plugin will create a new Street Map asset to represent the map data in UE4. All mesh data is generated at load time from the cartographic data in the map asset, including colorized road strips and simple building meshes with triangulated roof polygons. While importing OpenStreetMap XML files, we store all of the data that&amp;rsquo;s interesting to us in an FOSMFile data structure in memory. Finally, a big thanks to the OpenStreetMap Foundation and the fantastic community who contribute map data and maintain the database.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;an-absolute-beginner-s-guide-to-machine-learning-and-image-classification-with-neural-networks-https-github-com-humphd-have-fun-with-machine-learning&#34;&gt;&lt;a href=&#34;https://github.com/humphd/have-fun-with-machine-learning&#34;&gt; An absolute beginner&amp;rsquo;s guide to Machine Learning and Image Classification with Neural Networks &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This is a hands-on guide to machine learning for programmers with no background in AI. Using a neural network doesn&amp;rsquo;t require a PhD, and you don&amp;rsquo;t need to be the person who makes the next breakthrough in AI in order to use what exists today. Setup and use existing, open source machine learning technologies, specifically Caffe and DIGITS Create a dataset of images Train a neural network from scratch Test our neural network on images it has never seen before Improve our neural network&amp;rsquo;s accuracy by fine tuning existing neural networks Deploy and use our neural network. This guide won&amp;rsquo;t teach you how neural networks are designed, cover much theory, or use a single mathematical expression. Installing DIGITS. nVidia&amp;rsquo;s Deep Learning GPU Training System, or DIGITS, is BSD-licensed Python web app for training neural networks. Fine tuning takes advantage of the layout of deep neural networks, and uses pretrained networks to do the hard work of initial object detection. We&amp;rsquo;ll throw away the final classification layer(s) and retrain the network with our image dataset, fine tuning it to our image classes. Deciding whether or not it&amp;rsquo;s worth investing time in learning the theories of machine learning and neural networks is easier when you&amp;rsquo;ve been able to see it work in a small way.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;a-tourist-s-guide-to-the-llvm-source-code-http-blog-regehr-org-archives-1453&#34;&gt;&lt;a href=&#34;http://blog.regehr.org/archives/1453&#34;&gt; A Tourist’s Guide to the LLVM Source Code &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The core LLVM representation lives in RAM and is manipulated using a large C++ API. This representation can be dumped to readable text and parsed back into memory, but this is only a convenience for debugging: during a normal compilation using LLVM, textual IR is never generated. The second subdirectory, llvm, is a biggie: it contains 878 header files that define all of the LLVM APIs. Projects doesn&amp;rsquo;t contain anything by default but it&amp;rsquo;s where you checkout LLVM components such as compiler-rt, OpenMP support, and the LLVM C++ library that live in separate repos. AsmParser: parse textual IR into memory Bitcode: serialize IR into the compact format and read it back into RAM CodeGen: the LLVM target-independent code generator, basically a framework that LLVM backends fit into and also a bunch of library functions that backends can use. DebugInfo is a library for maintaining mappings between LLVM instructions and source code locations. ExecutionEngine: Although LLVM is usually translated into assembly code or machine code, it can be directly executed using an interpreter. Fuzzer: this is libFuzzer, a coverage-guided fuzzer similar to AFL. It doesn&amp;rsquo;t fuzz LLVM components, but rather uses LLVM functionality in order to perform fuzzing of programs that are compiled using LLVM. IR: sort of a grab-bag of IR-related code, with no other obvious unifying theme.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;getting-past-c-http-blog-ntpsec-org-2017-01-03-getting-past-c-html&#34;&gt;&lt;a href=&#34;http://blog.ntpsec.org/2017/01/03/getting-past-c.html&#34;&gt; Getting Past C &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;One of the medium-term possibilities we&amp;rsquo;re seriously considering for NTPsec is moving the entire codebase out of C into a language with no buffer overruns, and in general much stronger security and correctness guarantees. These are not going to translate into any language with the correctness properties we want. Another necessary step will be to corral the few remaining platform dependencies into well-isolated library modules, so the vast bulk of the code will in principle translate mechanically into whatever binding of the ANSI/POSIX API the new language supports. There&amp;rsquo;s lots of web evangelism around both languages, so I&amp;rsquo;m not going to attempt a detailed comparison here. If it&amp;rsquo;s not, maybe I can up-gun it until it is - language parsing and translation is a kind of problem I&amp;rsquo;m pretty good at and enjoy working. In the end it might come down to which language I feel more comfortable in. Despite my huge investment of time in the language, I&amp;rsquo;m ready.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;imperative-vs-declarative-programming-https-tylermcginnis-com-imperative-vs-declarative-programming&#34;&gt;&lt;a href=&#34;https://tylermcginnis.com/imperative-vs-declarative-programming/&#34;&gt; Imperative vs Declarative Programming &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Sadly, you probably encountered a definition similar to this, &amp;ldquo;You know, imperative programming is like how you do something, and declarative programming is more like what you do, or something.&amp;rdquo; Let&amp;rsquo;s go back to the initial definition I made fun of, &amp;ldquo;Imperative programming is like&amp;rdquo;How&amp;rdquo; you do something and declarative programming is more like &amp;ldquo;What&amp;rdquo; you do. Before we dive into code, it&amp;rsquo;s important to realize that many declarative approaches have some sort of imperative abstraction layer. The declarative response to the Red Lobster employee is assuming that the Red Lobster employee knows all the imperative steps to get us to the table. To make the leap more graceful, let&amp;rsquo;s look at some programming &amp;ldquo;Languages&amp;rdquo; that are inherently declarative versus those which are imperative by nature. Declarative Programming is programming with declarations, i.e. declarative sentences. Declarative languages contrast with imperative languages which specify explicit manipulation of the computer&amp;rsquo;s internal state; or procedural languages which specify an explicit sequence of steps to follow.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;tensorkart-self-driving-mariokart-with-tensorflow-http-kevinhughes-ca-blog-tensor-kart&#34;&gt;&lt;a href=&#34;http://kevinhughes.ca/blog/tensor-kart&#34;&gt; TensorKart: self-driving MarioKart with TensorFlow &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Project - use TensorFlow to train an agent that can play MarioKart 64. To train a TensorFlow model, you have to define a function for TensorFlow to optimize. Higher level machine learning frameworks might abstract this, but TensorFlow forces the developer to think about what is happening and helps dispel the magic around machine learning. TensorFlow has great documentation and there are plenty of tutorials and source code available. With my model trained, I was ready to let it loose on MarioKart 64. With this in mind I played more MarioKart to record new training data. TensorFlow is super cool despite being a lower level abstraction than tools I used several years ago.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;how-i-write-tests-https-blog-nelhage-com-2016-12-how-i-test&#34;&gt;&lt;a href=&#34;https://blog.nelhage.com/2016/12/how-i-test/&#34;&gt; How I Write Tests &lt;/a&gt;&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I do try to write a lot of tests, these days and I do try to write my code with tests in mind. If your interface is too complex, you can still provide a &amp;ldquo;Programmable&amp;rdquo; fake that lets tests configure or plug in its behavior in appropriate ways, instrucing it how to respond to inputs. The &amp;ldquo;Sarama&amp;rdquo; Go Kafka client implements such a programmable fake kafka broker, which is used repeatedly in the library&amp;rsquo;s own tests, and can also be used by consumers wishing to construct more end-to-end tests. In order to make these tests self-contained, and able to express many varieties of tests, GCC developers have built a custom annotation/directive system to instruct the test harness how to interpret this test case, and what to check for. Building a runner for these test cases is a bit of upfront investment, but it&amp;rsquo;s well worth it; By making it easier to write tests, you&amp;rsquo;ll ensure that you and other contributors write more tests, and your future selves will thank you for the effort. Regression tests, Regression tests, Regression tests. There are probably nigh-infinitely many bugs you could write, but the set of desired behaviors of your system is relatively finite, and the set of bugs you&amp;rsquo;re likely to write is similarly limited, and if you turn every bug into a test on one of those behaviors, you&amp;rsquo;ll eventually converge on testing for most of the important failure modes of your system.&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>2016 week 52 in programming</title>
@@ -1764,23 +2244,6 @@ You can choose things like:&lt;/p&gt;
 &lt;p&gt;A more powerful search with filtering capabilities on file type and search scope.I couldn&amp;rsquo;t live without it on a windows box it&amp;rsquo;s almost as good as &lt;code&gt;grep&lt;/code&gt; .To use it all you need is &lt;strong&gt;Ctrl&lt;/strong&gt; + &lt;strong&gt;H&lt;/strong&gt;
 &lt;br/&gt;&lt;br/&gt;
 &lt;img src=&#34;http://iszlai.github.io/images/searchH.gif&#34; alt=&#34;alt text&#34; title=&#34;Search&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>http://iszlai.github.io/post/about-me/</link>
-      <pubDate>Fri, 08 Aug 2014 20:53:07 -0400</pubDate>
-      
-      <guid>http://iszlai.github.io/post/about-me/</guid>
-      <description>
-
-&lt;p&gt;My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.&lt;/p&gt;
-
-&lt;h2 id=&#34;history&#34;&gt;History&lt;/h2&gt;
-
-&lt;p&gt;Grew up in Marosvasarhely, Romania when to Babeş-Bolyai University
-Faculty of Mathematics and Computer Science. My dissertation was about JavaScript based grid computing. During the time I was an intern at a mobile development company where I did Android development and have worked at an outsource firm where I did test automation. After graduating a moved to Budapest, Hungary where I started to work at a leading financial institution, trough which I had a chance to learn at the international offices in New York and London.&lt;/p&gt;
 </description>
     </item>
     
