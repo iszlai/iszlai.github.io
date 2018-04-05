@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on iszlai&#39;s data, code &amp; coffee</title>
+    <link>https://iszlai.github.io/categories/</link>
+    <description>Recent content in Categories on iszlai&#39;s data, code &amp; coffee</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Lehel Iszlai</copyright>
+    
+	<atom:link href="https://iszlai.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>
