@@ -7,7 +7,7 @@
         <meta name="author">
         <meta name="description" content="software developer, coffee addict,tech enthusiast and personal rants">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="generator" content="Hugo 0.26" />
+        <meta name="generator" content="Hugo 0.38.1" />
         <link href="https://iszlai.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="iszlai&#39;s data, code &amp; coffee" />
         <link href="https://iszlai.github.io/post/index.xml" rel="feed" type="application/rss+xml" title="iszlai&#39;s data, code &amp; coffee" />
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300,700|Noto+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -42,6 +42,22 @@
 <div class="container clearfix">
     <main role="main" class="content">
         
+        
+            <article class="post">
+    
+<h1><a href="https://iszlai.github.io/post/git_pull_all_repositories/" title="How to pull/fetch all your git repositories">How to pull/fetch all your git repositories</a></h1>
+
+<footer class="post-info"> <span class="post-meta"><time datetime="2018.04.06">2018.04.06</time>
+
+</span>
+</footer>
+
+    <p>So every once in a while you would like to sync all the git repositories you work/worked on in the past. It cumbersome to always just go trough one by one.
+I use this nifty little script:
+#!/bin/bash #Define the color yellow for later use YELLOW=&rsquo;\033[0;33m&rsquo; #Define text reset NC=&rsquo;\033[0m&rsquo; pathToRepos=~/work/repos for i in <code>ls $pathToRepos</code>;do repo=$pathToRepos&quot;/&quot;$i #Get curreny branch name branch=<code>git -C $repo symbolic-ref --short -q HEAD</code> if [ -d $repo/.&hellip;</p>
+    <a href="https://iszlai.github.io/post/git_pull_all_repositories/" title="How to pull/fetch all your git repositories"> &raquo;</a>
+</article>
+
         
             <article class="post">
     
@@ -170,20 +186,6 @@
 
     <p>Programmers are having a huge discussion about the unethical and illegal things they’ve been asked to do   Dozens of people have already been killed by faulty software in cars, while hundreds of people have been killed from faulty software during air travel. &ldquo;Uncle&rdquo; Bob MartinYouTube/Expert Talks MobileBut Martin pointed out, &ldquo;The weird thing is, it was software developers who wrote that code. It was us. Some programmers wrote cheating code.&hellip;</p>
     <a href="https://iszlai.github.io/post/2016_week_47_in_programming/" title="2016 week 47 in programming"> &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
-<h1><a href="https://iszlai.github.io/post/2016_week_46_in_programming/" title="2016 week 46 in programming">2016 week 46 in programming</a></h1>
-
-<footer class="post-info"> <span class="post-meta"><time datetime="2016.11.19">2016.11.19</time>
-
-</span>
-</footer>
-
-    <p>Programmers are having a huge discussion about the unethical and illegal things they’ve been asked to do   Dozens of people have already been killed by faulty software in cars, while hundreds of people have been killed from faulty software during air travel. Martin pointed out, &ldquo;The weird thing is, it was software developers who wrote that code. It was us. Some programmers wrote cheating code. Do you think they knew?&hellip;</p>
-    <a href="https://iszlai.github.io/post/2016_week_46_in_programming/" title="2016 week 46 in programming"> &raquo;</a>
 </article>
 
         

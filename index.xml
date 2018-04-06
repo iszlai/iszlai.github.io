@@ -6,11 +6,21 @@
     <description>Recent content on iszlai&#39;s data, code &amp; coffee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Lehel Iszlai</copyright>
-    <lastBuildDate>Sun, 22 Jan 2017 17:45:27 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 06 Apr 2018 20:37:22 +0200</lastBuildDate>
     
 	<atom:link href="https://iszlai.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to pull/fetch all your git repositories</title>
+      <link>https://iszlai.github.io/post/git_pull_all_repositories/</link>
+      <pubDate>Fri, 06 Apr 2018 20:37:22 +0200</pubDate>
+      
+      <guid>https://iszlai.github.io/post/git_pull_all_repositories/</guid>
+      <description>So every once in a while you would like to sync all the git repositories you work/worked on in the past. It cumbersome to always just go trough one by one.
+I use this nifty little script:
+#!/bin/bash #Define the color yellow for later use YELLOW=&#39;\033[0;33m&#39; #Define text reset NC=&#39;\033[0m&#39; pathToRepos=~/work/repos for i in `ls $pathToRepos`;do repo=$pathToRepos&amp;quot;/&amp;quot;$i #Get curreny branch name branch=`git -C $repo symbolic-ref --short -q HEAD` if [ -d $repo/.</description>
+    </item>
     
     <item>
       <title>2017 week 04 in programming</title>

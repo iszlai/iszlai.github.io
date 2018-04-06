@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Categories &middot; iszlai&#39;s data, code &amp; coffee</title>
+        <title>iszlai&#39;s data, code &amp; coffee</title>
         <meta name="author">
         <meta name="description" content="software developer, coffee addict,tech enthusiast and personal rants">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,13 +39,91 @@
           </div>
         </header>
 
+
 <div class="container clearfix">
     <main role="main" class="content">
-    <a class="btn home" href="https://iszlai.github.io/" title="">&laquo; </a>
-    <h2>Categories:</a>
-    <ul>
-     
-    </ul>
+        <article class="post">
+            <a class="btn home" href="https://iszlai.github.io/" title="">&laquo; </a>
+            
+<h1><a href="https://iszlai.github.io/post/git_pull_all_repositories/" title="How to pull/fetch all your git repositories">How to pull/fetch all your git repositories</a></h1>
+
+<footer class="post-info"> <span class="post-meta"><time datetime="2018.04.06">2018.04.06</time>
+
+</span>
+</footer>
+
+            <p>So every once in a while you would like to sync all the git repositories you work/worked on in the past.
+It cumbersome to always just go trough one by one.</p>
+
+<p>I use this nifty little script:</p>
+
+<pre><code>#!/bin/bash
+
+#Define the color yellow for later use
+YELLOW='\033[0;33m'
+
+#Define text reset
+NC='\033[0m'
+
+pathToRepos=~/work/repos
+
+for i in `ls $pathToRepos`;do
+    repo=$pathToRepos&quot;/&quot;$i
+    #Get curreny branch name
+    branch=`git -C $repo symbolic-ref --short -q HEAD`
+    if [ -d $repo/.git ]; then
+        echo -e &quot;\n${YELLOW}#&quot;$i&quot;#${NC} - ${branch}\n&quot;
+        git -C $repo stash
+        git -C $repo pull --rebase
+        git -C $repo stash pop
+    fi
+done
+</code></pre>
+
+<p>Hope it&rsquo;s useful, let me know what you think ! 🙃</p>
+
+            <ul class="share-buttons">
+    <li></li>
+    <li>
+        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiszlai.github.io%2fpost%2fgit_pull_all_repositories%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title=""></a>
+    </li>
+    <li>
+        <a class="icon-twitter" href="https://twitter.com/share?text=How%20to%20pull%2ffetch%20all%20your%20git%20repositories&amp;url=https%3a%2f%2fiszlai.github.io%2fpost%2fgit_pull_all_repositories%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title=""></a>
+    </li>
+    <li>
+        <a class="icon-gplus" href="https://plus.google.com/share?url=https%3a%2f%2fiszlai.github.io%2fpost%2fgit_pull_all_repositories%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title=""></a>
+    </li>
+    <li>
+        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fiszlai.github.io%2fpost%2fgit_pull_all_repositories%2f&title=How%20to%20pull%2ffetch%20all%20your%20git%20repositories" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title=""></a>
+    </li>
+</ul>
+
+        </article>
+        
+        <div class="comments">
+            <h3></h3>
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "coffemon" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        
     </main>
     <aside class="author">
   <img class="profile-image" src="https://iszlai.github.io/images/bio-photo.jpg" alt="Lehel Iszlai" />
@@ -81,6 +159,7 @@
 </aside>
 
 </div>
+
 <footer class="main-footer">
   <div class="container clearfix">
         <a class="icon-rss" href="https://iszlai.github.io/post/index.xml" title="RSS"></a>
