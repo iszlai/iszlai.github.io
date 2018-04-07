@@ -29,10 +29,20 @@
          background: #2a373d url(https://iszlai.github.io/img/desk.jpg) no-repeat center center;
          z-index: -1;
         }
+        nav li { 
+         display: inline-block;
+         margin-right: 8%
+        }
         </style>
     </head>
     <body>
         
+        <nav >
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/post/about-me/">About</a></li>
+  </ul>
+</nav>
         <header class="site-header">
           <div class="transparent-layer">
               <h2>iszlai&#39;s data, coffee &amp; code</h2>
@@ -46,7 +56,7 @@
         
             <article class="post">
     
-<h1><a href="https://iszlai.github.io/post/git_pull_all_repositories/" title="How to pull/fetch all your git repositories">How to pull/fetch all your git repositories</a></h1>
+<h1><a href="https://iszlai.github.io/post/git_pull_all_repositories/" title="DevTip: How to pull/fetch all your git repositories">DevTip: How to pull/fetch all your git repositories</a></h1>
 
 <footer class="post-info"> <span class="post-meta"><time datetime="2018.04.06">2018.04.06</time>
 
@@ -56,7 +66,7 @@
     <p>So every once in a while you would like to sync all the git repositories you work/worked on in the past. It cumbersome to always just go trough one by one.
 I use this nifty little script:
 #!/bin/bash #Define the color yellow for later use YELLOW=&rsquo;\033[0;33m&rsquo; #Define text reset NC=&rsquo;\033[0m&rsquo; pathToRepos=~/work/repos for i in <code>ls $pathToRepos</code>;do repo=$pathToRepos&quot;/&quot;$i #Get curreny branch name branch=<code>git -C $repo symbolic-ref --short -q HEAD</code> if [ -d $repo/.&hellip;</p>
-    <a href="https://iszlai.github.io/post/git_pull_all_repositories/" title="How to pull/fetch all your git repositories"> &raquo;</a>
+    <a href="https://iszlai.github.io/post/git_pull_all_repositories/" title="DevTip: How to pull/fetch all your git repositories"> &raquo;</a>
 </article>
 
         
@@ -208,7 +218,8 @@ I use this nifty little script:
     </main>
 
     <aside class="author">
-  <img class="profile-image" src="https://iszlai.github.io/images/bio-photo.jpg" alt="Lehel Iszlai" />
+  <h2>YOUR HOST</h2>
+  <a href="/post/about-me/"><img class="profile-image" src="https://iszlai.github.io/images/bio-photo.jpg" alt="Lehel Iszlai" /></a>
   <p class="name"> 
   <strong>Lehel Iszlai</strong></p>
   <p class="address">engineering, product, distributed systems, entrepreneurship</p>
