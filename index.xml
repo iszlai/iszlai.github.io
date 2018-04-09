@@ -6,10 +6,20 @@
     <description>Recent content on iszlai&#39;s data, code &amp; coffee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Apr 2018 20:37:22 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 07 Apr 2018 20:00:01 +0200</lastBuildDate>
     
 	<atom:link href="https://iszlai.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The devcli</title>
+      <link>https://iszlai.github.io/post/the_dev_cli/</link>
+      <pubDate>Sat, 07 Apr 2018 20:00:01 +0200</pubDate>
+      
+      <guid>https://iszlai.github.io/post/the_dev_cli/</guid>
+      <description>Every time you join a new company or project you start with setting up the environment for yourself locally. Historically this was a massive pain in the (@$@%$&amp;amp;#), but with the help of our saviors Vagrant and Docker everything was solved, right?
+Well yes and no, packaging up apps and dependencies did get easier, but there still are plenty of things that are manual bits of work or arcane tribe knowledge on how to proceed.</description>
+    </item>
     
     <item>
       <title>DevTip: How to pull changes from all your git repositories</title>
