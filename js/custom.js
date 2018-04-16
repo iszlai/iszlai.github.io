@@ -44,3 +44,14 @@ function getEmail(id) {
 function clearEmail(id) {
     return $(id).val('');
 }
+
+function push_notification(data){
+    $.ajax({
+        url: 'https://maker.ifttt.com/trigger/sign_up/with/key/1h80lbr3_dzppMbw0djdJ',
+        type: 'POST',
+        data: {"value1":data}, 
+        dataType: 'json',
+        crossDomain: true,
+        contentType: 'application/json'
+    })
+}

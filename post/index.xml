@@ -6,10 +6,19 @@
     <description>Recent content in Posts on iszlai&#39;s data, code &amp; coffee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Apr 2018 20:00:01 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 16 Apr 2018 22:36:38 +0200</lastBuildDate>
     
 	<atom:link href="https://iszlai.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Are we there yet? The road to production (Part 1)</title>
+      <link>https://iszlai.github.io/post/are_we_there_yet_part1/</link>
+      <pubDate>Mon, 16 Apr 2018 22:36:38 +0200</pubDate>
+      
+      <guid>https://iszlai.github.io/post/are_we_there_yet_part1/</guid>
+      <description>So you had an idea, built a prototype, people started using it, now you decided to build something of substance. There are many shortcuts one can take during the development of a project but if it ever reaches the dreaded &amp;lsquo;Production&amp;rsquo; than your needs go way beyond the usual I&amp;rsquo;ll just package it up and run it on my MacBook as a service. This book provides a comprehensive list of concerns and subconscious decisions that need to be made when building an internet facing production system and a product/company alongside it.</description>
+    </item>
     
     <item>
       <title>The devcli</title>
