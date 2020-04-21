@@ -1,41 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>iszlai&#39;s data, code &amp; coffee</title>
-    <link>https://iszlai.github.io/</link>
+    <link>https://iszlai.com/</link>
     <description>Recent content on iszlai&#39;s data, code &amp; coffee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 16 Apr 2018 22:36:38 +0200</lastBuildDate>
     
-	<atom:link href="https://iszlai.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://iszlai.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Are we there yet? The road to production (Part 1)</title>
-      <link>https://iszlai.github.io/post/are_we_there_yet_part1/</link>
+      <link>https://iszlai.com/post/are_we_there_yet_part1/</link>
       <pubDate>Mon, 16 Apr 2018 22:36:38 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/are_we_there_yet_part1/</guid>
+      <guid>https://iszlai.com/post/are_we_there_yet_part1/</guid>
       <description>So you had an idea, built a prototype, people started using it, now you decided to build something of substance. There are many shortcuts one can take during the development of a project but if it ever reaches the dreaded &amp;lsquo;Production&amp;rsquo; than your needs go way beyond the usual I&amp;rsquo;ll just package it up and run it on my MacBook as a service. This book provides a comprehensive list of concerns and subconscious decisions that need to be made when building an internet facing production system and a product/company alongside it.</description>
     </item>
     
     <item>
       <title>The devcli</title>
-      <link>https://iszlai.github.io/post/the_dev_cli/</link>
+      <link>https://iszlai.com/post/the_dev_cli/</link>
       <pubDate>Sat, 07 Apr 2018 20:00:01 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/the_dev_cli/</guid>
+      <guid>https://iszlai.com/post/the_dev_cli/</guid>
       <description>Every time you join a new company or project you start with setting up the environment for yourself locally. Historically this was a massive pain in the (@$@%$&amp;amp;#), but with the help of our saviors Vagrant and Docker everything was solved, right?
 Well yes and no, packaging up apps and dependencies did get easier, but there still are plenty of things that are manual bits of work or arcane tribe knowledge on how to proceed.</description>
     </item>
     
     <item>
       <title>DevTip: How to pull changes from all your git repositories</title>
-      <link>https://iszlai.github.io/post/git_pull_all_repositories/</link>
+      <link>https://iszlai.com/post/git_pull_all_repositories/</link>
       <pubDate>Fri, 06 Apr 2018 20:37:22 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/git_pull_all_repositories/</guid>
+      <guid>https://iszlai.com/post/git_pull_all_repositories/</guid>
       <description>So every once in a while you would like to sync all the git repositories you work/worked on in the past. It cumbersome to always just go trough one by one.
 I use this nifty little script:
 #!/bin/bash #Define the color yellow for later use YELLOW=&#39;\033[0;33m&#39; #Define text reset NC=&#39;\033[0m&#39; pathToRepos=~/work/repos for i in `ls $pathToRepos`;do repo=$pathToRepos&amp;quot;/&amp;quot;$i #Get curreny branch name branch=`git -C $repo symbolic-ref --short -q HEAD` if [ -d $repo/.</description>
@@ -43,47 +43,47 @@ I use this nifty little script:
     
     <item>
       <title>2017 week 04 in programming</title>
-      <link>https://iszlai.github.io/post/2017_week_04_in_programming/</link>
+      <link>https://iszlai.com/post/2017_week_04_in_programming/</link>
       <pubDate>Sun, 22 Jan 2017 17:45:27 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2017_week_04_in_programming/</guid>
+      <guid>https://iszlai.com/post/2017_week_04_in_programming/</guid>
       <description>The Line of Death   In web browsers, the browser itself usually fully controls the top of the window, while pixels under the top are under control of the site. If a user trusts pixels above the line of death, the thinking goes, they&amp;rsquo;ll be safe, but if they can be convinced to trust the pixels below the line, they&amp;rsquo;re gonna die. The bigger problem is that some attacker data is allowed above the LoD; while trusting the content below the LoD will kill your security, there are also areas of death above the line.</description>
     </item>
     
     <item>
       <title>2017 week 3 in programming</title>
-      <link>https://iszlai.github.io/post/2017_week_03_in_programming/</link>
+      <link>https://iszlai.com/post/2017_week_03_in_programming/</link>
       <pubDate>Sun, 15 Jan 2017 17:45:18 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2017_week_03_in_programming/</guid>
+      <guid>https://iszlai.com/post/2017_week_03_in_programming/</guid>
       <description>Trello Is Being Acquired By Atlassian   We wanted Trello to be fluid and adaptable to a huge range of problems that all revolved around getting people on the same page. We&amp;rsquo;ve been humbled and excited to see the millions of use cases for Trello around the world, and we build the product each day proudly knowing we&amp;rsquo;re helping teams do great things. As part of Atlassian, Trello will be able to leverage investments in R&amp;amp;D that will enhance the product in meaningful ways.</description>
     </item>
     
     <item>
       <title>2017 week 2 in programming</title>
-      <link>https://iszlai.github.io/post/2017_week_02_in_programming/</link>
+      <link>https://iszlai.com/post/2017_week_02_in_programming/</link>
       <pubDate>Sun, 08 Jan 2017 17:45:07 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2017_week_02_in_programming/</guid>
+      <guid>https://iszlai.com/post/2017_week_02_in_programming/</guid>
       <description>A simple demo of phishing by abusing the browser autofill feature   None
  The Programmer’s Guide to Booking a Plane   Crawling the Southwest websiteA quick look at Southwest&amp;rsquo;s site revealed no API.I figured that straight up scraping their website would be an effective approach. It&amp;rsquo;s printing out fare prices, but I&amp;rsquo;m not really sure what to do with all of this data. So what did I do?</description>
     </item>
     
     <item>
       <title>2016 week 52 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_52_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_52_in_programming/</link>
       <pubDate>Sat, 31 Dec 2016 10:59:35 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_52_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_52_in_programming/</guid>
       <description>Creating an ELF Virus using Assembly   With even more luck, your virus would gain notoriety like the Whale Virus or the Michelangelo Virus. The way to achieve this is to: - change the entry point to the end of the text section - add the page size to the offset for the section header table - increase the file size and memory size of the text segment by the size of the virus code - for each program header that resides after the virus, increase the offset by the page size - find the last section header in the TEXT segment and increase the section size - for each section header that exists after the virus, increase the offset by the page size - insert the actual virus at the end of the text section - insert code that jumps to the original host entry point.</description>
     </item>
     
     <item>
       <title>2016 week 51 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_51_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_51_in_programming/</link>
       <pubDate>Sat, 24 Dec 2016 10:59:20 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_51_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_51_in_programming/</guid>
       <description>Python 3.6 released!   None
  Bootstrap 4 drops IE9 support and goes full flexbox   None
  The Programmer’s Guide to Booking a Concert   The simple keyword search would not allow me to write a query like &amp;ldquo;Return any user based in San Francisco or Oakland who has less than 10k followers and has posted at least one track&amp;rdquo;. I could write an algorithm which, when seeded with a Soundcloud user, would pull all their followers and followings, and then in turn pull all followers and followings for each of those users.</description>
@@ -91,103 +91,102 @@ I use this nifty little script:
     
     <item>
       <title>2016 week 50 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_50_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_50_in_programming/</link>
       <pubDate>Sat, 17 Dec 2016 10:59:04 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_50_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_50_in_programming/</guid>
       <description>AMD creates a tool to convert CUDA code to portable, vendor-neutral C++   HIP allows developers to convert CUDA code to portable C++. The same source code can be compiled to run on NVIDIA or AMD GPUs. HIP provides porting tools which make it easy to port existing CUDA codes to the HIP layer, with no loss of performance as compared to the original CUDA application. HIP is not intended to be a drop-in replacement for CUDA, and developers should expect to do some manual coding and performance tuning work to complete the port.</description>
     </item>
     
     <item>
       <title>2016 week 49 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_49_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_49_in_programming/</link>
       <pubDate>Sat, 10 Dec 2016 21:27:37 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_49_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_49_in_programming/</guid>
       <description>This guy taught me better than my professor.   Welcome to Programming from A to Z! &amp;ldquo;Programming from A to Z&amp;rdquo; is a course I teach at ITP. This playlist is anyone who would like to follow along online. This course focuses on programming strategies and techniques behind procedural analysis and generation of text-based data. We&amp;rsquo;ll explore topics ranging from evaluating text according to its statistical properties to the automated production of text with probabilistic methods to text visualization.</description>
     </item>
     
     <item>
       <title>2016 week 48 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_48_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_48_in_programming/</link>
       <pubDate>Sat, 03 Dec 2016 21:27:26 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_48_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_48_in_programming/</guid>
       <description>Crypto 101 - an introductory course on cryptography, freely available for programmers of all ages and skill levels   It tries to go through all of the major dramatis personae of cryptography to make TLS work in 45 minutes. This book is the natural extension of that, with an extensive focus on breaking cryptography.
  How the Singapore Circle Line rogue train was caught with data   What we&amp;rsquo;d established was that there seemed to be a pattern over time and location: Incidents were happening one after another, in the opposite direction of the previous incident.</description>
     </item>
     
     <item>
       <title>2016 week 47 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_47_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_47_in_programming/</link>
       <pubDate>Sat, 26 Nov 2016 14:21:56 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_47_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_47_in_programming/</guid>
       <description>Programmers are having a huge discussion about the unethical and illegal things they’ve been asked to do   Dozens of people have already been killed by faulty software in cars, while hundreds of people have been killed from faulty software during air travel. &amp;ldquo;Uncle&amp;rdquo; Bob MartinYouTube/Expert Talks MobileBut Martin pointed out, &amp;ldquo;The weird thing is, it was software developers who wrote that code. It was us. Some programmers wrote cheating code.</description>
     </item>
     
     <item>
       <title>2016 week 46 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_46_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_46_in_programming/</link>
       <pubDate>Sat, 19 Nov 2016 14:21:53 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_46_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_46_in_programming/</guid>
       <description>Programmers are having a huge discussion about the unethical and illegal things they’ve been asked to do   Dozens of people have already been killed by faulty software in cars, while hundreds of people have been killed from faulty software during air travel. Martin pointed out, &amp;ldquo;The weird thing is, it was software developers who wrote that code. It was us. Some programmers wrote cheating code. Do you think they knew?</description>
     </item>
     
     <item>
       <title>2016 week 45 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_45_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_45_in_programming/</link>
       <pubDate>Sat, 12 Nov 2016 14:21:48 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_45_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_45_in_programming/</guid>
       <description>Some guy named Marc Andreessen was convinced that Netscape should embed a programming language in HTML =&amp;gt; Javascript gets written in 10 days flat.   Brendan Eich convinced his pointy-haired boss at Netscape that the Navigator browser should have its own scripting language, and that only a new language would do, a new language designed and implemented in big hurry, and that no existing language should be considered for that role.</description>
     </item>
     
     <item>
       <title>2016 week 44 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_44_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_44_in_programming/</link>
       <pubDate>Sat, 05 Nov 2016 14:21:37 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_44_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_44_in_programming/</guid>
       <description>H.264 is Magic   Now we&amp;rsquo;re getting to the juicy bits! Ha puns! If you took an information theory class, you might remember information entropy. Information entropy is the number of bits required to represent some information. The fine grill on that MacBook pro has a high information content in the higher frequency components of that image. Because now, you can take that frequency domain image and then mask out the edges - discard information which will contain the information with high frequency components.</description>
     </item>
     
     <item>
       <title>2016 week 43 in programming</title>
-      <link>https://iszlai.github.io/post/2016_week_43_in_programming/</link>
+      <link>https://iszlai.com/post/2016_week_43_in_programming/</link>
       <pubDate>Sun, 30 Oct 2016 22:08:17 +0100</pubDate>
       
-      <guid>https://iszlai.github.io/post/2016_week_43_in_programming/</guid>
+      <guid>https://iszlai.com/post/2016_week_43_in_programming/</guid>
       <description>Applying the Linus Tarvolds &amp;ldquo;Good Taste&amp;rdquo; Coding Requirement   To the best of my ability to discern, the crux of the &amp;ldquo;Good taste&amp;rdquo; requirement is the elimination of edge cases, which tend to reveal themselves as conditional statements. Below is an algorithm I wrote to initialize the points along the edge of a grid, which is represented as a multidimensional array: grid[rows][cols]. Again, the purpose of this code was to only initialize the values of the points that reside on the edge of the grid - so only the top row, bottom row, left column, and right column.</description>
     </item>
     
     <item>
       <title>How to become an enterprise developer and other personal rants ?</title>
-      <link>https://iszlai.github.io/post/how-to-become-an-enterprise-developer/</link>
+      <link>https://iszlai.com/post/how-to-become-an-enterprise-developer/</link>
       <pubDate>Wed, 05 Nov 2014 13:27:23 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/how-to-become-an-enterprise-developer/</guid>
-      <description>First of all this is a personal post with lot of questions, insecurities and rants. Really any answer reply&amp;rsquo;s, tweet, PM, email anything would be useful and help me at this point. But first let me give a bit of a background of how I got to this stage in the first place. 
-I&amp;rsquo;ve studied programming since highscool all throughout University I had a CS major so I have/had the basics covered.</description>
+      <guid>https://iszlai.com/post/how-to-become-an-enterprise-developer/</guid>
+      <description>First of all this is a personal post with lot of questions, insecurities and rants. Really any answer reply&amp;rsquo;s, tweet, PM, email anything would be useful and help me at this point. But first let me give a bit of a background of how I got to this stage in the first place. I&amp;rsquo;ve studied programming since highscool all throughout University I had a CS major so I have/had the basics covered.</description>
     </item>
     
     <item>
       <title>The Eclipse Survival Guide</title>
-      <link>https://iszlai.github.io/post/eclipse-survival-guide/</link>
+      <link>https://iszlai.com/post/eclipse-survival-guide/</link>
       <pubDate>Sat, 27 Sep 2014 13:27:23 +0200</pubDate>
       
-      <guid>https://iszlai.github.io/post/eclipse-survival-guide/</guid>
+      <guid>https://iszlai.com/post/eclipse-survival-guide/</guid>
       <description>After starting with Java, Scala, C++ or any other language you probably start using an ide, well there are many out there for everyones personal preferences I&amp;rsquo;ll mainly focus on Eclipse.It&amp;rsquo;s an Open Source IDE, mostly provided in Java, but it supports other the development languages by being extended with plug-ins.
 Turn on line numbers Seems trivial but it&amp;rsquo;s really useful when you work on a team or want to find something at a specific line.</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>https://iszlai.github.io/post/about-me/</link>
+      <link>https://iszlai.com/post/about-me/</link>
       <pubDate>Fri, 08 Aug 2014 20:53:07 -0400</pubDate>
       
-      <guid>https://iszlai.github.io/post/about-me/</guid>
+      <guid>https://iszlai.com/post/about-me/</guid>
       <description>My primary interest is to learn how to design software systems, so as to maximize the productivity of development teams. In doing this I try to look at current technological landscape and investigate software with good design.
 History Grew up in Marosvasarhely, Romania when to Babeş-Bolyai University Faculty of Mathematics and Computer Science. My dissertation was about JavaScript based grid computing. During the time I was an intern at a mobile development company where I did Android development and have worked at an outsource firm where I did test automation.</description>
     </item>

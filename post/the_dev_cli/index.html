@@ -7,26 +7,26 @@
     <meta name="author">
     <meta name="description" content="software developer, coffee addict,tech enthusiast and personal rants">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Hugo 0.38.1" />
-    <link href="https://iszlai.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="iszlai&#39;s data, code &amp; coffee" />
-    <link href="https://iszlai.github.io/post/index.xml" rel="feed" type="application/rss+xml" title="iszlai&#39;s data, code &amp; coffee" />
+    <meta name="generator" content="Hugo 0.69.0" />
+    <link href="https://iszlai.com/post/index.xml" rel="alternate" type="application/rss+xml" title="iszlai&#39;s data, code &amp; coffee" />
+    <link href="https://iszlai.com/post/index.xml" rel="feed" type="application/rss+xml" title="iszlai&#39;s data, code &amp; coffee" />
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300,700|Noto+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://iszlai.github.io/css/styles.css">
-    <link rel="icon" href="https://iszlai.github.io/favicon.ico">
-    <link rel="apple-touch-icon" href="https://iszlai.github.io/apple-touch-icon.png" />
-    <link rel="stylesheet" href="https://iszlai.github.io/css/highlightjs/monokai.css">
-    <script src="https://iszlai.github.io/js/vendor/modernizr-2.8.0.min.js"></script>
+    <link rel="stylesheet" href="https://iszlai.com/css/styles.css">
+    <link rel="icon" href="https://iszlai.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://iszlai.com/apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://iszlai.com/css/highlightjs/monokai.css">
+    <script src="https://iszlai.com/js/vendor/modernizr-2.8.0.min.js"></script>
     
     <style>
         .site-header h2 .logo {
-            background: url(https://iszlai.github.io/img/desk.jpg) no-repeat 0 0;
+            background: url(https://iszlai.com/img/desk.jpg) no-repeat 0 0;
         }
         @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
             .site-header h2 .logo {
-                background-image: url(https://iszlai.github.io/img/desk.jpg);
+                background-image: url(https://iszlai.com/img/desk.jpg);
             }}
             .site-header {
-                background: #2a373d url(https://iszlai.github.io/img/desk.jpg) no-repeat fixed left;
+                background: #2a373d url(https://iszlai.com/img/desk.jpg) no-repeat fixed left;
                 z-index: -1;
             }
             
@@ -85,57 +85,41 @@
 <div class="container clearfix">
     <main role="main" class="content">
         <article class="post">
-            <a class="btn home" href="https://iszlai.github.io/" title="">← </a>
+            <a class="btn home" href="https://iszlai.com/" title="">← </a>
             
-<h1><a href="https://iszlai.github.io/post/the_dev_cli/" title="The devcli">The devcli</a></h1>
+<h1><a href="https://iszlai.com/post/the_dev_cli/" title="The devcli">The devcli</a></h1>
 
 <footer class="post-info"> <span class="post-meta"><time datetime="2018.04.07">2018.04.07</time>
 
 </span>
 </footer>
 
-            
-
-<p>Every time you join a new company or project you start with setting up the environment for yourself locally.
+            <p>Every time you join a new company or project you start with setting up the environment for yourself locally.
 Historically this was a massive pain in the (@$@%$&amp;#), but with the help of our saviors Vagrant and Docker everything was solved, right?</p>
-
 <p>Well yes and no, packaging up apps and dependencies did get easier,
 but there still are plenty of things that are manual bits of work or arcane tribe knowledge on how to proceed.</p>
-
 <p>Things like:</p>
-
 <ul>
 <li>How do I add a new user?</li>
 <li>What was the thing that I needed to do, to get that ABC thing to work?</li>
 <li>How do I do Y again?</li>
 <li>&hellip;</li>
 </ul>
-
 <p>So this is a pretty good opportunity to set one up right?
 Before you say, well gosh I don&rsquo;t know should I really be spending time doing this, I&rsquo;ll only be using it until I get the hang of everything.</p>
-
 <p>Before you go on with excuses stop there and look at it this way</p>
-
-<p><img src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png" alt="alt text" title="Is it worth it?" /></p>
-
+<p><img src="https://imgs.xkcd.com/comics/is_it_worth_the_time.png" alt="alt text" title="Is it worth it?"></p>
 <p>So by taking a look at this awesome XKCD post</p>
-
 <p>If you only shave off 2-3 minutes daily, you can afford to spend at least a day on this. (Not even counting all the new joiners after you + reduced number of interruptions you would have caused)</p>
-
-<h3 id="oh-but-sure-i-won-t-be-able-to-automate-everything-in-a-day">- <em>Oh, but sure I won&rsquo;t be able to automate everything in a day.</em></h3>
-
+<h3 id="--oh-but-sure-i-wont-be-able-to-automate-everything-in-a-day">- <em>Oh, but sure I won&rsquo;t be able to automate everything in a day.</em></h3>
 <p>Yes, that seems unlikely but what you can do is the following:</p>
-
 <ul>
 <li>Set up a template, so others can contribute to</li>
 <li>Automate if easy</li>
 <li>If it&rsquo;s not easy to do quick just add a helpful message of how to do the manual work</li>
 </ul>
-
-<h3 id="well-sound-good-but-how-do-i-get-started">- <em>Well sound good, but how do I get started?</em></h3>
-
+<h3 id="--well-sound-good-but-how-do-i-get-started">- <em>Well sound good, but how do I get started?</em></h3>
 <p>Look at this template and you can roll your own from it</p>
-
 <pre><code>#!/bin/bash
 
 #Set up a few working folders
@@ -150,7 +134,7 @@ function check_repo {
     else
         echo $1 &quot;exists not cloning&quot;
     fi
-
+    
 }
 #Every service should have a sciprt to start things up
 function runService {
@@ -171,23 +155,23 @@ case ${_cmd} in
         #Start up needed things
         check_repo serviceA
         runService serviceA
-
+        
         check_repo serviceB
         runService serviceB
-
+        
         #Wonky dependency/manual work needed
         check_repo serviceC
         echo &quot;This service is special in order to run it, please do ...&quot;
-
+        
         #Maybe a different kind of project
         check_repo frontEnd
         cd $REPOS/frontEnd
         npm run &amp;&gt; $LOGDIR/frontEnd.log &amp;
-
+        
         # A little reminder never hurts 
         echo &quot;&quot;
         echo &quot;For logs see: ./devcli logs &quot;
-
+        
         ;;
     logs)
         tail -f $LOGDIR/*
@@ -200,9 +184,7 @@ case ${_cmd} in
         ;;
 esac
 </code></pre>
-
 <p>As you can see, even something as simple as this can go a long way on developer on-boarding, and isn&rsquo;t as horrible to maintain.</p>
-
 <p>Hope it helps, let me know what you think.
 I would like to thank <a href="https://twitter.com/andreitognolo">@andreitognolo</a>
 for having the opportunity to work on a project that already had this set up.
@@ -211,16 +193,16 @@ For a fully fledged example take a look <a href="https://github.com/mavcunha/dev
             <ul class="share-buttons">
     <li></li>
     <li>
-        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiszlai.github.io%2fpost%2fthe_dev_cli%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title=""></a>
+        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fiszlai.com%2fpost%2fthe_dev_cli%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title=""></a>
     </li>
     <li>
-        <a class="icon-twitter" href="https://twitter.com/share?text=The%20devcli&amp;url=https%3a%2f%2fiszlai.github.io%2fpost%2fthe_dev_cli%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title=""></a>
+        <a class="icon-twitter" href="https://twitter.com/share?text=The%20devcli&amp;url=https%3a%2f%2fiszlai.com%2fpost%2fthe_dev_cli%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title=""></a>
     </li>
     <li>
-        <a class="icon-gplus" href="https://plus.google.com/share?url=https%3a%2f%2fiszlai.github.io%2fpost%2fthe_dev_cli%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title=""></a>
+        <a class="icon-gplus" href="https://plus.google.com/share?url=https%3a%2f%2fiszlai.com%2fpost%2fthe_dev_cli%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title=""></a>
     </li>
     <li>
-        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fiszlai.github.io%2fpost%2fthe_dev_cli%2f&title=The%20devcli" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title=""></a>
+        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fiszlai.com%2fpost%2fthe_dev_cli%2f&title=The%20devcli" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title=""></a>
     </li>
 </ul>
 
@@ -229,7 +211,7 @@ For a fully fledged example take a look <a href="https://github.com/mavcunha/dev
         <div class="comments">
             <h3></h3>
             <div id="disqus_thread"></div>
-<script>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -253,7 +235,7 @@ For a fully fledged example take a look <a href="https://github.com/mavcunha/dev
     </main>
     <aside class="author">
   <h2>YOUR HOST</h2>
-  <a href="/post/about-me/"><img class="profile-image" src="https://iszlai.github.io/images/bio-photo.jpg" alt="Lehel Iszlai" /></a>
+  <a href="/post/about-me/"><img class="profile-image" src="https://iszlai.com/images/bio-photo.jpg" alt="Lehel Iszlai" /></a>
   <p class="name"> 
   <strong>Lehel Iszlai</strong></p>
   <p class="address">engineering, product, distributed systems, entrepreneurship</p>
@@ -279,7 +261,7 @@ For a fully fledged example take a look <a href="https://github.com/mavcunha/dev
 
 
 
-<li><a href="https://iszlai.github.io/post/index.xml" class="icon-rss" target="_blank" title="RSS"></a></li>
+<li><a href="https://iszlai.com/post/index.xml" class="icon-rss" target="_blank" title="RSS"></a></li>
 
   </ul>
   <br><br>
@@ -289,8 +271,8 @@ For a fully fledged example take a look <a href="https://github.com/mavcunha/dev
 
 <footer class="main-footer">
   <div class="container clearfix">
-        <a class="icon-rss" href="https://iszlai.github.io/post/index.xml" title="RSS"></a>
-        <p>&copy; 2018 &middot; Lehel Iszlai</p>
+        <a class="icon-rss" href="https://iszlai.com/post/index.xml" title="RSS"></a>
+        <p>&copy; 2020 &middot; Lehel Iszlai</p>
   </div>
 </footer>
 
@@ -298,21 +280,24 @@ For a fully fledged example take a look <a href="https://github.com/mavcunha/dev
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<script>window.jQuery || document.write('<script src="https:\/\/iszlai.github.io\/js\/vendor\/jquery-1.11.0.min.js"><\/script>')</script>
-<script src="https://iszlai.github.io/js/plugins.js"></script>
-<script src="https://iszlai.github.io/js/custom.js"></script>
+<script>window.jQuery || document.write('<script src="https:\/\/iszlai.com\/js\/vendor\/jquery-1.11.0.min.js"><\/script>')</script>
+<script src="https://iszlai.com/js/plugins.js"></script>
+<script src="https://iszlai.com/js/custom.js"></script>
 
 
 
 
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-54428146-1', 'auto');
-ga('send', 'pageview');
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-54428146-1', 'auto');
+	
+	ga('send', 'pageview');
+}
 </script>
 
 </body>
