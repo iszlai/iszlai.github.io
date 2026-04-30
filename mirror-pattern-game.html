@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mirror Magic — Pattern Game</title>
+<style>
+  :root {
+    --bg-1: #ffeef8;
+    --bg-2: #e0f4ff;
+    --bg-3: #fff8e0;
+    --panel: #ffffff;
+    --ink: #2d2a4a;
+    --soft: #6b6890;
+    --line: #ff5dad;
+    --good: #2dcc70;
+    --bad: #ff5a5a;
+    --shadow: 0 8px 24px rgba(60, 40, 100, 0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 10% 10%, var(--bg-1), transparent 50%),
+      radial-gradient(circle at 90% 20%, var(--bg-2), transparent 55%),
+      radial-gradient(circle at 50% 100%, var(--bg-3), transparent 60%),
+      #fdfcff;
+    overflow-x: hidden;
+  }
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 18px 40px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    margin: 0;
+    background: linear-gradient(90deg, #ff5dad, #7c5cff, #00b4d8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+  }
+  .stats {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    background: var(--panel);
+    border-radius: 999px;
+    padding: 10px 18px;
+    box-shadow: var(--shadow);
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .pill .label { color: var(--soft); font-weight: 600; font-size: 14px; }
+  .pill .v { color: var(--ink); font-size: 22px; }
+
+  .game {
+    background: var(--panel);
+    border-radius: 24px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .grid-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1;
+  }
+  .grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    gap: 6px;
+    background: linear-gradient(135deg, #f3e9ff, #e6f6ff);
+    padding: 10px;
+    border-radius: 18px;
+  }
+  .cell {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 3px solid #efe9ff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .12s ease, border-color .12s ease, background .12s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cell:hover { border-color: #cfc4ff; }
+  .cell.source { background: #fbf6ff; cursor: default; }
+  .cell.source:hover { border-color: #efe9ff; }
+  .cell.on {
+    background: #fff5e6;
+    cursor: default;
+    border-color: #ffd9a8;
+  }
+  .cell.on:hover { border-color: #ffd9a8; }
+  .cell.outside {
+    background: repeating-linear-gradient(45deg, #f3f1f7, #f3f1f7 6px, #ebe9f0 6px, #ebe9f0 12px);
+    cursor: not-allowed;
+    opacity: 0.55;
+    border-color: transparent;
+  }
+  .cell.outside:hover { border-color: transparent; }
+  .cell.target { background: #ffffff; }
+  .cell.target:hover {
+    transform: scale(1.04);
+    border-color: #b8a4ff;
+  }
+  .cell.correct { border-color: var(--good); box-shadow: 0 0 0 3px rgba(45, 204, 112, 0.18); }
+  .cell.wrong { border-color: var(--bad); box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.18); animation: shake .35s; }
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)}
+  }
+  .cell svg.shape { width: 78%; height: 78%; }
+
+  .mirror-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 5;
+  }
+  .mirror-overlay line {
+    stroke: var(--line);
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-dasharray: 14 10;
+    filter: drop-shadow(0 0 6px rgba(255, 93, 173, 0.55));
+    animation: dash 1s linear infinite;
+  }
+  @keyframes dash {
+    to { stroke-dashoffset: -24; }
+  }
+  .mirror-label {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--line);
+    color: white;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow);
+    z-index: 6;
+  }
+
+  .palette {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .palette-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .swatch, .shape-btn, .tool-btn, .mirror-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    border: 4px solid transparent;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .1s ease;
+    font-family: inherit;
+    color: var(--line);
+  }
+  .swatch:active, .shape-btn:active, .tool-btn:active, .mirror-btn:active { transform: scale(0.94); }
+  .swatch { padding: 0; }
+  .swatch.selected, .shape-btn.selected, .tool-btn.selected, .mirror-btn.selected {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+  .shape-btn svg, .tool-btn svg, .mirror-btn svg { width: 70%; height: 70%; }
+
+  .offset-display {
+    min-width: 64px;
+    height: 56px;
+    border-radius: 14px;
+    background: #f6f3ff;
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 2px 6px rgba(60, 40, 100, 0.06);
+    padding: 0 14px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .row-label {
+    font-size: 12px;
+    color: var(--soft);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  button.action {
+    border: none;
+    border-radius: 18px;
+    padding: 14px 22px;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    font-family: inherit;
+    transition: transform .1s ease, filter .12s ease;
+  }
+  button.action:hover { filter: brightness(1.05); }
+  button.action:active { transform: translateY(1px); }
+  .btn-new { background: linear-gradient(135deg, #7c5cff, #00b4d8); }
+  .btn-check { background: linear-gradient(135deg, #2dcc70, #2dccaa); }
+  .btn-clear { background: linear-gradient(135deg, #ffb347, #ff8a5b); }
+  .btn-hint { background: linear-gradient(135deg, #ff5dad, #ff7eb6); }
+
+  .toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    background: var(--panel);
+    border-radius: 18px;
+    padding: 18px 28px;
+    box-shadow: var(--shadow);
+    font-size: 22px;
+    font-weight: 800;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1);
+    z-index: 50;
+    text-align: center;
+    max-width: 90vw;
+  }
+  .toast.show { transform: translate(-50%, 0); }
+  .toast.good { color: var(--good); border: 3px solid var(--good); }
+  .toast.bad { color: var(--bad); border: 3px solid var(--bad); }
+  .toast .sub { display:block; font-size: 14px; color: var(--soft); margin-top: 4px; font-weight: 600; }
+
+  .confetti {
+    position: fixed;
+    pointer-events: none;
+    inset: 0;
+    overflow: hidden;
+    z-index: 40;
+  }
+  .conf {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    top: -20px;
+    animation: fall linear forwards;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(720deg); }
+  }
+
+  footer {
+    margin-top: 18px;
+    text-align: center;
+    color: var(--soft);
+    font-size: 14px;
+  }
+
+  .tool-btn[disabled] { opacity: 0.35; cursor: not-allowed; }
+  .tool-btn[disabled]:active { transform: none; }
+
+  @media (max-width: 600px) {
+    .swatch, .shape-btn, .tool-btn, .mirror-btn { width: 46px; height: 46px; }
+    button.action { padding: 12px 16px; font-size: 16px; }
+    .pill { padding: 8px 14px; font-size: 16px; }
+    .pill .v { font-size: 18px; }
+    .offset-display { height: 46px; font-size: 16px; min-width: 50px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>✨ Mirror Magic ✨</h1>
+    <div class="stats">
+      <div class="pill"><span class="label">Level</span><span class="v" id="level">1</span></div>
+      <div class="pill"><span class="label">Time</span><span class="v" id="time">0s</span></div>
+      <div class="pill"><span class="label">Score</span><span class="v" id="score">0</span></div>
+    </div>
+  </header>
+
+  <div class="game">
+    <div class="grid-wrap" id="gridWrap">
+      <div class="mirror-label" id="mirrorLabel">MIRROR</div>
+      <div class="grid" id="grid"></div>
+      <svg class="mirror-overlay" id="mirrorSvg" preserveAspectRatio="none">
+        <line id="mirrorLine" x1="0" y1="0" x2="0" y2="0"/>
+      </svg>
+    </div>
+
+    <div class="palette">
+      <div class="row-label">Mirror direction</div>
+      <div class="palette-row" id="mirrorTypes"></div>
+
+      <div class="row-label">Move the mirror</div>
+      <div class="palette-row">
+        <button class="tool-btn" id="mirrorPrev" title="Move mirror">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"/></svg>
+        </button>
+        <div class="offset-display" id="offsetDisplay">center</div>
+        <button class="tool-btn" id="mirrorNext" title="Move mirror">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+
+      <div class="row-label">Pick a shape</div>
+      <div class="palette-row" id="shapes"></div>
+      <div class="row-label">Pick a color</div>
+      <div class="palette-row" id="colors"></div>
+      <div class="palette-row" style="margin-top:6px">
+        <button class="tool-btn" id="eraser" title="Eraser">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6 6h12v-2H11l9-9-7-7-13 13z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="action btn-new" id="newBtn">🎲 New Game</button>
+      <button class="action btn-hint" id="hintBtn">💡 Show Me</button>
+      <button class="action btn-clear" id="clearBtn">🧽 Clear My Side</button>
+      <button class="action btn-check" id="checkBtn">✅ Check!</button>
+    </div>
+  </div>
+
+  <footer>Pick a mirror direction and slide it around. Mirror the shapes from the colored side onto the empty side. Faster = bigger score! 🌟</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="confetti" id="confetti"></div>
+
+<div id="errBox" style="display:none;position:fixed;top:12px;left:12px;right:12px;background:#fff5f5;border:2px solid #ff5a5a;color:#900;padding:12px;border-radius:12px;font-family:monospace;font-size:12px;z-index:200;white-space:pre-wrap;word-break:break-word;"></div>
+<script>
+window.addEventListener('error', function (e) {
+  var b = document.getElementById('errBox');
+  if (!b) return;
+  b.style.display = 'block';
+  b.textContent = 'Script error: ' + e.message + '\n at ' + (e.filename||'') + ':' + (e.lineno||'') + ':' + (e.colno||'');
+});
+try {
+(function () {
+  // ---------- Config ----------
+  const SHAPES = ['circle', 'square', 'triangle', 'star', 'heart', 'diamond'];
+  const COLORS = [
+    { name: 'red',    val: '#ff5a5a' },
+    { name: 'orange', val: '#ff9f43' },
+    { name: 'yellow', val: '#ffd93d' },
+    { name: 'green',  val: '#2dcc70' },
+    { name: 'blue',   val: '#3aa6ff' },
+    { name: 'purple', val: '#a06bff' },
+    { name: 'pink',   val: '#ff79c6' },
+  ];
+  const GAP = 6; // CSS grid gap in px
+
+  const MIRROR_TYPES = [
+    { type: 'V', label: 'Vertical' },
+    { type: 'H', label: 'Horizontal' },
+    { type: 'D', label: 'Diagonal ↘' },
+    { type: 'A', label: 'Diagonal ↙' },
+  ];
+
+  // ---------- State ----------
+  const state = {
+    level: 1,
+    score: 0,
+    size: 4,
+    cells: [],
+    selectedShape: 'circle',
+    selectedColor: COLORS[0].val,
+    eraser: false,
+    timerStart: 0,
+    timerId: null,
+    mirror: { type: 'V', offset: 2 },
+    winning: false,
+  };
+
+  // ---------- DOM ----------
+  const $ = (id) => document.getElementById(id);
+  const grid = $('grid');
+  const gridWrap = $('gridWrap');
+  const mirrorSvg = $('mirrorSvg');
+  const mirrorLine = $('mirrorLine');
+  const mirrorLabel = $('mirrorLabel');
+  const shapesEl = $('shapes');
+  const colorsEl = $('colors');
+  const eraserEl = $('eraser');
+  const mirrorTypesEl = $('mirrorTypes');
+  const mirrorPrevEl = $('mirrorPrev');
+  const mirrorNextEl = $('mirrorNext');
+  const offsetDisplay = $('offsetDisplay');
+  const levelEl = $('level');
+  const timeEl = $('time');
+  const scoreEl = $('score');
+  const toastEl = $('toast');
+  const confettiEl = $('confetti');
+
+  // ---------- Helpers ----------
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  // ---------- Mirror math ----------
+  function mirrorOf(r, c, mirror = state.mirror, N = state.size) {
+    let mr, mc;
+    if (mirror.type === 'V') { mr = r; mc = 2 * mirror.offset - 1 - c; }
+    else if (mirror.type === 'H') { mr = 2 * mirror.offset - 1 - r; mc = c; }
+    else if (mirror.type === 'D') { mr = c + mirror.offset; mc = r - mirror.offset; }
+    else if (mirror.type === 'A') { const K = N - 1 + mirror.offset; mr = K - c; mc = K - r; }
+    if (mr < 0 || mr >= N || mc < 0 || mc >= N) return null;
+    return [mr, mc];
+  }
+
+  function cellSide(r, c, mirror = state.mirror, N = state.size) {
+    const m = mirrorOf(r, c, mirror, N);
+    if (!m) return 'outside';
+    if (m[0] === r && m[1] === c) return 'on';
+    let isSource;
+    if (mirror.type === 'V') isSource = c < mirror.offset;
+    else if (mirror.type === 'H') isSource = r < mirror.offset;
+    else if (mirror.type === 'D') isSource = r < c + mirror.offset;
+    else if (mirror.type === 'A') isSource = r + c < N - 1 + mirror.offset;
+    return isSource ? 'source' : 'target';
+  }
+
+  function offsetRange() {
+    const N = state.size;
+    if (state.mirror.type === 'V' || state.mirror.type === 'H') {
+      return [1, N - 1];
+    } else {
+      // Keep diagonal mirror positions where there's a real puzzle (avoid degenerate cases on tiny grids)
+      const r = Math.max(1, N - 3);
+      return [-r, r];
+    }
+  }
+  function clampOffset() {
+    const [lo, hi] = offsetRange();
+    state.mirror.offset = clamp(state.mirror.offset, lo, hi);
+  }
+
+  // ---------- SVG shape factory ----------
+  function shapeSVG(shape, color) {
+    const c = color || '#000';
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.classList.add('shape');
+    let el;
+    switch (shape) {
+      case 'circle':
+        el = document.createElementNS(ns, 'circle');
+        el.setAttribute('cx','50'); el.setAttribute('cy','50'); el.setAttribute('r','38');
+        el.setAttribute('fill', c);
+        break;
+      case 'square':
+        el = document.createElementNS(ns, 'rect');
+        el.setAttribute('x','15'); el.setAttribute('y','15');
+        el.setAttribute('width','70'); el.setAttribute('height','70');
+        el.setAttribute('rx','10'); el.setAttribute('fill', c);
+        break;
+      case 'triangle':
+        el = document.createElementNS(ns, 'polygon');
+        el.setAttribute('points','50,12 88,82 12,82');
+        el.setAttribute('fill', c);
+        el.setAttribute('stroke-linejoin','round');
+        break;
+      case 'star':
+        el = document.createElementNS(ns, 'polygon');
+        el.setAttribute('points','50,10 61,38 92,40 67,60 76,90 50,72 24,90 33,60 8,40 39,38');
+        el.setAttribute('fill', c);
+        break;
+      case 'heart':
+        el = document.createElementNS(ns, 'path');
+        el.setAttribute('d','M50 86 C20 66 8 48 18 32 C26 20 42 22 50 36 C58 22 74 20 82 32 C92 48 80 66 50 86 Z');
+        el.setAttribute('fill', c);
+        break;
+      case 'diamond':
+        el = document.createElementNS(ns, 'polygon');
+        el.setAttribute('points','50,10 90,50 50,90 10,50');
+        el.setAttribute('fill', c);
+        break;
+    }
+    if (el) {
+      el.setAttribute('stroke', '#00000022');
+      el.setAttribute('stroke-width','2');
+      svg.appendChild(el);
+    }
+    return svg;
+  }
+
+  // Mirror icon (small SVG line) for the mirror-type buttons
+  function mirrorIcon(type) {
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 100 100');
+    const line = document.createElementNS(ns, 'line');
+    line.setAttribute('stroke', 'currentColor');
+    line.setAttribute('stroke-width', '12');
+    line.setAttribute('stroke-linecap', 'round');
+    line.setAttribute('stroke-dasharray', '10,8');
+    if (type === 'V') { line.setAttribute('x1','50'); line.setAttribute('y1','12'); line.setAttribute('x2','50'); line.setAttribute('y2','88'); }
+    else if (type === 'H') { line.setAttribute('x1','12'); line.setAttribute('y1','50'); line.setAttribute('x2','88'); line.setAttribute('y2','50'); }
+    else if (type === 'D') { line.setAttribute('x1','18'); line.setAttribute('y1','18'); line.setAttribute('x2','82'); line.setAttribute('y2','82'); }
+    else if (type === 'A') { line.setAttribute('x1','82'); line.setAttribute('y1','18'); line.setAttribute('x2','18'); line.setAttribute('y2','82'); }
+    svg.appendChild(line);
+    return svg;
+  }
+
+  // ---------- Build palettes ----------
+  function buildPalettes() {
+    // Mirror types
+    MIRROR_TYPES.forEach(m => {
+      const b = document.createElement('button');
+      b.className = 'mirror-btn' + (m.type === state.mirror.type ? ' selected' : '');
+      b.dataset.mtype = m.type;
+      b.title = m.label;
+      b.appendChild(mirrorIcon(m.type));
+      b.addEventListener('click', () => {
+        if (state.mirror.type === m.type) return;
+        state.mirror.type = m.type;
+        // Reset offset to center for V/H, 0 for D/A
+        if (m.type === 'V' || m.type === 'H') state.mirror.offset = Math.floor(state.size / 2);
+        else state.mirror.offset = 0;
+        clampOffset();
+        regenerate();
+        updateMirrorUI();
+      });
+      mirrorTypesEl.appendChild(b);
+    });
+
+    // Shapes
+    SHAPES.forEach(s => {
+      const b = document.createElement('button');
+      b.className = 'shape-btn' + (s === state.selectedShape ? ' selected' : '');
+      b.dataset.shape = s;
+      b.appendChild(shapeSVG(s, '#444'));
+      b.addEventListener('click', () => {
+        state.selectedShape = s;
+        state.eraser = false;
+        updatePaletteSelection();
+      });
+      shapesEl.appendChild(b);
+    });
+    // Colors
+    COLORS.forEach(c => {
+      const b = document.createElement('button');
+      b.className = 'swatch' + (c.val === state.selectedColor ? ' selected' : '');
+      b.dataset.color = c.val;
+      b.style.background = c.val;
+      b.title = c.name;
+      b.addEventListener('click', () => {
+        state.selectedColor = c.val;
+        state.eraser = false;
+        updatePaletteSelection();
+      });
+      colorsEl.appendChild(b);
+    });
+    eraserEl.addEventListener('click', () => {
+      state.eraser = !state.eraser;
+      updatePaletteSelection();
+    });
+
+    // Move mirror buttons
+    mirrorPrevEl.addEventListener('click', () => moveMirror(-1));
+    mirrorNextEl.addEventListener('click', () => moveMirror(+1));
+  }
+
+  function moveMirror(delta) {
+    const [lo, hi] = offsetRange();
+    const newOffset = clamp(state.mirror.offset + delta, lo, hi);
+    if (newOffset === state.mirror.offset) return;
+    state.mirror.offset = newOffset;
+    regenerate();
+    updateMirrorUI();
+  }
+
+  function updatePaletteSelection() {
+    [...shapesEl.children].forEach(b => b.classList.toggle('selected', b.dataset.shape === state.selectedShape && !state.eraser));
+    [...colorsEl.children].forEach(b => b.classList.toggle('selected', b.dataset.color === state.selectedColor && !state.eraser));
+    eraserEl.classList.toggle('selected', state.eraser);
+  }
+
+  function updateMirrorUI() {
+    [...mirrorTypesEl.children].forEach(b => b.classList.toggle('selected', b.dataset.mtype === state.mirror.type));
+    const [lo, hi] = offsetRange();
+    mirrorPrevEl.disabled = state.mirror.offset <= lo;
+    mirrorNextEl.disabled = state.mirror.offset >= hi;
+    offsetDisplay.textContent = offsetLabel();
+    mirrorLabel.textContent = MIRROR_TYPES.find(m => m.type === state.mirror.type).label;
+  }
+
+  function offsetLabel() {
+    const N = state.size;
+    const off = state.mirror.offset;
+    if (state.mirror.type === 'V') {
+      const mid = N / 2;
+      if (off === mid) return 'center';
+      return off < mid ? `${mid - off} ⬅` : `${off - mid} ➡`;
+    }
+    if (state.mirror.type === 'H') {
+      const mid = N / 2;
+      if (off === mid) return 'center';
+      return off < mid ? `${mid - off} ⬆` : `${off - mid} ⬇`;
+    }
+    if (off === 0) return 'center';
+    return off > 0 ? `+${off}` : `${off}`;
+  }
+
+  // ---------- Grid building ----------
+  function gridSizeForLevel(level) {
+    const sizes = [4, 4, 6, 6, 8, 8, 10, 10];
+    return sizes[Math.min(level - 1, sizes.length - 1)];
+  }
+  function patternDensity(level) {
+    return Math.min(0.32 + level * 0.04, 0.6);
+  }
+
+  function buildGrid() {
+    state.size = gridSizeForLevel(state.level);
+    const N = state.size;
+    grid.style.gridTemplateColumns = `repeat(${N}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${N}, 1fr)`;
+    grid.innerHTML = '';
+    state.cells = Array.from({ length: N }, () => Array(N).fill(null));
+
+    // After grid changes size, fix mirror offset
+    if (state.mirror.type === 'V' || state.mirror.type === 'H') {
+      state.mirror.offset = Math.floor(N / 2);
+    }
+    clampOffset();
+
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.dataset.r = r;
+        cell.dataset.c = c;
+        cell.addEventListener('click', onCellClick);
+        grid.appendChild(cell);
+      }
+    }
+  }
+
+  function renderCell(r, c) {
+    const N = state.size;
+    const idx = r * N + c;
+    const el = grid.children[idx];
+    if (!el) return;
+    el.innerHTML = '';
+    el.classList.remove('correct', 'wrong', 'source', 'target', 'on', 'outside');
+    const side = cellSide(r, c);
+    el.classList.add(side);
+    const v = state.cells[r][c];
+    if (v) el.appendChild(shapeSVG(v.shape, v.color));
+  }
+
+  function renderAll() {
+    const N = state.size;
+    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) renderCell(r, c);
+    // Wait one frame for layout, then draw mirror line
+    requestAnimationFrame(renderMirrorLine);
+  }
+
+  // ---------- Mirror line drawing ----------
+  function cellCenterPx(r, c) {
+    if (!grid.children[0]) return null;
+    const cell0 = grid.children[0].getBoundingClientRect();
+    const wrap = gridWrap.getBoundingClientRect();
+    const baseX = cell0.left - wrap.left + cell0.width / 2;
+    const baseY = cell0.top - wrap.top + cell0.height / 2;
+    const stride = cell0.width + GAP; // assume square cells
+    return { x: baseX + c * stride, y: baseY + r * stride };
+  }
+
+  function renderMirrorLine() {
+    if (!grid.children[0]) return;
+    const N = state.size;
+    const wrap = gridWrap.getBoundingClientRect();
+    let x1, y1, x2, y2;
+
+    if (state.mirror.type === 'V') {
+      const k = state.mirror.offset;
+      const left = cellCenterPx(0, k - 1);
+      const right = cellCenterPx(0, k);
+      const x = (left.x + right.x) / 2;
+      x1 = x; x2 = x;
+      y1 = 4; y2 = wrap.height - 4;
+    } else if (state.mirror.type === 'H') {
+      const k = state.mirror.offset;
+      const top = cellCenterPx(k - 1, 0);
+      const bot = cellCenterPx(k, 0);
+      const y = (top.y + bot.y) / 2;
+      y1 = y; y2 = y;
+      x1 = 4; x2 = wrap.width - 4;
+    } else if (state.mirror.type === 'D') {
+      // r = c + d, line through cell centers; extend beyond grid
+      const d = state.mirror.offset;
+      const p1 = cellCenterPx(-1 + d, -1);
+      const p2 = cellCenterPx(N + d, N);
+      x1 = p1.x; y1 = p1.y; x2 = p2.x; y2 = p2.y;
+    } else if (state.mirror.type === 'A') {
+      // r + c = N - 1 + d
+      const d = state.mirror.offset;
+      const K = N - 1 + d;
+      const p1 = cellCenterPx(K + 1, -1);
+      const p2 = cellCenterPx(K - N, N);
+      x1 = p1.x; y1 = p1.y; x2 = p2.x; y2 = p2.y;
+    }
+
+    mirrorLine.setAttribute('x1', x1);
+    mirrorLine.setAttribute('y1', y1);
+    mirrorLine.setAttribute('x2', x2);
+    mirrorLine.setAttribute('y2', y2);
+
+    // Position the MIRROR label so it sits on the line where it enters the grid
+    positionMirrorLabel(x1, y1, x2, y2, wrap.width, wrap.height);
+  }
+
+  function positionMirrorLabel(x1, y1, x2, y2, w, h) {
+    // Find midpoint of line clipped to grid bounds
+    let lx = (x1 + x2) / 2;
+    let ly = (y1 + y2) / 2;
+    if (state.mirror.type === 'V') { ly = -14; lx = (x1 + x2) / 2; }
+    else if (state.mirror.type === 'H') { ly = -14; lx = w / 2; }
+    else {
+      // Place near top edge where line crosses
+      // Just use the top of the line endpoints
+      const minY = Math.min(y1, y2);
+      lx = (minY === y1) ? x1 : x2;
+      ly = -14;
+      // Clamp x within grid
+      lx = clamp(lx, 30, w - 30);
+    }
+    mirrorLabel.style.left = lx + 'px';
+    mirrorLabel.style.top = ly + 'px';
+    mirrorLabel.style.transform = 'translate(-50%, 0)';
+  }
+
+  // ---------- Cell click ----------
+  function onCellClick(e) {
+    if (state.winning) return;
+    const r = +e.currentTarget.dataset.r;
+    const c = +e.currentTarget.dataset.c;
+    const side = cellSide(r, c);
+    if (side !== 'target') return;
+    if (state.eraser) {
+      state.cells[r][c] = null;
+    } else {
+      state.cells[r][c] = { shape: state.selectedShape, color: state.selectedColor };
+    }
+    renderCell(r, c);
+    autoCheck();
+  }
+
+  // Silently check: if the puzzle is solved, run the win flow. Otherwise do nothing.
+  function autoCheck() {
+    if (state.winning) return;
+    if (isSolved()) triggerWin();
+  }
+
+  function isSolved() {
+    const N = state.size;
+    let totalNeeded = 0;
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        if (cellSide(r, c) !== 'target') continue;
+        const m = mirrorOf(r, c);
+        const expected = m ? state.cells[m[0]][m[1]] : null;
+        const actual = state.cells[r][c];
+        if (expected) totalNeeded++;
+        if (!sameCell(expected, actual)) return false;
+      }
+    }
+    return totalNeeded > 0;
+  }
+
+  function triggerWin() {
+    state.winning = true;
+    const elapsed = (Date.now() - state.timerStart) / 1000;
+    const base = 100 + state.level * 50;
+    const timeBonus = Math.max(0, Math.round(300 - elapsed * 5));
+    const earned = base + timeBonus;
+    state.score += earned;
+    scoreEl.textContent = state.score;
+    stopTimer();
+    // Highlight all correct target cells
+    const N = state.size;
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        if (cellSide(r, c) === 'target' && state.cells[r][c]) {
+          const idx = r * N + c;
+          grid.children[idx].classList.add('correct');
+        }
+      }
+    }
+    celebrate();
+    showToast('good',
+      `🎉 Perfect Mirror! +${earned} points`,
+      `Time: ${elapsed.toFixed(1)}s · Loading next level...`);
+    setTimeout(() => {
+      state.level++;
+      state.winning = false;
+      newGame();
+    }, 2200);
+  }
+
+  // ---------- Pattern generation ----------
+  function regenerate() {
+    const N = state.size;
+    state.cells = Array.from({ length: N }, () => Array(N).fill(null));
+
+    const candidates = [];
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        const side = cellSide(r, c);
+        if (side === 'source' || side === 'on') candidates.push([r, c]);
+      }
+    }
+    if (candidates.length === 0) {
+      renderAll();
+      return;
+    }
+    shuffle(candidates);
+    const fill = Math.max(2, Math.round(candidates.length * patternDensity(state.level)));
+    const n = Math.min(fill, candidates.length);
+    for (let i = 0; i < n; i++) {
+      const [r, c] = candidates[i];
+      const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)].val;
+      state.cells[r][c] = { shape, color };
+    }
+    renderAll();
+    startTimer();
+  }
+
+  function newGame() {
+    stopTimer();
+    state.winning = false;
+    buildGrid();
+    levelEl.textContent = state.level;
+    updateMirrorUI();
+    regenerate();
+  }
+
+  function clearMySide() {
+    const N = state.size;
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        if (cellSide(r, c) === 'target') {
+          state.cells[r][c] = null;
+          renderCell(r, c);
+        }
+      }
+    }
+  }
+
+  function showHint() {
+    const N = state.size;
+    const backup = Array.from({ length: N }, () => Array(N).fill(undefined));
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        if (cellSide(r, c) === 'target') {
+          const m = mirrorOf(r, c);
+          if (m) {
+            backup[r][c] = state.cells[r][c];
+            const src = state.cells[m[0]][m[1]];
+            state.cells[r][c] = src ? { ...src } : null;
+            renderCell(r, c);
+          }
+        }
+      }
+    }
+    setTimeout(() => {
+      for (let r = 0; r < N; r++) {
+        for (let c = 0; c < N; c++) {
+          if (backup[r][c] !== undefined) {
+            state.cells[r][c] = backup[r][c];
+            renderCell(r, c);
+          }
+        }
+      }
+    }, 1500);
+  }
+
+  // ---------- Check (manual button) ----------
+  function check() {
+    if (state.winning) return;
+    const N = state.size;
+    let allCorrect = true;
+    let filledCount = 0;
+    let totalNeeded = 0;
+    for (let r = 0; r < N; r++) {
+      for (let c = 0; c < N; c++) {
+        if (cellSide(r, c) !== 'target') continue;
+        const idx = r * N + c;
+        const el = grid.children[idx];
+        const m = mirrorOf(r, c);
+        const expected = m ? state.cells[m[0]][m[1]] : null;
+        const actual = state.cells[r][c];
+        if (expected) totalNeeded++;
+        if (actual) filledCount++;
+        const eq = sameCell(expected, actual);
+        el.classList.remove('correct', 'wrong');
+        if (eq) {
+          if (expected) el.classList.add('correct');
+        } else {
+          el.classList.add('wrong');
+          allCorrect = false;
+        }
+      }
+    }
+    if (allCorrect && totalNeeded > 0) {
+      triggerWin();
+    } else if (totalNeeded === 0) {
+      showToast('bad', '🤔 Nothing to mirror', 'Try a different mirror position or click New Game.');
+    } else {
+      const stillEmpty = filledCount < totalNeeded;
+      showToast('bad',
+        stillEmpty ? '🤔 Almost there!' : '❌ Some shapes don\'t match',
+        'Red squares need fixing. Try again!');
+      setTimeout(() => {
+        for (const el of grid.children) el.classList.remove('correct', 'wrong');
+      }, 1800);
+    }
+  }
+  function sameCell(a, b) {
+    if (!a && !b) return true;
+    if (!a || !b) return false;
+    return a.shape === b.shape && a.color === b.color;
+  }
+
+  // ---------- Toast ----------
+  let toastTimeout;
+  function showToast(kind, msg, sub) {
+    toastEl.className = 'toast ' + kind + ' show';
+    toastEl.innerHTML = msg + (sub ? `<span class="sub">${sub}</span>` : '');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toastEl.classList.remove('show');
+    }, 2000);
+  }
+
+  // ---------- Confetti ----------
+  function celebrate() {
+    const palette = COLORS.map(c => c.val);
+    for (let i = 0; i < 60; i++) {
+      const piece = document.createElement('div');
+      piece.className = 'conf';
+      piece.style.background = palette[Math.floor(Math.random() * palette.length)];
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.animationDuration = (1.6 + Math.random() * 1.5) + 's';
+      piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+      piece.style.borderRadius = Math.random() > 0.5 ? '3px' : '50%';
+      confettiEl.appendChild(piece);
+      setTimeout(() => piece.remove(), 3500);
+    }
+  }
+
+  // ---------- Timer ----------
+  function startTimer() {
+    state.timerStart = Date.now();
+    timeEl.textContent = '0s';
+    if (state.timerId) clearInterval(state.timerId);
+    state.timerId = setInterval(() => {
+      const e = Math.floor((Date.now() - state.timerStart) / 1000);
+      timeEl.textContent = e + 's';
+    }, 250);
+  }
+  function stopTimer() {
+    if (state.timerId) clearInterval(state.timerId);
+    state.timerId = null;
+  }
+
+  // ---------- Wire buttons ----------
+  $('newBtn').addEventListener('click', () => {
+    state.level = 1;
+    state.score = 0;
+    scoreEl.textContent = '0';
+    newGame();
+  });
+  $('checkBtn').addEventListener('click', check);
+  $('clearBtn').addEventListener('click', clearMySide);
+  $('hintBtn').addEventListener('click', showHint);
+
+  // Redraw mirror line on resize
+  window.addEventListener('resize', () => requestAnimationFrame(renderMirrorLine));
+
+  // ---------- Init ----------
+  buildPalettes();
+  newGame();
+})();
+} catch (err) {
+  var b = document.getElementById('errBox');
+  if (b) {
+    b.style.display = 'block';
+    b.textContent = 'Init error: ' + (err && err.message ? err.message : String(err)) + '\n' + (err && err.stack ? err.stack : '');
+  }
+}
+</script>
+</body>
+</html>
