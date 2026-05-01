@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Mirror Magic ✨</title>
+<style>
+  :root {
+    --paper:    #fdf6e3;
+    --paper-2:  #f6ecd1;
+    --ink:      #3a3a4a;
+    --rose:     #ff6b9d;
+    --rose-d:   #d94976;
+    --sky:      #7cc6fe;
+    --sky-d:    #4a9ad8;
+    --mint:     #5dd8a3;
+    --mint-d:   #36a575;
+    --sun:      #fcd34d;
+    --sun-d:    #d99e1a;
+    --coral:    #ff8a65;
+    --sand:     #f4d4a8;
+    --shadow:   rgba(58, 58, 74, 0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 20% 10%, #ffe9b8 0%, transparent 40%),
+      radial-gradient(circle at 80% 90%, #ffd6e6 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, #c5e8ff 0%, transparent 35%),
+      var(--paper);
+    font-family: 'Chalkboard SE', 'Marker Felt', 'Comic Sans MS', system-ui, sans-serif;
+    color: var(--ink);
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+
+  /* Subtle paper grain */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(58,58,74,0.04) 1px, transparent 0);
+    background-size: 4px 4px;
+    z-index: 0;
+  }
+
+  #app {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5vh 2.5vw 1.5vh 2.5vw;
+  }
+
+  #header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+    flex-shrink: 0;
+  }
+
+  #title {
+    font-family: 'Marker Felt', 'Bradley Hand', 'Chalkboard SE', cursive;
+    font-size: clamp(28px, 4.5vw, 48px);
+    font-weight: bold;
+    color: var(--rose);
+    text-shadow:
+      2px 2px 0 #fff,
+      4px 4px 0 var(--sun),
+      6px 6px 0 var(--shadow);
+    letter-spacing: 1px;
+    transform: rotate(-2deg);
+  }
+  #title .star { display: inline-block; animation: spin 6s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  #level-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 10px 22px;
+    border-radius: 999px;
+    box-shadow:
+      0 4px 0 var(--sun-d),
+      0 8px 16px var(--shadow);
+    font-weight: bold;
+    font-size: clamp(18px, 2.8vw, 26px);
+    color: var(--ink);
+    border: 3px solid var(--sun);
+  }
+  #stars {
+    display: flex;
+    gap: 4px;
+    font-size: clamp(16px, 2.5vw, 22px);
+  }
+
+  #instructions {
+    text-align: center;
+    font-size: clamp(16px, 2.4vw, 22px);
+    color: var(--ink);
+    margin: 1.2vh 0 0.5vh 0;
+    flex-shrink: 0;
+    opacity: 0.85;
+  }
+  #instructions .pattern-name {
+    color: var(--rose-d);
+    font-weight: bold;
+  }
+
+  #board-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    padding: 0.5vh 0;
+  }
+
+  #board {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: visible;
+  }
+
+  #controls {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 1vh 0;
+    flex-shrink: 0;
+  }
+
+  button {
+    font-family: inherit;
+    font-size: clamp(17px, 2.4vw, 22px);
+    font-weight: bold;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s, filter 0.15s;
+    color: white;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: 0.5px;
+    min-width: 110px;
+  }
+  button:active {
+    transform: translateY(4px);
+  }
+
+  #undo-btn {
+    background: linear-gradient(180deg, #ffb74d 0%, var(--coral) 100%);
+    box-shadow: 0 5px 0 #c75a3a, 0 8px 16px var(--shadow);
+  }
+  #undo-btn:active { box-shadow: 0 1px 0 #c75a3a, 0 2px 4px var(--shadow); }
+
+  #clear-btn {
+    background: linear-gradient(180deg, #b8b8d0 0%, #8a8aa8 100%);
+    box-shadow: 0 5px 0 #5a5a78, 0 8px 16px var(--shadow);
+  }
+  #clear-btn:active { box-shadow: 0 1px 0 #5a5a78, 0 2px 4px var(--shadow); }
+
+  #hint-btn {
+    background: linear-gradient(180deg, #ffe066 0%, var(--sun-d) 100%);
+    box-shadow: 0 5px 0 #a17812, 0 8px 16px var(--shadow);
+    color: #5a3e0a;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+  }
+  #hint-btn:active { box-shadow: 0 1px 0 #a17812, 0 2px 4px var(--shadow); }
+  #hint-btn:disabled {
+    filter: grayscale(0.7) brightness(0.85);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 3px 0 #a17812, 0 4px 8px var(--shadow);
+  }
+
+  #check-btn {
+    background: linear-gradient(180deg, #7be8a8 0%, var(--mint-d) 100%);
+    box-shadow: 0 5px 0 #1f7c54, 0 8px 16px var(--shadow);
+    font-size: clamp(19px, 2.6vw, 24px);
+    padding: 14px 36px;
+  }
+  #check-btn:active { box-shadow: 0 1px 0 #1f7c54, 0 2px 4px var(--shadow); }
+
+  /* Hint preview lines */
+  .hint-line {
+    stroke: var(--sun-d);
+    stroke-width: 6;
+    stroke-linecap: round;
+    stroke-dasharray: 6 8;
+    opacity: 0;
+    animation: hintPulse 3s ease-in-out forwards;
+    pointer-events: none;
+  }
+  @keyframes hintPulse {
+    0%   { opacity: 0; }
+    15%  { opacity: 0.9; }
+    70%  { opacity: 0.9; }
+    100% { opacity: 0; }
+  }
+
+  /* Modal */
+  #modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(58, 58, 74, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    animation: fadein 0.3s;
+  }
+  #modal.show { display: flex; }
+  @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+  #modal-card {
+    background: white;
+    border-radius: 32px;
+    padding: 40px 50px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    border: 6px solid var(--sun);
+    animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    max-width: 90vw;
+  }
+  @keyframes pop {
+    0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+  }
+
+  #modal-emoji {
+    font-size: clamp(60px, 12vw, 100px);
+    margin-bottom: 12px;
+    animation: bounce 1s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-12px) rotate(-5deg); }
+    75% { transform: translateY(-6px) rotate(5deg); }
+  }
+
+  #modal-text {
+    font-family: 'Marker Felt', 'Bradley Hand', cursive;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: bold;
+    color: var(--rose);
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 0 var(--sun);
+  }
+  #modal-sub {
+    font-size: clamp(16px, 2.5vw, 22px);
+    color: var(--ink);
+    opacity: 0.7;
+    margin-bottom: 28px;
+  }
+
+  #next-btn {
+    background: linear-gradient(180deg, var(--rose) 0%, var(--rose-d) 100%);
+    box-shadow: 0 6px 0 #a02d52, 0 10px 20px var(--shadow);
+    font-size: clamp(20px, 3vw, 26px);
+    padding: 18px 40px;
+  }
+  #next-btn:active { box-shadow: 0 2px 0 #a02d52, 0 4px 8px var(--shadow); }
+
+  /* Toast for "try again" */
+  #toast {
+    position: fixed;
+    top: 12vh;
+    left: 50%;
+    transform: translateX(-50%) translateY(-200%);
+    background: white;
+    padding: 16px 32px;
+    border-radius: 999px;
+    border: 4px solid var(--coral);
+    box-shadow: 0 8px 24px var(--shadow);
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: bold;
+    color: var(--ink);
+    z-index: 90;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+  }
+  #toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Confetti pieces */
+  .confetti {
+    position: fixed;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    z-index: 95;
+    will-change: transform, opacity;
+  }
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(900deg);
+      opacity: 0;
+    }
+  }
+
+  /* Wobble animation for wrong answer */
+  .wobble {
+    animation: wobble 0.5s;
+  }
+  @keyframes wobble {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px) rotate(-1deg); }
+    75% { transform: translateX(10px) rotate(1deg); }
+  }
+</style>
+</head>
+<body>
+  <div id="app">
+    <div id="header">
+      <div id="title"><span class="star">✨</span> Mirror Magic <span class="star">✨</span></div>
+      <div id="level-info">
+        Level <span id="level-num">1</span>
+        <span id="stars"></span>
+      </div>
+    </div>
+
+    <div id="instructions">
+      Draw the <span class="pattern-name" id="pattern-name">pattern</span> on the right side! 🪞
+    </div>
+
+    <div id="board-wrap">
+      <svg id="board" viewBox="0 0 1000 540" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="mirrorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#cfe9f8"/>
+            <stop offset="40%" stop-color="#ffffff" stop-opacity="0.85"/>
+            <stop offset="60%" stop-color="#ffffff" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#cfe9f8"/>
+          </linearGradient>
+          <linearGradient id="mirrorFrame" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#a87b4d"/>
+            <stop offset="50%" stop-color="#d4a574"/>
+            <stop offset="100%" stop-color="#a87b4d"/>
+          </linearGradient>
+          <linearGradient id="leftBox" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fffaf0"/>
+            <stop offset="100%" stop-color="#fdeed0"/>
+          </linearGradient>
+          <linearGradient id="rightBox" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#f5fbff"/>
+            <stop offset="100%" stop-color="#dff0fc"/>
+          </linearGradient>
+          <filter id="softShadow">
+            <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.18"/>
+          </filter>
+          <filter id="strongShadow">
+            <feDropShadow dx="0" dy="3" stdDeviation="2" flood-opacity="0.3"/>
+          </filter>
+        </defs>
+        <!-- Filled in dynamically -->
+      </svg>
+    </div>
+
+    <div id="controls">
+      <button id="undo-btn">↩️ Undo</button>
+      <button id="clear-btn">🗑️ Clear</button>
+      <button id="hint-btn">💡 Hint</button>
+      <button id="check-btn">✨ Check ✨</button>
+    </div>
+  </div>
+
+  <div id="modal">
+    <div id="modal-card">
+      <div id="modal-emoji">🌟</div>
+      <div id="modal-text">Perfect!</div>
+      <div id="modal-sub">You drew a beautiful mirror!</div>
+      <button id="next-btn">Next Level →</button>
+    </div>
+  </div>
+
+  <div id="toast">🤔 Almost! Try again!</div>
+
+<script>
+'use strict';
+
+// ============ CONFIG ============
+const COLS = 6;
+const ROWS = 6;
+const STEP = 78;
+const PAD = 60;
+const SVG_W = 2 * PAD + (2 * COLS - 1) * STEP;   // 70 + 80*9 + 70 = 860
+const SVG_H = 2 * PAD + (ROWS - 1) * STEP;       // 70 + 320 + 70 = 460
+
+// Recompute viewBox to match
+const board = document.getElementById('board');
+board.setAttribute('viewBox', `0 0 ${SVG_W} ${SVG_H}`);
+
+const NS = 'http://www.w3.org/2000/svg';
+
+// ============ PATTERNS ============
+// Each line: [c1, r1, c2, r2] in LEFT-side coords (col 0..5, row 0..5)
+// Col 5 is closest to mirror; mirror puts col c → right col (5-c)
+const PATTERNS = [
+  {
+    name: 'a Bowl 🥣',
+    lines: [
+      [1, 2, 1, 4],
+      [1, 4, 5, 4],
+    ],
+  },
+  {
+    name: 'a Window 🪟',
+    lines: [
+      [2, 2, 5, 2],
+      [2, 2, 2, 4],
+      [2, 4, 5, 4],
+    ],
+  },
+  {
+    name: 'a Diamond 💎',
+    lines: [
+      [5, 2, 3, 3],
+      [3, 3, 5, 4],
+    ],
+  },
+  {
+    name: 'a Big Diamond 💍',
+    lines: [
+      [5, 0, 1, 2],
+      [1, 2, 1, 3],
+      [1, 3, 5, 5],
+    ],
+  },
+  {
+    name: 'Stairs 🪜',
+    lines: [
+      [0, 5, 1, 5],
+      [1, 5, 1, 4],
+      [1, 4, 2, 4],
+      [2, 4, 2, 3],
+      [2, 3, 3, 3],
+      [3, 3, 3, 2],
+      [3, 2, 4, 2],
+      [4, 2, 4, 1],
+      [4, 1, 5, 1],
+    ],
+  },
+  {
+    name: 'a Mountain ⛰️',
+    lines: [
+      [0, 5, 5, 5],
+      [0, 5, 2, 1],
+      [2, 1, 5, 1],
+    ],
+  },
+  {
+    name: 'a Plus ➕',
+    lines: [
+      [3, 0, 5, 0],
+      [3, 0, 3, 2],
+      [3, 2, 1, 2],
+      [1, 2, 1, 3],
+      [1, 3, 3, 3],
+      [3, 3, 3, 5],
+      [3, 5, 5, 5],
+    ],
+  },
+  {
+    name: 'a House 🏠',
+    lines: [
+      [0, 5, 5, 5],
+      [0, 5, 0, 2],
+      [0, 2, 5, 0],
+      [3, 5, 3, 4],
+      [3, 4, 5, 4],
+    ],
+  },
+  {
+    name: 'a Heart 💖',
+    lines: [
+      [5, 5, 1, 3],
+      [1, 3, 2, 1],
+      [2, 1, 4, 1],
+      [4, 1, 5, 2],
+    ],
+  },
+  {
+    name: 'a Tree 🌲',
+    lines: [
+      [5, 1, 2, 3],
+      [2, 3, 3, 3],
+      [3, 3, 1, 5],
+      [1, 5, 5, 5],
+    ],
+  },
+  {
+    name: 'a Castle 🏰',
+    lines: [
+      [0, 5, 5, 5],
+      [0, 5, 0, 2],
+      [0, 2, 1, 2],
+      [1, 2, 1, 3],
+      [1, 3, 2, 3],
+      [2, 3, 2, 2],
+      [2, 2, 3, 2],
+      [3, 2, 3, 3],
+      [3, 3, 4, 3],
+      [4, 3, 4, 2],
+      [4, 2, 5, 2],
+    ],
+  },
+  {
+    name: 'a Crown 👑',
+    lines: [
+      [0, 5, 5, 5],
+      [0, 5, 0, 3],
+      [0, 3, 1, 2],
+      [1, 2, 2, 3],
+      [2, 3, 3, 3],
+      [3, 3, 4, 2],
+      [4, 2, 5, 3],
+    ],
+  },
+];
+
+// ============ HELPERS ============
+function el(tag, attrs = {}, parent = null) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) {
+    if (attrs[k] === undefined || attrs[k] === null) continue;
+    e.setAttribute(k, attrs[k]);
+  }
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+function dotPos(side, c, r) {
+  const x = side === 'L'
+    ? PAD + c * STEP
+    : PAD + (COLS - 1) * STEP + STEP + c * STEP;
+  const y = PAD + r * STEP;
+  return [x, y];
+}
+
+function mirrorLine([c1, r1, c2, r2]) {
+  return [COLS - 1 - c1, r1, COLS - 1 - c2, r2];
+}
+
+function gcd(a, b) {
+  a = Math.abs(a); b = Math.abs(b);
+  while (b) [a, b] = [b, a % b];
+  return a;
+}
+
+function segKey(c1, r1, c2, r2) {
+  if (c1 < c2 || (c1 === c2 && r1 < r2)) return `${c1},${r1}-${c2},${r2}`;
+  return `${c2},${r2}-${c1},${r1}`;
+}
+
+// Decompose a line into unit-step segments along its direction.
+// This way, "drew (0,0)→(2,0)" matches "drew (0,0)→(1,0) and (1,0)→(2,0)".
+function decomposeLine([c1, r1, c2, r2]) {
+  const dc = c2 - c1, dr = r2 - r1;
+  const g = gcd(dc, dr);
+  if (g === 0) return [];
+  const sx = dc / g, sy = dr / g;
+  const out = [];
+  for (let i = 0; i < g; i++) {
+    out.push(segKey(c1 + i * sx, r1 + i * sy, c1 + (i + 1) * sx, r1 + (i + 1) * sy));
+  }
+  return out;
+}
+
+// ============ STATE ============
+let currentLevel = 0;
+let userLines = []; // each: [c1, r1, c2, r2] in RIGHT-side coords
+let drawing = null; // {c, r, x, y} when user is dragging
+let ghost = null;   // ghost line element
+let dotElements = {}; // 'c,r' -> {visual, hit}
+
+// ============ RENDER BOARD ============
+function renderBoard() {
+  while (board.firstChild) board.removeChild(board.firstChild);
+
+  // Build defs (must use createElementNS, can't innerHTML SVG)
+  const defsEl = el('defs', {}, board);
+  // Mirror gradient
+  const mg = el('linearGradient', { id: 'mirrorGrad', x1: '0%', y1: '0%', x2: '100%', y2: '0%' }, defsEl);
+  el('stop', { offset: '0%', 'stop-color': '#cfe9f8' }, mg);
+  el('stop', { offset: '35%', 'stop-color': '#ffffff', 'stop-opacity': '0.95' }, mg);
+  el('stop', { offset: '65%', 'stop-color': '#ffffff', 'stop-opacity': '0.95' }, mg);
+  el('stop', { offset: '100%', 'stop-color': '#cfe9f8' }, mg);
+  // Mirror frame gradient
+  const mf = el('linearGradient', { id: 'mirrorFrame', x1: '0%', y1: '0%', x2: '0%', y2: '100%' }, defsEl);
+  el('stop', { offset: '0%', 'stop-color': '#bd8a52' }, mf);
+  el('stop', { offset: '50%', 'stop-color': '#e0b888' }, mf);
+  el('stop', { offset: '100%', 'stop-color': '#9a6d3c' }, mf);
+  // Left/Right box gradients
+  const lb = el('linearGradient', { id: 'leftBox', x1: '0%', y1: '0%', x2: '0%', y2: '100%' }, defsEl);
+  el('stop', { offset: '0%', 'stop-color': '#fffaf0' }, lb);
+  el('stop', { offset: '100%', 'stop-color': '#fdeed0' }, lb);
+  const rb = el('linearGradient', { id: 'rightBox', x1: '0%', y1: '0%', x2: '0%', y2: '100%' }, defsEl);
+  el('stop', { offset: '0%', 'stop-color': '#f5fbff' }, rb);
+  el('stop', { offset: '100%', 'stop-color': '#dff0fc' }, rb);
+  // Soft shadow filter
+  const sh = el('filter', { id: 'softShadow', x: '-20%', y: '-20%', width: '140%', height: '140%' }, defsEl);
+  el('feDropShadow', { dx: '0', dy: '4', stdDeviation: '6', 'flood-opacity': '0.18' }, sh);
+
+  // Box backgrounds
+  const boxMargin = 20;
+  const leftBoxX = PAD - boxMargin;
+  const leftBoxW = (COLS - 1) * STEP + boxMargin * 2;
+  const boxY = PAD - boxMargin;
+  const boxH = (ROWS - 1) * STEP + boxMargin * 2;
+  const rightBoxX = PAD + (COLS - 1) * STEP + STEP - boxMargin;
+
+  el('rect', {
+    x: leftBoxX, y: boxY, width: leftBoxW, height: boxH,
+    fill: 'url(#leftBox)', stroke: '#d4a574', 'stroke-width': 4, rx: 18, ry: 18,
+    filter: 'url(#softShadow)',
+  }, board);
+
+  el('rect', {
+    x: rightBoxX, y: boxY, width: leftBoxW, height: boxH,
+    fill: 'url(#rightBox)', stroke: '#7cb9d4', 'stroke-width': 4, rx: 18, ry: 18,
+    filter: 'url(#softShadow)',
+  }, board);
+
+  // Box labels (cute paper tape labels)
+  const tapeY = boxY - 6;
+  const leftTape = el('g', { transform: `translate(${leftBoxX + leftBoxW/2 - 50}, ${tapeY}) rotate(-3)` }, board);
+  el('rect', { x: 0, y: -16, width: 100, height: 28, fill: '#ffd6e6', stroke: 'none', rx: 4, opacity: 0.9 }, leftTape);
+  el('text', { x: 50, y: 4, 'text-anchor': 'middle', 'font-family': 'Marker Felt, Chalkboard SE, cursive',
+    'font-size': 18, fill: '#c44570', 'font-weight': 'bold' }, leftTape).textContent = 'Pattern';
+
+  const rightTape = el('g', { transform: `translate(${rightBoxX + leftBoxW/2 - 60}, ${tapeY}) rotate(2)` }, board);
+  el('rect', { x: 0, y: -16, width: 120, height: 28, fill: '#c5e8ff', stroke: 'none', rx: 4, opacity: 0.9 }, rightTape);
+  el('text', { x: 60, y: 4, 'text-anchor': 'middle', 'font-family': 'Marker Felt, Chalkboard SE, cursive',
+    'font-size': 18, fill: '#2f7aa8', 'font-weight': 'bold' }, rightTape).textContent = 'Your Mirror!';
+
+  // === Mirror in the middle ===
+  const mirrorCenterX = PAD + (COLS - 1) * STEP + STEP / 2;
+  const mirrorTop = boxY - 8;
+  const mirrorH = boxH + 16;
+  const mirrorW = 28;
+
+  // Mirror frame (wooden look)
+  el('rect', {
+    x: mirrorCenterX - mirrorW / 2 - 4, y: mirrorTop - 4,
+    width: mirrorW + 8, height: mirrorH + 8,
+    fill: 'url(#mirrorFrame)', rx: 12, ry: 12,
+    filter: 'url(#softShadow)',
+  }, board);
+
+  // Mirror glass
+  el('rect', {
+    x: mirrorCenterX - mirrorW / 2, y: mirrorTop,
+    width: mirrorW, height: mirrorH,
+    fill: 'url(#mirrorGrad)', rx: 6, ry: 6,
+  }, board);
+
+  // Mirror shimmer (animated)
+  const shimmer = el('rect', {
+    x: mirrorCenterX - mirrorW / 2 + 4, y: mirrorTop + 8,
+    width: 4, height: 32,
+    fill: '#ffffff', opacity: 0.7, rx: 2,
+  }, board);
+  const anim = el('animateTransform', {
+    attributeName: 'transform', type: 'translate',
+    values: `0,0; 0,${mirrorH - 50}; 0,0`,
+    dur: '4s', repeatCount: 'indefinite',
+  }, shimmer);
+
+  // Mirror sparkles
+  const sparklePositions = [
+    [mirrorCenterX - 18, mirrorTop + 30, 8, 0],
+    [mirrorCenterX + 16, mirrorTop + mirrorH - 50, 6, 1.5],
+    [mirrorCenterX - 14, mirrorTop + mirrorH - 20, 7, 0.8],
+    [mirrorCenterX + 18, mirrorTop + mirrorH / 2, 9, 2.2],
+  ];
+  sparklePositions.forEach(([x, y, sz, delay]) => {
+    const g = el('g', { transform: `translate(${x},${y})` }, board);
+    el('text', {
+      'text-anchor': 'middle', 'dominant-baseline': 'middle',
+      'font-size': sz * 2, fill: '#fcd34d',
+      style: `animation: spin ${3 + delay}s linear infinite;`
+    }, g).textContent = '✨';
+  });
+
+  // === LEFT pattern dots (small, gray) ===
+  const pattern = PATTERNS[currentLevel];
+  // First, render all dots faintly (so kid sees the grid)
+  for (let c = 0; c < COLS; c++) {
+    for (let r = 0; r < ROWS; r++) {
+      const [x, y] = dotPos('L', c, r);
+      el('circle', { cx: x, cy: y, r: 4, fill: '#c0a880', opacity: 0.55 }, board);
+    }
+  }
+
+  // === LEFT pattern lines (drawn over dots) ===
+  const patternLines = el('g', { 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, board);
+  pattern.lines.forEach(line => {
+    const [c1, r1, c2, r2] = line;
+    const [x1, y1] = dotPos('L', c1, r1);
+    const [x2, y2] = dotPos('L', c2, r2);
+    el('line', {
+      x1, y1, x2, y2,
+      stroke: '#3a3a4a', 'stroke-width': 7,
+    }, patternLines);
+  });
+
+  // Highlight the pattern endpoint dots
+  const patternDots = new Set();
+  pattern.lines.forEach(line => {
+    patternDots.add(`${line[0]},${line[1]}`);
+    patternDots.add(`${line[2]},${line[3]}`);
+  });
+  patternDots.forEach(key => {
+    const [c, r] = key.split(',').map(Number);
+    const [x, y] = dotPos('L', c, r);
+    el('circle', { cx: x, cy: y, r: 6, fill: '#3a3a4a' }, board);
+  });
+
+  // === RIGHT side dots (interactive) ===
+  dotElements = {};
+  const rightDotsGroup = el('g', { id: 'right-dots' }, board);
+  for (let c = 0; c < COLS; c++) {
+    for (let r = 0; r < ROWS; r++) {
+      const [x, y] = dotPos('R', c, r);
+      // Subtle pulse glow
+      const glow = el('circle', {
+        cx: x, cy: y, r: 14, fill: '#7cc6fe', opacity: 0,
+      }, rightDotsGroup);
+      // Visual dot
+      const visual = el('circle', {
+        cx: x, cy: y, r: 7,
+        fill: '#7cc6fe', stroke: '#4a9ad8', 'stroke-width': 2,
+      }, rightDotsGroup);
+      // Animated breathing
+      const animBreath = el('animate', {
+        attributeName: 'r',
+        values: '7;8.5;7',
+        dur: `${2 + (c + r) * 0.1}s`,
+        repeatCount: 'indefinite',
+      }, visual);
+      // Hit area (large transparent circle)
+      const hit = el('circle', {
+        cx: x, cy: y, r: 26, fill: 'transparent',
+        'data-c': c, 'data-r': r,
+        style: 'cursor: pointer;'
+      }, rightDotsGroup);
+      dotElements[`${c},${r}`] = { visual, glow, hit };
+    }
+  }
+
+  // === User lines container ===
+  el('g', { id: 'user-lines', 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, board);
+  // === Ghost line container ===
+  el('g', { id: 'ghost-line' }, board);
+
+  // Re-render any user lines (after redraw)
+  redrawUserLines();
+}
+
+function redrawUserLines() {
+  const g = document.getElementById('user-lines');
+  if (!g) return;
+  while (g.firstChild) g.removeChild(g.firstChild);
+  userLines.forEach(line => drawUserLine(line));
+}
+
+function drawUserLine(line, status = 'normal') {
+  const g = document.getElementById('user-lines');
+  if (!g) return null;
+  const [c1, r1, c2, r2] = line;
+  const [x1, y1] = dotPos('R', c1, r1);
+  const [x2, y2] = dotPos('R', c2, r2);
+  let color = '#ff6b9d';
+  if (status === 'correct') color = '#36a575';
+  if (status === 'wrong') color = '#e74c3c';
+  const lineEl = el('line', {
+    x1, y1, x2, y2,
+    stroke: color, 'stroke-width': 7,
+    'data-key': segKey(c1, r1, c2, r2),
+  }, g);
+  // Cap dots at endpoints
+  el('circle', { cx: x1, cy: y1, r: 6, fill: color }, g);
+  el('circle', { cx: x2, cy: y2, r: 6, fill: color }, g);
+  // Pop-in animation
+  lineEl.style.transformOrigin = `${(x1 + x2) / 2}px ${(y1 + y2) / 2}px`;
+  lineEl.animate(
+    [{ transform: 'scale(0)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }],
+    { duration: 200, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }
+  );
+  return lineEl;
+}
+
+// ============ INPUT HANDLING ============
+function getSVGPoint(evt) {
+  const pt = board.createSVGPoint();
+  pt.x = evt.clientX;
+  pt.y = evt.clientY;
+  const ctm = board.getScreenCTM();
+  if (!ctm) return [evt.clientX, evt.clientY];
+  const local = pt.matrixTransform(ctm.inverse());
+  return [local.x, local.y];
+}
+
+function nearestRightDot(svgX, svgY, maxDist = 50) {
+  let best = null, bestD = Infinity;
+  for (let c = 0; c < COLS; c++) {
+    for (let r = 0; r < ROWS; r++) {
+      const [x, y] = dotPos('R', c, r);
+      const d = Math.hypot(x - svgX, y - svgY);
+      if (d < bestD) { bestD = d; best = { c, r, x, y }; }
+    }
+  }
+  return bestD < maxDist ? best : null;
+}
+
+function highlightDot(c, r, on) {
+  const dot = dotElements[`${c},${r}`];
+  if (!dot) return;
+  dot.glow.setAttribute('opacity', on ? '0.5' : '0');
+  dot.visual.setAttribute('r', on ? '10' : '7');
+  dot.visual.setAttribute('fill', on ? '#ff6b9d' : '#7cc6fe');
+  dot.visual.setAttribute('stroke', on ? '#d94976' : '#4a9ad8');
+}
+
+function clearGhost() {
+  const g = document.getElementById('ghost-line');
+  while (g && g.firstChild) g.removeChild(g.firstChild);
+  ghost = null;
+}
+
+function startDraw(evt) {
+  if (evt.pointerType === 'mouse' && evt.button !== 0) return;
+  const [x, y] = getSVGPoint(evt);
+  const dot = nearestRightDot(x, y, 30);
+  if (!dot) return;
+  evt.preventDefault();
+
+  drawing = dot;
+  highlightDot(dot.c, dot.r, true);
+
+  // Create ghost line
+  const g = document.getElementById('ghost-line');
+  ghost = el('line', {
+    x1: dot.x, y1: dot.y, x2: x, y2: y,
+    stroke: '#ff6b9d', 'stroke-width': 6,
+    'stroke-linecap': 'round', 'stroke-dasharray': '10 8',
+    opacity: 0.7,
+  }, g);
+
+  try { board.setPointerCapture(evt.pointerId); } catch (e) {}
+}
+
+function moveDraw(evt) {
+  if (!drawing || !ghost) return;
+  evt.preventDefault();
+  const [x, y] = getSVGPoint(evt);
+  const target = nearestRightDot(x, y, 35);
+
+  // Highlight snap target
+  for (const key in dotElements) {
+    const [tc, tr] = key.split(',').map(Number);
+    if (tc === drawing.c && tr === drawing.r) continue;
+    const isTarget = target && target.c === tc && target.r === tr;
+    const dot = dotElements[key];
+    dot.glow.setAttribute('opacity', isTarget ? '0.4' : '0');
+  }
+
+  if (target && (target.c !== drawing.c || target.r !== drawing.r)) {
+    ghost.setAttribute('x2', target.x);
+    ghost.setAttribute('y2', target.y);
+    ghost.setAttribute('opacity', '0.95');
+    ghost.setAttribute('stroke-dasharray', '');
+  } else {
+    ghost.setAttribute('x2', x);
+    ghost.setAttribute('y2', y);
+    ghost.setAttribute('opacity', '0.7');
+    ghost.setAttribute('stroke-dasharray', '10 8');
+  }
+}
+
+function endDraw(evt) {
+  if (!drawing) { clearGhost(); return; }
+  const [x, y] = getSVGPoint(evt);
+  const target = nearestRightDot(x, y, 40);
+
+  highlightDot(drawing.c, drawing.r, false);
+  // Clear all glows
+  for (const key in dotElements) dotElements[key].glow.setAttribute('opacity', '0');
+
+  clearGhost();
+
+  if (target && (target.c !== drawing.c || target.r !== drawing.r)) {
+    const newLine = [drawing.c, drawing.r, target.c, target.r];
+    const newKey = segKey(...newLine);
+    // Avoid exact duplicates
+    const exists = userLines.some(l => segKey(...l) === newKey);
+    if (!exists) {
+      userLines.push(newLine);
+      drawUserLine(newLine);
+      playClick();
+    }
+  }
+  drawing = null;
+}
+
+board.addEventListener('pointerdown', startDraw);
+board.addEventListener('pointermove', moveDraw);
+board.addEventListener('pointerup', endDraw);
+board.addEventListener('pointercancel', endDraw);
+board.addEventListener('pointerleave', (evt) => {
+  // If pointer left while drawing without capture, cancel
+  if (drawing && !board.hasPointerCapture?.(evt.pointerId)) {
+    highlightDot(drawing.c, drawing.r, false);
+    clearGhost();
+    drawing = null;
+  }
+});
+
+// ============ BUTTONS ============
+document.getElementById('undo-btn').addEventListener('click', () => {
+  if (userLines.length === 0) return;
+  userLines.pop();
+  redrawUserLines();
+  playClick(440);
+});
+
+document.getElementById('clear-btn').addEventListener('click', () => {
+  if (userLines.length === 0) return;
+  userLines = [];
+  redrawUserLines();
+  playClick(330);
+});
+
+document.getElementById('check-btn').addEventListener('click', () => {
+  checkAnswer();
+});
+
+document.getElementById('hint-btn').addEventListener('click', () => {
+  showHint();
+});
+
+document.getElementById('next-btn').addEventListener('click', () => {
+  document.getElementById('modal').classList.remove('show');
+  currentLevel = (currentLevel + 1) % PATTERNS.length;
+  userLines = [];
+  updateLevelDisplay();
+  renderBoard();
+});
+
+// ============ HINT ============
+let hintActive = false;
+function showHint() {
+  if (hintActive) return;
+  hintActive = true;
+
+  const hintBtn = document.getElementById('hint-btn');
+  hintBtn.disabled = true;
+
+  // Get any existing hint group, or create one
+  let hintGroup = document.getElementById('hint-lines');
+  if (hintGroup) hintGroup.remove();
+  hintGroup = el('g', { id: 'hint-lines' }, board);
+
+  // Draw expected mirror lines as faded dashed
+  const pattern = PATTERNS[currentLevel];
+  pattern.lines.forEach(line => {
+    const [c1, r1, c2, r2] = mirrorLine(line);
+    const [x1, y1] = dotPos('R', c1, r1);
+    const [x2, y2] = dotPos('R', c2, r2);
+    el('line', {
+      x1, y1, x2, y2,
+      class: 'hint-line',
+    }, hintGroup);
+  });
+
+  // Sparkle along each hint endpoint
+  const endpoints = new Set();
+  pattern.lines.forEach(line => {
+    const m = mirrorLine(line);
+    endpoints.add(`${m[0]},${m[1]}`);
+    endpoints.add(`${m[2]},${m[3]}`);
+  });
+  endpoints.forEach(key => {
+    const [c, r] = key.split(',').map(Number);
+    const [x, y] = dotPos('R', c, r);
+    const sparkle = el('text', {
+      x, y, 'text-anchor': 'middle', 'dominant-baseline': 'middle',
+      'font-size': 22, fill: '#fcd34d',
+      opacity: 0,
+      class: 'hint-line',
+    }, hintGroup);
+    sparkle.textContent = '✨';
+  });
+
+  playHintChime();
+
+  // Auto-remove after the animation finishes (3s)
+  setTimeout(() => {
+    if (hintGroup && hintGroup.parentNode) hintGroup.remove();
+    hintActive = false;
+    hintBtn.disabled = false;
+  }, 3100);
+}
+
+// ============ CHECK ANSWER ============
+function checkAnswer() {
+  const pattern = PATTERNS[currentLevel];
+  const expected = new Set();
+  pattern.lines.forEach(line => {
+    decomposeLine(mirrorLine(line)).forEach(s => expected.add(s));
+  });
+  const drawn = new Set();
+  userLines.forEach(line => decomposeLine(line).forEach(s => drawn.add(s)));
+
+  // Compute missing and extra
+  const missing = [...expected].filter(k => !drawn.has(k));
+  const extra = [...drawn].filter(k => !expected.has(k));
+
+  if (missing.length === 0 && extra.length === 0) {
+    onSuccess();
+  } else {
+    onWrong(missing, extra);
+  }
+}
+
+function onSuccess() {
+  earnedStars[currentLevel] = true;
+  saveStars();
+  updateLevelDisplay();
+  spawnConfetti();
+  playSuccessChime();
+
+  const modal = document.getElementById('modal');
+  const messages = [
+    { emoji: '🌟', text: 'Perfect!', sub: 'You drew a beautiful mirror!' },
+    { emoji: '🎉', text: 'Amazing!', sub: 'You are a mirror master!' },
+    { emoji: '✨', text: 'Wonderful!', sub: 'That looks magical!' },
+    { emoji: '🦄', text: 'Fantastic!', sub: 'You did it perfectly!' },
+    { emoji: '🌈', text: 'Beautiful!', sub: 'A perfect mirror image!' },
+    { emoji: '💖', text: 'Great job!', sub: 'You are so smart!' },
+  ];
+  const m = messages[Math.floor(Math.random() * messages.length)];
+  document.getElementById('modal-emoji').textContent = m.emoji;
+  document.getElementById('modal-text').textContent = m.text;
+  document.getElementById('modal-sub').textContent = m.sub;
+  modal.classList.add('show');
+}
+
+function onWrong(missing, extra) {
+  // Wobble the right box
+  const app = document.getElementById('app');
+  app.classList.add('wobble');
+  setTimeout(() => app.classList.remove('wobble'), 500);
+
+  // Briefly highlight extra lines red
+  if (extra.length > 0) {
+    const lines = document.querySelectorAll('#user-lines line');
+    lines.forEach(lineEl => {
+      const k = lineEl.getAttribute('data-key');
+      const [a, b] = k.split('-');
+      const [c1, r1] = a.split(',').map(Number);
+      const [c2, r2] = b.split(',').map(Number);
+      const segs = decomposeLine([c1, r1, c2, r2]);
+      const isExtra = segs.some(s => extra.includes(s));
+      if (isExtra) {
+        const orig = lineEl.getAttribute('stroke');
+        lineEl.setAttribute('stroke', '#e74c3c');
+        setTimeout(() => lineEl.setAttribute('stroke', orig), 1200);
+      }
+    });
+  }
+
+  // Show toast
+  const toast = document.getElementById('toast');
+  let msg = '🤔 Almost! Try again!';
+  if (missing.length > 0 && extra.length === 0) msg = '➕ A few lines missing!';
+  else if (extra.length > 0 && missing.length === 0) msg = '✂️ Too many lines!';
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 1800);
+
+  playWrongTone();
+}
+
+// ============ STARS / PROGRESS ============
+let earnedStars = new Array(PATTERNS.length).fill(false);
+function saveStars() {
+  // No persistent storage — just session
+}
+
+function updateLevelDisplay() {
+  document.getElementById('level-num').textContent = currentLevel + 1;
+  document.getElementById('pattern-name').textContent = PATTERNS[currentLevel].name;
+  const starsEl = document.getElementById('stars');
+  starsEl.innerHTML = '';
+  const earnedCount = earnedStars.filter(Boolean).length;
+  if (earnedCount > 0) {
+    const sp = document.createElement('span');
+    sp.textContent = '⭐'.repeat(Math.min(earnedCount, 5)) + (earnedCount > 5 ? `×${earnedCount}` : '');
+    starsEl.appendChild(sp);
+  }
+}
+
+// ============ CONFETTI ============
+function spawnConfetti() {
+  const colors = ['#ff6b9d', '#7cc6fe', '#fcd34d', '#5dd8a3', '#ff8a65', '#c084fc'];
+  const shapes = ['🌟', '✨', '🎉', '💖', '🌈', '⭐'];
+  for (let i = 0; i < 60; i++) {
+    setTimeout(() => {
+      const piece = document.createElement('div');
+      piece.className = 'confetti';
+      const useEmoji = Math.random() < 0.4;
+      if (useEmoji) {
+        piece.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+        piece.style.fontSize = (16 + Math.random() * 14) + 'px';
+        piece.style.background = 'transparent';
+        piece.style.width = 'auto';
+        piece.style.height = 'auto';
+      } else {
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.borderRadius = Math.random() < 0.5 ? '50%' : '2px';
+      }
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.top = '-20px';
+      const duration = 2 + Math.random() * 2;
+      const drift = (Math.random() - 0.5) * 200;
+      piece.style.animation = `fall ${duration}s linear forwards`;
+      piece.style.transform = `translateX(${drift}px)`;
+      document.body.appendChild(piece);
+      setTimeout(() => piece.remove(), duration * 1000 + 100);
+    }, i * 25);
+  }
+}
+
+// ============ SOUND ============
+let audioCtx = null;
+function getAudio() {
+  if (!audioCtx) {
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    } catch (e) { return null; }
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function playTone(freq, duration = 0.18, type = 'sine', vol = 0.18) {
+  const ctx = getAudio();
+  if (!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.frequency.value = freq;
+  osc.type = type;
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  gain.gain.setValueAtTime(vol, ctx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+  osc.start();
+  osc.stop(ctx.currentTime + duration);
+}
+
+function playClick(freq = 600) {
+  playTone(freq, 0.08, 'triangle', 0.12);
+}
+
+function playSuccessChime() {
+  const notes = [523, 659, 784, 1047]; // C5, E5, G5, C6
+  notes.forEach((f, i) => setTimeout(() => playTone(f, 0.22, 'sine', 0.2), i * 90));
+}
+
+function playHintChime() {
+  // Sparkly twinkle: high, soft notes
+  const notes = [1318, 1568, 2093]; // E6, G6, C7
+  notes.forEach((f, i) => setTimeout(() => playTone(f, 0.15, 'triangle', 0.1), i * 70));
+}
+
+function playWrongTone() {
+  playTone(330, 0.15, 'sine', 0.15);
+  setTimeout(() => playTone(247, 0.18, 'sine', 0.15), 120);
+}
+
+// ============ INIT ============
+function init() {
+  updateLevelDisplay();
+  renderBoard();
+  // Resume audio on first user interaction
+  const resume = () => { getAudio(); document.removeEventListener('pointerdown', resume); };
+  document.addEventListener('pointerdown', resume);
+}
+
+// Prevent default touch behavior on the document
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('touchmove', e => {
+  if (e.target.closest('#board-wrap')) e.preventDefault();
+}, { passive: false });
+
+init();
+</script>
+</body>
+</html>
