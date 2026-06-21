@@ -1,0 +1,148 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Fun projects &middot; iszlai&#39;s data, code &amp; coffee</title>
+    <meta name="author" content="Lehel Iszlai">
+    <meta name="description" content="A collection of small, self-contained interactive web toys, games and maps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,300,700|Noto+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://iszlai.com/css/styles.css">
+    <link rel="icon" href="https://iszlai.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://iszlai.com/apple-touch-icon.png" />
+    <style>
+        .site-header h2 .logo {
+            background: url(https://iszlai.com/img/desk.jpg) no-repeat 0 0;
+        }
+        .site-header {
+            background: #2a373d url(https://iszlai.com/img/desk.jpg) no-repeat fixed left;
+            z-index: -1;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 1.5%;
+        }
+        nav a { padding-right: 16px; }
+        @media screen and (max-width: 400px) {
+            nav a { padding: 16px; }
+        }
+
+        .fun-intro { margin: 0 0 24px; color: #6b6b6b; }
+        .fun-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+        .fun-card {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #e6e6e6;
+            border-radius: 14px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+        .fun-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(0,0,0,.10);
+        }
+        .fun-card .thumb {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 46px;
+        }
+        .fun-card .body { padding: 16px 18px 20px; }
+        .fun-card h3 { margin: 0 0 6px; font-size: 18px; }
+        .fun-card p { margin: 0; font-size: 14px; line-height: 1.5; color: #5a5a5a; }
+        .fun-card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: #2a373d;
+            opacity: .6;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <span>
+            <a href="/">Home</a>
+            <a href="/post/about-me/">About</a>
+            <a href="/fun.html">Fun</a>
+        </span>
+    </nav>
+    <header class="site-header">
+        <div class="transparent-layer">
+            <h2>Fun projects</h2>
+        </div>
+    </header>
+
+    <div class="container clearfix">
+        <main role="main" class="content">
+            <p class="fun-intro">Small, self-contained things I built for fun &mdash; games, toys and maps. Each one is a single HTML page, no install required. Just click and play.</p>
+
+            <div class="fun-grid">
+
+                <a class="fun-card" href="/dog-friendly-sup-places.html">
+                    <div class="thumb" style="background:linear-gradient(135deg,#2fae9b,#1d7e72);">🐶🏄</div>
+                    <div class="body">
+                        <h3>Dog-friendly SUP map</h3>
+                        <p>An interactive map of dog-friendly stand-up paddleboarding spots around Budapest, with live drive times, ratings and a detail panel. (In Hungarian.)</p>
+                        <span class="tag">Map &middot; Leaflet</span>
+                    </div>
+                </a>
+
+                <a class="fun-card" href="/mirror_magic2.html">
+                    <div class="thumb" style="background:linear-gradient(135deg,#7b6cf6,#3a2e8c);">✨</div>
+                    <div class="body">
+                        <h3>Mirror Magic</h3>
+                        <p>A playful symmetry toy &mdash; draw and watch it mirror back in real time.</p>
+                        <span class="tag">Toy &middot; Canvas</span>
+                    </div>
+                </a>
+
+                <a class="fun-card" href="/mirror-pattern-game.html">
+                    <div class="thumb" style="background:linear-gradient(135deg,#f6a96c,#c2502a);">🪞</div>
+                    <div class="body">
+                        <h3>Mirror Magic &mdash; Pattern Game</h3>
+                        <p>A pattern-matching game built around mirrored symmetry. See how far you can get.</p>
+                        <span class="tag">Game</span>
+                    </div>
+                </a>
+
+            </div>
+        </main>
+
+        <aside class="author">
+            <h2>YOUR HOST</h2>
+            <a href="/post/about-me/"><img class="profile-image" src="https://iszlai.com/images/bio-photo.jpg" alt="Lehel Iszlai" /></a>
+            <p class="name"><strong>Lehel Iszlai</strong></p>
+            <p class="address">engineering, product, distributed systems, entrepreneurship</p>
+            <ul class="social">
+                <li><a href="//twitter.com/iszlailehel" class="icon-twitter" target="_blank" title="Twitter"></a></li>
+                <li><a href="//github.com/iszlai" class="icon-github" target="_blank" title="Github"></a></li>
+                <li><a href="https://iszlai.com/post/index.xml" class="icon-rss" target="_blank" title="RSS"></a></li>
+            </ul>
+            <br><br>
+        </aside>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container clearfix">
+            <a class="icon-rss" href="https://iszlai.com/post/index.xml" title="RSS"></a>
+            <p>&copy; 2020 &middot; Lehel Iszlai</p>
+        </div>
+    </footer>
+</body>
+</html>
