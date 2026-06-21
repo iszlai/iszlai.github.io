@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Kutyabarát SUP helyek Budapest környékén</title>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""
+/>
+<style>
+  :root {
+    --bg: #eef6f4;
+    --card: #ffffff;
+    --ink: #1f3b38;
+    --muted: #6b8783;
+    --accent: #2fae9b;
+    --accent-deep: #1d7e72;
+    --sand: #f5ece0;
+    --shadow: 0 10px 30px rgba(31, 59, 56, 0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, #d7efe9 0%, transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, #e7f3ee 0%, transparent 55%),
+      var(--bg);
+  }
+  header { padding: 26px 24px 14px; text-align: center; }
+  header .kicker {
+    letter-spacing: .18em; text-transform: uppercase;
+    font-size: 12px; color: var(--accent-deep); font-weight: 700;
+  }
+  header h1 { margin: 6px 0 4px; font-size: clamp(26px, 4vw, 40px); font-weight: 800; }
+  header p.sub { margin: 0 auto; max-width: 660px; color: var(--muted); font-size: 15px; }
+
+  .layout {
+    display: grid; grid-template-columns: 1fr 380px; gap: 18px;
+    padding: 8px 18px 18px; max-width: 1320px; margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+    #map { height: 56vh !important; }
+  }
+  #map { height: 72vh; border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; z-index: 1; }
+
+  .panel {
+    background: var(--card); border-radius: 22px; box-shadow: var(--shadow);
+    overflow: hidden; display: flex; flex-direction: column; max-height: 72vh;
+  }
+  .panel .hero { height: 190px; background-size: cover; background-position: center; position: relative; }
+  .panel .hero::after { content:""; position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,.45), transparent 55%); }
+  .panel .hero .title { position:absolute; bottom:12px; left:16px; right:16px; color:#fff; z-index:2; }
+  .panel .hero .title h2 { margin:0; font-size:22px; }
+  .panel .hero .title .loc { font-size:13px; opacity:.9; }
+  .panel .body { padding: 16px 18px 20px; overflow-y: auto; }
+
+  .badges { display:flex; flex-wrap:wrap; gap:8px; margin:4px 0 14px; }
+  .badge { font-size:12px; font-weight:700; padding:5px 10px; border-radius:999px; background:var(--sand); color:var(--accent-deep); }
+  .badge.dog { background:#ffeede; color:#b3601a; }
+  .badge.dist { background:#e3f1ff; color:#1d6fb8; }
+
+  .ratings { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:14px; }
+  .rating { background:var(--sand); border-radius:14px; padding:10px 12px; }
+  .rating .lab { font-size:12px; color:var(--muted); font-weight:600; }
+  .rating .stars { font-size:16px; letter-spacing:2px; margin-top:2px; }
+
+  .desc { font-size:14.5px; line-height:1.55; color:#36534f; }
+  .facts { list-style:none; padding:0; margin:12px 0 0; }
+  .facts li { display:flex; gap:8px; align-items:baseline; padding:7px 0; border-top:1px solid #eef2f1; font-size:14px; }
+  .facts li b { color:var(--accent-deep); min-width:110px; display:inline-block; }
+  .hint { color:var(--muted); font-size:13px; text-align:center; padding:20px; }
+
+  /* highlights */
+  .highlights { max-width:1320px; margin:0 auto; padding:4px 18px 6px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media (max-width:760px){ .highlights{ grid-template-columns:1fr; } }
+  .hl { background:var(--card); border-radius:18px; box-shadow:var(--shadow); padding:14px 16px; }
+  .hl h4 { margin:0 0 6px; font-size:15px; color:var(--accent-deep); }
+  .hl p { margin:0; font-size:13.5px; color:#46615d; line-height:1.45; }
+
+  .table-wrap { max-width:1320px; margin:0 auto; padding:14px 18px 50px; }
+  .table-wrap h3 { font-size:20px; margin:18px 6px 12px; }
+  .scroll { overflow-x:auto; border-radius:16px; box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; background:var(--card); min-width:760px; }
+  th, td { padding:11px 14px; text-align:left; font-size:14px; white-space:nowrap; }
+  thead th { background:var(--accent); color:#fff; font-weight:700; }
+  tbody tr { border-top:1px solid #eef2f1; cursor:pointer; transition:background .15s; }
+  tbody tr:hover { background:#f3faf8; }
+  tbody tr.active { background:#e3f4f0; }
+  td .mini-stars { color:var(--accent-deep); letter-spacing:1px; }
+  td.water { white-space:normal; color:#56706c; font-size:13px; }
+
+  .leaflet-popup-content-wrapper { border-radius:14px; }
+  .leaflet-popup-content { margin:10px 12px; }
+  .pop h4 { margin:0 0 4px; font-size:15px; }
+  .pop img { width:220px; height:120px; object-fit:cover; border-radius:10px; display:block; margin-bottom:6px; }
+  .pop .small { font-size:12px; color:#5b726e; }
+  .pop a.more { font-size:12px; font-weight:700; color:var(--accent-deep); cursor:pointer; }
+
+  footer { text-align:center; color:var(--muted); font-size:12.5px; padding:0 0 30px; }
+
+  .geobar {
+    max-width:1320px; margin:0 auto; padding:0 18px;
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  }
+  .geobar .box {
+    width:100%; background:var(--card); border-radius:16px; box-shadow:var(--shadow);
+    padding:12px 16px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  }
+  .geobar button {
+    border:none; cursor:pointer; font-weight:700; font-size:14px;
+    background:var(--accent); color:#fff; padding:9px 16px; border-radius:999px;
+    transition:transform .1s, background .2s;
+  }
+  .geobar button:hover { background:var(--accent-deep); transform:translateY(-1px); }
+  .geobar .status { font-size:13.5px; color:var(--muted); }
+  .geobar .status b { color:var(--accent-deep); }
+  .geobar .dot { width:9px; height:9px; border-radius:50%; background:#cbd6d3; display:inline-block; }
+  .geobar .dot.on { background:#3ec98a; }
+  .geobar .dot.load { background:#f2b84b; animation:pulse 1s infinite; }
+  @keyframes pulse { 50% { opacity:.35; } }
+  .badge.live { background:#e4f8ee; color:#1c8a59; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="kicker">Kutyabarát kalandok a vízen</div>
+    <h1>🐶 Kutyabarát SUP helyek Budapest környékén 🏄</h1>
+    <p class="sub">Budapest közeli „go-to” spotoktól a távolabbi gyöngyszemekig (1,5–2 óra). Kattints egy gombostűre a térképen vagy egy sorra a táblázatban: megjelenik a kép, a SUP- és kutyabarát értékelés, az autóidő, az irány és a víz jellege.</p>
+  </header>
+
+  <div class="geobar">
+    <div class="box">
+      <span class="dot" id="geoDot"></span>
+      <button id="geoBtn">📍 Helyzetem használata</button>
+      <span class="status" id="geoStatus">Engedélyezd a helymeghatározást, és az autóidőket, távolságokat és irányokat a saját helyzetedhez számoljuk ki (különben Budapest belvárosából becsüljük).</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div id="map"></div>
+    <aside class="panel">
+      <div class="hero" id="heroImg" style="background:linear-gradient(135deg,#2fae9b,#1d7e72);">
+        <div class="title">
+          <h2 id="heroName">Válassz egy helyet</h2>
+          <div class="loc" id="heroLoc">a térképen vagy a táblázatban</div>
+        </div>
+      </div>
+      <div class="body" id="panelBody">
+        <p class="hint">👈 Kattints egy gombostűre a térképen, és itt megjelennek a részletek: kutyabarátság, SUP-élmény, autóidő Budapesttől, a víz jellege és egy kép a helyről.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="highlights">
+    <div class="hl"><h4>🏆 Megéri messzebb menni</h4><p>Tisza-tó, Deseda-tó és Szelidi-tó – a legjobb, legnyugodtabb SUP-élmény, ha rászánsz 1,5–2 órát.</p></div>
+    <div class="hl"><h4>📍 Budapest közeli go-to</h4><p>RSD (Dunaharaszti / Szigetszentmiklós) + Pilismaróti-öböl + Velencei-tó – megbízható kedvencek.</p></div>
+    <div class="hl"><h4>⚡ Gyors after-work</h4><p>Naplás-tó, Omszki-tó és az RSD Dunaharasztinál – 10–40 perc, és már a vízen vagy.</p></div>
+  </div>
+
+  <div class="table-wrap">
+    <h3>📋 Helyszínek listája</h3>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Hely</th><th>Irány</th><th>Autóidő</th>
+            <th>SUP</th><th>Kutyabarát</th><th>Vízmélység / jelleg</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Készült ❤️-tel SUP-os kutyabarátoknak · Az autóidők a helyzetedből (vagy Budapest belvárosából) becsültek · Útvonal: OSRM · Térkép: OpenStreetMap
+  </footer>
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+<script>
+/* ---------- Adatok (a megadott táblázat alapján) ---------- */
+const places = [
+  { name:"Naplás-tó", town:"Budapest XVI.", dir:"ÉK", drive:"10–15 perc",
+    lat:47.5256, lng:19.2206, sup:2, dog:3, dogLabel:"Igen (korlátozott)",
+    water:"sekély, hínáros", color:"#5aa86a",
+    desc:"Budapest legnagyobb tava, természetvédelmi területen. Sekély és helyenként hínáros, de pont ezért nyugodt – ideális egy gyors, város közeli after-work körre a kutyával, a védett zónákra figyelve." },
+
+  { name:"Omszki-tó", town:"Budakalász", dir:"ÉK", drive:"~30 perc",
+    lat:47.6322, lng:19.0561, sup:3, dog:5, dogLabel:"Igen",
+    water:"közepes mélységű tó", color:"#2fae9b",
+    desc:"Csendes, fákkal övezett tó a Lupa szomszédságában, kevésbé zsúfolt. Lazább, kutyabarát hangulat és nyugodt víz – tökéletes egyensúlyozni tanuló kutyáknak." },
+
+  { name:"Lupa-tó (Lupa Beach)", town:"Budakalász", dir:"ÉNy", drive:"~30 perc",
+    lat:47.6486, lng:19.0686, sup:4, dog:2, dogLabel:"Nem / korlátozott",
+    water:"mély, nagyon tiszta", color:"#34b3c9",
+    desc:"Kristálytiszta, mély bányató kiépített háttérrel és SUP-kölcsönzővel. A kutyabarátság korlátozott (strandszezonban kiemelten), de a vízminőség és a SUP-élmény kiváló." },
+
+  { name:"RSD – Dunaharaszti", town:"Dunaharaszti", dir:"D", drive:"35–40 perc",
+    lat:47.3550, lng:19.0900, sup:5, dog:5, dogLabel:"Igen",
+    water:"lassú folyás, változó", color:"#2f8eae",
+    desc:"A Ráckevei-Soroksári Duna-ág lassú, szabályozott vize – kiváló SUP-terep alacsony forgalommal. Kutyabarát partszakaszok, megbízható top választás a városhoz közel." },
+
+  { name:"Szigetszentmiklós (RSD)", town:"Szigetszentmiklós", dir:"D", drive:"40–45 perc",
+    lat:47.3450, lng:19.0450, sup:5, dog:5, dogLabel:"Igen",
+    water:"csatorna, nyugodt", color:"#2f9bae",
+    desc:"Csatorna jellegű, nagyon nyugodt RSD-szakasz – szinte tükörsima víz. Kezdőbarát és kutyabarát, minimális hajóforgalommal." },
+
+  { name:"Délegyházi tavak", town:"Délegyháza", dir:"D", drive:"40–50 perc",
+    lat:47.2450, lng:19.0050, sup:4, dog:5, dogLabel:"Igen",
+    water:"bányatavak, vegyes", color:"#36a8c9",
+    desc:"Bányatavak láncolata tiszta vízzel, vegyes part­szakaszokkal. Több csendes öböl, ahol kutyával is kényelmesen vízre szállhatsz." },
+
+  { name:"Velencei-tó", town:"Agárd / Gárdony", dir:"D-DK", drive:"50–60 perc",
+    lat:47.2008, lng:18.5739, sup:5, dog:5, dogLabel:"Igen",
+    water:"sekély (1–2 m)", color:"#36b58f",
+    desc:"Sekély, gyorsan felmelegedő tó rengeteg kutyabarát stranddal és SUP-kölcsönzővel. A meleg, sekély víz pofonegyszerűvé teszi a SUP-ot – klasszikus go-to." },
+
+  { name:"Verőce / Zebegény (Duna)", town:"Verőce / Zebegény", dir:"É", drive:"55–70 perc",
+    lat:47.8120, lng:18.9500, sup:5, dog:5, dogLabel:"Igen",
+    water:"folyó, változó", color:"#3a8fd1",
+    desc:"Festői dunakanyari folyószakasz a Börzsöny tövében. Változó sodrás, ezért haladóbb élmény, cserébe lélegzetelállító táj és tág, kutyabarát partok." },
+
+  { name:"Pilismaróti-öböl", town:"Pilismarót", dir:"É", drive:"~60 perc",
+    lat:47.7780, lng:18.8700, sup:5, dog:5, dogLabel:"Igen",
+    water:"nyugodt Duna-öböl", color:"#2f86a8",
+    desc:"Védett, nyugodt Duna-öböl gyenge sodrással – a Dunakanyar egyik legbiztonságosabb SUP-pontja. Kutyabarát, kezdőknek és nyugis túrázáshoz egyaránt ideális." },
+
+  { name:"Palatinus-tó", town:"Esztergom", dir:"É", drive:"~65 perc",
+    lat:47.7660, lng:18.7150, sup:4, dog:5, dogLabel:"Igen",
+    water:"mély bányató", color:"#34b3c9",
+    desc:"Mély, tiszta bányató Esztergom mellett, csendes környezetben. Stabil, sima víztükör – kellemes, kutyabarát SUP egy hosszabb dunakanyari nap részeként." },
+
+  { name:"Bánki-tó", town:"Bánk", dir:"É", drive:"~70 perc",
+    lat:47.9286, lng:19.2375, sup:4, dog:5, dogLabel:"Igen",
+    water:"kis hegyi tó", color:"#4f9e8c",
+    desc:"Apró, hangulatos hegyi tó a Cserhát ölelésében, hűvösebb, tiszta vízzel. Nyugodt víztükör – tökéletes hétvégi kiruccanás a kutyával a város nyüzsgése elől." },
+
+  { name:"Ráckeve (RSD vége)", town:"Ráckeve", dir:"D", drive:"55–65 perc",
+    lat:47.1600, lng:18.9430, sup:5, dog:5, dogLabel:"Igen",
+    water:"csatorna jelleg", color:"#2f9bae",
+    desc:"Az RSD déli vége, csatorna jellegű, nyugodt vízzel és hangulatos kisvárosi háttérrel. Kiváló, kutyabarát SUP minimális forgalommal." },
+
+  { name:"Szelidi-tó", town:"Dunapataj", dir:"D", drive:"~1 óra 35–1 óra 45",
+    lat:46.5850, lng:18.9850, sup:4, dog:5, dogLabel:"Igen",
+    water:"sekély, meleg, nyugodt", color:"#36b58f",
+    desc:"Sekély, meleg szikes tó az Alföldön, kifejezetten nyugodt vízzel. Megéri a távot: békés, kutyabarát SUP-ozás, ideális lassú, kényelmes körökhöz." },
+
+  { name:"Deseda-tó", town:"Kaposvár", dir:"D-DNy", drive:"~1 óra 45",
+    lat:46.4300, lng:17.8200, sup:5, dog:5, dogLabel:"Igen",
+    water:"hosszú, nyugodt víz", color:"#2fae9b",
+    desc:"Hosszan elnyúló, nyugodt víztározó erdős partokkal Kaposvár mellett. Hosszú, megszakítás nélküli evezővonalak – az ország egyik legjobb, kutyabarát SUP-helyszíne." },
+
+  { name:"Tisza-tó", town:"Poroszló / Tiszafüred", dir:"ÉK", drive:"~1 óra 50–2 óra",
+    lat:47.6300, lng:20.7000, sup:5, dog:5, dogLabel:"Igen",
+    water:"sekély, lagúnás, természetes", color:"#2f8eae",
+    desc:"Sekély, lagúnás vízi vadon gazdag élővilággal – Magyarország SUP-paradicsoma. Természetközeli, kutyabarát kalandozás; a védett zónákat itt is tartsd tiszteletben." },
+
+  /* ---- További javasolt helyek (kiegészítés) ---- */
+  { name:"Molnár-sziget (Soroksár, RSD)", town:"Budapest XXIII.", dir:"D", drive:"~25 perc",
+    lat:47.4050, lng:19.1250, sup:5, dog:5, dogLabel:"Igen",
+    water:"lassú holtág, nyugodt", color:"#2f9bae",
+    desc:"Az RSD legvárosibb, mégis nyugis szakasza a Molnár-szigetnél. Lassú víz, csendes öblök és kutyabarát partok – villámgyors elérés a belvárosból egy after-work körre." },
+
+  { name:"Kavicsos-tó (Csepel)", town:"Budapest XXI.", dir:"D", drive:"~30 perc",
+    lat:47.3650, lng:19.0700, sup:4, dog:5, dogLabel:"Igen",
+    water:"mély bányató, tiszta", color:"#34b3c9",
+    desc:"Csepeli bányató meglepően tiszta vízzel, a városhatáron belül. Csendes, szélvédettebb öblök – kellemes, kutyabarát alternatíva, ha kerülnéd a folyó sodrását." },
+
+  { name:"Göd / Sződliget (Duna)", town:"Göd", dir:"É", drive:"~35 perc",
+    lat:47.6900, lng:19.1350, sup:4, dog:5, dogLabel:"Igen",
+    water:"folyó, mérsékelt sodrás", color:"#3a8fd1",
+    desc:"Tág, homokos partú dunai szakasz a Szentendrei-sziget túloldalán. Mérsékelt sodrás és sok hely a kutyának a parton – kényelmes, város közeli folyós SUP." },
+
+  { name:"Vác (Duna-part)", town:"Vác", dir:"É", drive:"~40 perc",
+    lat:47.7770, lng:19.1330, sup:4, dog:5, dogLabel:"Igen",
+    water:"folyó, változó sodrás", color:"#2f86a8",
+    desc:"Hangulatos kisvárosi Duna-part a Dunakanyar kapujában, sétányokkal és teraszokkal. A part menti sávban kezdőbarát, kutyával a városban is jól érzed magad." },
+
+  { name:"Visegrád (Duna)", town:"Visegrád", dir:"É", drive:"~55 perc",
+    lat:47.7920, lng:18.9760, sup:4, dog:5, dogLabel:"Igen",
+    water:"folyó, festői kanyar", color:"#2f8eae",
+    desc:"A Dunakanyar ikonikus szakasza a fellegvár alatt. Lélegzetelállító háttér; a sodrás miatt haladóbb élmény, de a part menti öblök kutyával is bevállalhatók." },
+
+  { name:"Dömös (Duna)", town:"Dömös", dir:"É", drive:"~60 perc",
+    lat:47.7680, lng:18.9120, sup:5, dog:5, dogLabel:"Igen",
+    water:"nyugodtabb folyószakasz", color:"#2f86a8",
+    desc:"Csendes, kevésbé forgalmas dunai falu a Visegrádi-hegység tövében, nyugodtabb part menti vízzel. Természetközeli, kutyabarát kiindulópont a Dunakanyarban." },
+
+  { name:"Tatai Öreg-tó", town:"Tata", dir:"Ny-ÉNy", drive:"~1 óra",
+    lat:47.6500, lng:18.3100, sup:4, dog:5, dogLabel:"Igen",
+    water:"sekély városi tó", color:"#36b58f",
+    desc:"„A vizek városának” nagy, sekély tava a vár és park ölelésében. Nyugodt víztükör, körbejárható kutyabarát sétánnyal – kellemes egész napos kirándulóhely." },
+
+  { name:"Balaton – Balatonakarattya", town:"Balatonakarattya", dir:"DNy", drive:"~1 óra 15",
+    lat:47.0250, lng:18.2050, sup:5, dog:5, dogLabel:"Igen",
+    water:"nagy tó, sekély part", color:"#34b3c9",
+    desc:"A Balaton keleti, csendesebb sarka kutyastrandokkal és tág, sekély partokkal. Szélcsendes reggel kiváló SUP-élmény – ha már messzebb mész, a tó megéri." }
+];
+
+/* ---------- SVG fallback kép generátor ---------- */
+function svgFor(p){
+  const c = p.color;
+  const svg = `
+  <svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'>
+    <defs>
+      <linearGradient id='sky' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='#cdeeff'/><stop offset='1' stop-color='#eafaf4'/></linearGradient>
+      <linearGradient id='wat' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='${c}'/><stop offset='1' stop-color='#0d5a52'/></linearGradient>
+    </defs>
+    <rect width='600' height='400' fill='url(#sky)'/>
+    <circle cx='500' cy='80' r='42' fill='#ffe6a8'/>
+    <path d='M0 250 Q150 210 300 250 T600 250 V400 H0 Z' fill='url(#wat)'/>
+    <ellipse cx='300' cy='300' rx='120' ry='14' fill='rgba(255,255,255,.18)'/>
+    <rect x='250' y='286' width='150' height='16' rx='8' fill='#f4d6a0'/>
+    <rect x='318' y='250' width='6' height='44' rx='3' fill='#7a5230'/>
+    <circle cx='300' cy='270' r='12' fill='#3a2a1a'/>
+    <circle cx='345' cy='282' r='10' fill='#5b3b22'/>
+    <circle cx='349' cy='276' r='2.5' fill='#fff'/>
+    <text x='30' y='370' font-family='Segoe UI, Arial' font-size='22' font-weight='700' fill='#ffffff'>${p.town}</text>
+  </svg>`;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+}
+function imgUrl(p){
+  const seed = encodeURIComponent(p.name.replace(/[^a-z0-9]/gi,'').toLowerCase());
+  return `https://picsum.photos/seed/${seed}sup/600/400`;
+}
+function stars(n){ return '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5-n); }
+function dogClass(p){ return p.dog>=4 ? '🐶 Kutyabarát' : (p.dog>=3 ? '🐶 Részben kutyabarát' : '🐶 Korlátozott'); }
+
+/* ---------- Dinamikus távolság / idő / irány ---------- */
+let userPos = null; // {lat,lng}
+
+function haversineKm(a, b){
+  const R = 6371, toRad = d => d*Math.PI/180;
+  const dLat = toRad(b.lat-a.lat), dLng = toRad(b.lng-a.lng);
+  const s = Math.sin(dLat/2)**2 + Math.cos(toRad(a.lat))*Math.cos(toRad(b.lat))*Math.sin(dLng/2)**2;
+  return R*2*Math.atan2(Math.sqrt(s), Math.sqrt(1-s));
+}
+function bearingHu(a, b){
+  const toRad = d => d*Math.PI/180;
+  const y = Math.sin(toRad(b.lng-a.lng))*Math.cos(toRad(b.lat));
+  const x = Math.cos(toRad(a.lat))*Math.sin(toRad(b.lat)) -
+            Math.sin(toRad(a.lat))*Math.cos(toRad(b.lat))*Math.cos(toRad(b.lng-a.lng));
+  const deg = (Math.atan2(y, x)*180/Math.PI + 360) % 360;
+  const dirs = ["É","ÉK","K","DK","D","DNy","Ny","ÉNy"];
+  return dirs[Math.round(deg/45) % 8];
+}
+function fmtMin(min){
+  if (min < 60) return Math.round(min) + " perc";
+  const h = Math.floor(min/60), m = Math.round(min%60);
+  return m ? `${h} óra ${m} perc` : `${h} óra`;
+}
+// Megjelenítendő autóidő: élő ha van helyzet, különben a táblázati becslés
+function driveText(p){
+  if (p.liveMin != null) return `${fmtMin(p.liveMin)}${p.liveKm!=null ? ` · ${Math.round(p.liveKm)} km` : ""}`;
+  return `${p.drive} (Budapestről)`;
+}
+function dirText(p){ return p.liveDir || `${p.dir} (Budapestről)`; }
+function isLive(p){ return p.liveMin != null; }
+
+/* ---------- Térkép ---------- */
+const map = L.map('map', { scrollWheelZoom: true }).setView([47.4, 19.2], 8);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19, attribution: '&copy; OpenStreetMap'
+}).addTo(map);
+
+function pawIcon(color){
+  return L.divIcon({
+    className: '',
+    html: `<div style="transform:translate(-50%,-100%);">
+      <div style="background:${color};width:34px;height:34px;border-radius:50% 50% 50% 0;
+        transform:rotate(-45deg);box-shadow:0 4px 8px rgba(0,0,0,.3);
+        display:flex;align-items:center;justify-content:center;">
+        <span style="transform:rotate(45deg);font-size:16px;">🐾</span>
+      </div></div>`,
+    iconSize:[34,34], iconAnchor:[0,0]
+  });
+}
+
+function popupHtml(p, i){
+  return `
+    <div class="pop">
+      <img src="${imgUrl(p)}" onerror="this.onerror=null;this.src='${svgFor(p)}'" alt="${p.name}">
+      <h4>${p.name}</h4>
+      <div class="small">📍 ${p.town} · 🧭 ${dirText(p)}</div>
+      <div class="small">🚗 ${driveText(p)}</div>
+      <div class="small">🏄 SUP ${stars(p.sup)} · 🐶 ${p.dogLabel}</div>
+      <a class="more" onclick="selectPlace(${i})">Részletek →</a>
+    </div>`;
+}
+
+const markers = {}; const bounds = [];
+places.forEach((p, i) => {
+  const m = L.marker([p.lat, p.lng], { icon: pawIcon(p.color) }).addTo(map);
+  bounds.push([p.lat, p.lng]);
+  m.bindPopup(popupHtml(p, i));
+  m.on('click', () => selectPlace(i, false));
+  markers[i] = m;
+});
+map.fitBounds(bounds, { padding:[40,40] });
+
+/* ---------- Panel + táblázat ---------- */
+const heroImg = document.getElementById('heroImg');
+const heroName = document.getElementById('heroName');
+const heroLoc = document.getElementById('heroLoc');
+const panelBody = document.getElementById('panelBody');
+
+function selectPlace(i, openPopup = true){
+  const p = places[i];
+  const url = imgUrl(p);
+  heroImg.style.background = `url('${svgFor(p)}') center/cover`;
+  const test = new Image();
+  test.onload = () => { heroImg.style.background = `url('${url}') center/cover`; };
+  test.src = url;
+
+  heroName.textContent = p.name;
+  heroLoc.textContent = `📍 ${p.town} · 🧭 ${dirText(p)}`;
+
+  const facts = {
+    "Autóidő": `🚗 ${driveText(p)}`,
+    "Irány": `🧭 ${dirText(p)}`,
+    "Víz jellege": p.water,
+    "Kutyabarát": p.dogLabel,
+    "SUP-élmény": `${stars(p.sup)} (${p.sup}/5)`
+  };
+  const factsHtml = Object.entries(facts).map(([k,v]) => `<li><b>${k}</b><span>${v}</span></li>`).join('');
+
+  panelBody.innerHTML = `
+    <div class="badges">
+      <span class="badge dist">🚗 ${driveText(p)}</span>
+      ${isLive(p) ? '<span class="badge live">📍 a helyzetedből</span>' : ''}
+      <span class="badge">🏷️ ${p.water}</span>
+      <span class="badge dog">${dogClass(p)}</span>
+    </div>
+    <div class="ratings">
+      <div class="rating"><div class="lab">🏄 SUP-élmény</div><div class="stars">${stars(p.sup)}</div></div>
+      <div class="rating"><div class="lab">🐶 Kutyabarátság</div><div class="stars">${p.dogLabel}</div></div>
+    </div>
+    <p class="desc">${p.desc}</p>
+    <ul class="facts">${factsHtml}</ul>
+  `;
+
+  document.querySelectorAll('#tableBody tr').forEach(tr => tr.classList.remove('active'));
+  const row = document.querySelector(`#tableBody tr[data-i="${i}"]`);
+  if (row){ row.classList.add('active'); row.scrollIntoView({block:'nearest', behavior:'smooth'}); }
+
+  map.flyTo([p.lat, p.lng], 12, { duration:.8 });
+  if (openPopup) markers[i].openPopup();
+}
+
+const tbody = document.getElementById('tableBody');
+function rowHtml(p){
+  return `
+    <td><b>${p.name}</b></td>
+    <td class="cDir">${dirText(p)}</td>
+    <td class="cDrive">${driveText(p)}</td>
+    <td class="mini-stars">${stars(p.sup)}</td>
+    <td>${p.dogLabel}</td>
+    <td class="water">${p.water}</td>`;
+}
+places.forEach((p, i) => {
+  const tr = document.createElement('tr');
+  tr.dataset.i = i;
+  tr.innerHTML = rowHtml(p);
+  tr.addEventListener('click', () => selectPlace(i));
+  tbody.appendChild(tr);
+});
+
+/* ---------- Frissítés élő adatokkal ---------- */
+let currentSel = null;
+const _origSelect = selectPlace;
+selectPlace = function(i, openPopup){ currentSel = i; return _origSelect(i, openPopup); };
+
+function refreshDynamic(){
+  places.forEach((p, i) => {
+    markers[i].setPopupContent(popupHtml(p, i));
+    const tr = document.querySelector(`#tableBody tr[data-i="${i}"]`);
+    if (tr){
+      tr.querySelector('.cDir').textContent = dirText(p);
+      tr.querySelector('.cDrive').textContent = driveText(p);
+    }
+  });
+  // táblázat rendezése autóidő szerint, ha van élő adat
+  if (places.some(isLive)){
+    const order = places.map((p,i)=>i).sort((a,b)=>{
+      const ma = places[a].liveMin ?? 1e9, mb = places[b].liveMin ?? 1e9;
+      return ma - mb;
+    });
+    order.forEach(i => tbody.appendChild(document.querySelector(`#tableBody tr[data-i="${i}"]`)));
+  }
+  if (currentSel != null) _origSelect(currentSel, false);
+}
+
+/* ---------- Geolokáció + OSRM útvonal ---------- */
+const geoBtn = document.getElementById('geoBtn');
+const geoStatus = document.getElementById('geoStatus');
+const geoDot = document.getElementById('geoDot');
+
+function setStatus(html, dot){ geoStatus.innerHTML = html; geoDot.className = 'dot' + (dot ? ' ' + dot : ''); }
+
+async function computeFromUser(lat, lng){
+  userPos = { lat, lng };
+  // irány + légvonal azonnal
+  places.forEach(p => {
+    p.liveDir = bearingHu(userPos, p);
+    p.liveKm = haversineKm(userPos, p);
+    p.liveMin = (p.liveKm / 65) * 60 * 1.35; // becsült autóidő, amíg az útvonal megjön
+  });
+  refreshDynamic();
+  setStatus('Helyzet megvan – <b>útvonalak számítása…</b>', 'load');
+
+  // pontos autóidő az OSRM nyilvános szerveréről (egy kéréssel, table service)
+  try {
+    const coords = [[lng, lat], ...places.map(p => [p.lng, p.lat])]
+      .map(c => c.join(',')).join(';');
+    const url = `https://router.project-osrm.org/table/v1/driving/${coords}` +
+                `?sources=0&annotations=duration,distance`;
+    const r = await fetch(url);
+    if (!r.ok) throw new Error('OSRM ' + r.status);
+    const data = await r.json();
+    const durs = data.durations[0], dists = data.distances ? data.distances[0] : null;
+    places.forEach((p, i) => {
+      const d = durs[i+1];
+      if (d != null) p.liveMin = d/60;
+      if (dists && dists[i+1] != null) p.liveKm = dists[i+1]/1000;
+    });
+    refreshDynamic();
+    setStatus('✅ Az autóidők és irányok a <b>saját helyzetedhez</b> igazítva (közúti útvonal alapján).', 'on');
+  } catch (e) {
+    refreshDynamic();
+    setStatus('📍 Helyzet megvan. Az útvonal-szolgáltatás nem elérhető, ezért az autóidők <b>légvonalból becsültek</b>.', 'on');
+  }
+}
+
+function requestGeo(){
+  if (!navigator.geolocation){ setStatus('A böngésződ nem támogatja a helymeghatározást.', ''); return; }
+  setStatus('Helymeghatározás…', 'load');
+  navigator.geolocation.getCurrentPosition(
+    pos => computeFromUser(pos.coords.latitude, pos.coords.longitude),
+    err => setStatus('Nem sikerült a helymeghatározás – az autóidőket Budapest belvárosából becsüljük. (' + err.message + ')', ''),
+    { enableHighAccuracy:true, timeout:10000, maximumAge:60000 }
+  );
+}
+geoBtn.addEventListener('click', requestGeo);
+// automatikus próbálkozás betöltéskor (a böngésző kér engedélyt)
+requestGeo();
+</script>
+</body>
+</html>
