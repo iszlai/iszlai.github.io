@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 Heti Reggeli Terv</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F4EF;
+    --brown-dark: #2E1F0E;
+    --brown: #6B3F1A;
+    --accent: #C8752A;
+    --accent2: #3F7D48;
+    --muted: #9C8A78;
+    --border: #E8DECE;
+    --w1bg: #FFFAF4;
+    --w2bg: #F5FAF5;
+    --tag1: #F5ECE0;
+    --tag2: #E2F0E2;
+    --text: #2E1F0E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    padding: 48px 16px 80px;
+  }
+
+  header { text-align: center; margin-bottom: 52px; }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(28px, 5vw, 50px);
+    font-weight: 700;
+    color: var(--brown-dark);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .header-sub { font-size: 13px; color: var(--muted); letter-spacing: 0.5px; }
+
+  .ornament {
+    margin: 16px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+  }
+  .ornament::before, .ornament::after {
+    content: '';
+    width: 70px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .week-block { max-width: 1200px; margin: 0 auto 52px; }
+
+  .week-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding: 0 4px;
+  }
+
+  .week-badge {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    white-space: nowrap;
+  }
+
+  .week-line { flex: 1; height: 1px; background: var(--border); }
+
+  .table-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(46,31,14,0.08), 0 1px 4px rgba(46,31,14,0.05);
+    border: 1px solid var(--border);
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+
+  thead th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 15px 18px;
+    text-align: left;
+    background: var(--brown-dark);
+    color: #F7ECE0;
+  }
+  thead th:first-child { width: 110px; }
+  thead th:nth-child(2) { width: 170px; }
+  thead th:last-child  { width: 230px; }
+
+  tr.dr td {
+    padding: 15px 18px;
+    vertical-align: top;
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    line-height: 1.5;
+  }
+
+  .w1 td { background: var(--w1bg); }
+  .w2 td { background: var(--w2bg); }
+  tr.dr:hover td { filter: brightness(0.97); transition: filter 0.15s; }
+
+  .day-col {
+    font-weight: 600;
+    font-size: 12.5px;
+    color: var(--brown-dark);
+    white-space: nowrap;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 7px;
+    vertical-align: middle;
+    position: relative; top: -1px;
+  }
+  .d1 { background: var(--accent); }
+  .d2 { background: var(--accent2); }
+
+  .meal-name {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--brown-dark);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+
+  .meal-src { font-size: 10.5px; color: var(--muted); }
+  .meal-src a { color: var(--accent); text-decoration: none; }
+  .meal-src a:hover { text-decoration: underline; }
+  .w2 .meal-src a { color: var(--accent2); }
+
+  .ing-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+  .ing-table tr td {
+    padding: 2px 0;
+    font-size: 12px;
+    border: none;
+    background: transparent !important;
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .ing-table .qty {
+    font-weight: 600;
+    white-space: nowrap;
+    padding-right: 10px;
+    min-width: 80px;
+  }
+  .w1 .ing-table .qty { color: var(--accent); }
+  .w2 .ing-table .qty { color: var(--accent2); }
+  .ing-table .name { color: #4A3828; }
+
+  .src-note {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* ── Macros ── */
+  .macros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+  }
+
+  .macro-item { display: flex; flex-direction: column; gap: 1px; }
+
+  .macro-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .macro-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brown-dark);
+  }
+
+  .macro-value.kcal { font-size: 16px; font-family: 'Lora', serif; }
+  .kc1 { color: var(--accent); }
+  .kc2 { color: var(--accent2); }
+
+  .portions-note {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 7px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .badge {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 2px 7px;
+    font-size: 9.5px;
+    font-weight: 600;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+  }
+  .b1 { background: #FFF0E0; color: #A04800; }
+  .b2 { background: #E8F5E9; color: #2E6B2E; }
+
+  footer {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 11.5px;
+    line-height: 1.9;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="eyebrow">Táplálkozás · Tervezés</span>
+  <h1>2 Heti Reggeli Terv</h1>
+  <p class="header-sub">Nap · Étel · Összetevők · Makrók (teljes recept)</p>
+  <div class="ornament">☀</div>
+</header>
+
+<!-- ======== 1. HÉT ======== -->
+<div class="week-block">
+  <div class="week-title">
+    <span class="week-badge">1. hét</span>
+    <div class="week-line"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Nap</th>
+          <th>Étel</th>
+          <th>Összetevők (recept)</th>
+          <th>Makrók — teljes recept</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- Hétfő -->
+        <tr class="dr w1">
+          <td class="day-col"><span class="dot d1"></span>Hétfő</td>
+          <td>
+            <div class="meal-name">Tojásos palacsinta</div>
+            <div class="meal-src"><a href="https://thebigmansworld.com/low-calorie-pancakes/" target="_blank">thebigmansworld.com ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">1 csésze</td><td class="name">teljes kiőrlésű liszt (120g)</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">sütőpor</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+              <tr><td class="qty">1 csésze</td><td class="name">tört banán (~230g, 2 db)</td></tr>
+              <tr><td class="qty">½ csésze</td><td class="name">tojásfehérje (~4 tojás)</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">vanília kivonat</td></tr>
+              <tr><td class="qty">¼ csésze</td><td class="name">mandula tej (60 ml)</td></tr>
+            </table>
+            <div class="src-note">8 db palacsinta összesen</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc1">~560 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">24 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">88 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">8 g</span></div>
+            </div>
+            <div class="portions-note">4 adag × 2 db — oszd el ahogy akarod</div>
+            <span class="badge b1">low-cal</span>
+          </td>
+        </tr>
+
+        <!-- Kedd -->
+        <tr class="dr w1">
+          <td class="day-col"><span class="dot d1"></span>Kedd</td>
+          <td>
+            <div class="meal-name">Weetabix + joghurt</div>
+            <div class="meal-src">egyszerű összeállítás</div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">2 db</td><td class="name">Weetabix keksz</td></tr>
+              <tr><td class="qty">150 g</td><td class="name">görög joghurt</td></tr>
+              <tr><td class="qty">2–3 ek</td><td class="name">tej</td></tr>
+            </table>
+            <div class="src-note">1 adag — frissen készítve</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc1">~250 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">16 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">32 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">3 g</span></div>
+            </div>
+            <div class="portions-note">1 adag = teljes recept</div>
+          </td>
+        </tr>
+
+        <!-- Szerda -->
+        <tr class="dr w1">
+          <td class="day-col"><span class="dot d1"></span>Szerda</td>
+          <td>
+            <div class="meal-name">Almás zabsüti</div>
+            <div class="meal-src"><a href="https://womenoftoday.com/morning-apple-cottage-cheese-bake/" target="_blank">womenoftoday.com ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">1½ csésze</td><td class="name">zabpehely (135g)</td></tr>
+              <tr><td class="qty">250 g</td><td class="name">túró / cottage cheese</td></tr>
+              <tr><td class="qty">2 db</td><td class="name">alma (hámozott, szeletelt)</td></tr>
+              <tr><td class="qty">2 db</td><td class="name">tojás</td></tr>
+              <tr><td class="qty">2 ek</td><td class="name">méz vagy eritrit</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">fahéj</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">sütőpor</td></tr>
+            </table>
+            <div class="src-note">~4 szelet · 180°C / 25 perc</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc1">~1120 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">72 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">136 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">24 g</span></div>
+            </div>
+            <div class="portions-note">4 szelet összesen — ~280 kcal / szelet</div>
+            <span class="badge b1">magas fehérje</span>
+          </td>
+        </tr>
+
+        <!-- Csütörtök -->
+        <tr class="dr w1">
+          <td class="day-col"><span class="dot d1"></span>Csütörtök</td>
+          <td>
+            <div class="meal-name">Chia zabkása</div>
+            <div class="meal-src"><a href="https://www.bbcgoodfood.com/recipes/perfect-porridge" target="_blank">bbcgoodfood.com ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">50 g</td><td class="name">zabpehely</td></tr>
+              <tr><td class="qty">1 ek</td><td class="name">chia mag</td></tr>
+              <tr><td class="qty">300 ml</td><td class="name">tej (vagy növényi tej)</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+              <tr><td class="qty">1 ek</td><td class="name">méz (opcionális)</td></tr>
+            </table>
+            <div class="src-note">1 adag — frissen főzve</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc1">~360 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">12 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">55 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">8 g</span></div>
+            </div>
+            <div class="portions-note">1 adag = teljes recept</div>
+          </td>
+        </tr>
+
+        <!-- Péntek -->
+        <tr class="dr w1">
+          <td class="day-col"><span class="dot d1"></span>Péntek</td>
+          <td>
+            <div class="meal-name">Zab császármorzsa</div>
+            <div class="meal-src"><a href="https://vm.tiktok.com/ZGdHr9J9Q/" target="_blank">TikTok recept ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">1½ csésze</td><td class="name">zabpehely (135g)</td></tr>
+              <tr><td class="qty">3 db</td><td class="name">tojás (szétválasztva)</td></tr>
+              <tr><td class="qty">200 ml</td><td class="name">tej</td></tr>
+              <tr><td class="qty">1 ek</td><td class="name">olvasztott vaj</td></tr>
+              <tr><td class="qty">2 ek</td><td class="name">eritrit / cukor</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+              <tr><td class="qty">1 ek</td><td class="name">mazsola (opcionális)</td></tr>
+            </table>
+            <div class="src-note">2 adag összesen</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc1">~780 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">28 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">104 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">24 g</span></div>
+            </div>
+            <div class="portions-note">2 adag összesen — ~390 kcal / adag</div>
+          </td>
+        </tr>
+
+        <!-- Szombat -->
+        <tr class="dr w1">
+          <td class="day-col"><span class="dot d1"></span>Szombat</td>
+          <td>
+            <div class="meal-name">Belga gofri</div>
+            <div class="meal-src"><a href="https://thesaltymarshmallow.com/homemade-belgian-waffle-recipe/" target="_blank">thesaltymarshmallow.com ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">2¼ csésze</td><td class="name">finomliszt (280g)</td></tr>
+              <tr><td class="qty">1 ek</td><td class="name">sütőpor</td></tr>
+              <tr><td class="qty">3 ek</td><td class="name">cukor</td></tr>
+              <tr><td class="qty">½ tk</td><td class="name">só</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">fahéj</td></tr>
+              <tr><td class="qty">2 db</td><td class="name">tojás (szétválasztva)</td></tr>
+              <tr><td class="qty">½ csésze</td><td class="name">növényi olaj (120 ml)</td></tr>
+              <tr><td class="qty">2 csésze</td><td class="name">tej (480 ml)</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">vanília kivonat</td></tr>
+            </table>
+            <div class="src-note">8 db gofri összesen</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc1">~2880 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">72 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">360 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">120 g</span></div>
+            </div>
+            <div class="portions-note">8 db összesen — ~360 kcal / db</div>
+            <span class="badge b1">hétvégi</span>
+          </td>
+        </tr>
+
+        <!-- Vasárnap -->
+        <tr class="dr w1">
+          <td class="day-col"><span class="dot d1"></span>Vasárnap</td>
+          <td>
+            <div class="meal-name">Palacsinta</div>
+            <div class="meal-src"><a href="https://www.mindmegette.hu/recept/a-legjobb-palacsintateszta" target="_blank">mindmegette.hu ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">200 g</td><td class="name">finomliszt</td></tr>
+              <tr><td class="qty">3 db</td><td class="name">tojás</td></tr>
+              <tr><td class="qty">500 ml</td><td class="name">tej</td></tr>
+              <tr><td class="qty">2 ek</td><td class="name">olaj (+ sütéshez)</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+            </table>
+            <div class="src-note">~12 db összesen</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc1">~800 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">28 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">112 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">24 g</span></div>
+            </div>
+            <div class="portions-note">~12 db összesen — ~67 kcal / db</div>
+            <span class="badge b1">hétvégi</span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======== 2. HÉT ======== -->
+<div class="week-block">
+  <div class="week-title">
+    <span class="week-badge">2. hét</span>
+    <div class="week-line"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Nap</th>
+          <th>Étel</th>
+          <th>Összetevők (recept)</th>
+          <th>Makrók — teljes recept</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- Hétfő -->
+        <tr class="dr w2">
+          <td class="day-col"><span class="dot d2"></span>Hétfő</td>
+          <td>
+            <div class="meal-name">Tojásos palacsinta (American)</div>
+            <div class="meal-src"><a href="https://thebigmansworld.com/low-calorie-pancakes/" target="_blank">thebigmansworld.com ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">1 csésze</td><td class="name">teljes kiőrlésű liszt (120g)</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">sütőpor</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+              <tr><td class="qty">1 csésze</td><td class="name">tört banán (~230g, 2 db)</td></tr>
+              <tr><td class="qty">½ csésze</td><td class="name">tojásfehérje (~4 tojás)</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">vanília kivonat</td></tr>
+              <tr><td class="qty">¼ csésze</td><td class="name">mandula tej (60 ml)</td></tr>
+            </table>
+            <div class="src-note">8 db palacsinta összesen</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc2">~560 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">24 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">88 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">8 g</span></div>
+            </div>
+            <div class="portions-note">4 adag × 2 db — oszd el ahogy akarod</div>
+            <span class="badge b2">low-cal</span>
+          </td>
+        </tr>
+
+        <!-- Kedd -->
+        <tr class="dr w2">
+          <td class="day-col"><span class="dot d2"></span>Kedd</td>
+          <td>
+            <div class="meal-name">Weetabix müzli</div>
+            <div class="meal-src">egyszerű összeállítás</div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">2 db</td><td class="name">Weetabix keksz</td></tr>
+              <tr><td class="qty">30 g</td><td class="name">müzli</td></tr>
+              <tr><td class="qty">150–200 ml</td><td class="name">tej</td></tr>
+            </table>
+            <div class="src-note">1 adag — frissen készítve</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc2">~300 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">9 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">52 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">5 g</span></div>
+            </div>
+            <div class="portions-note">1 adag = teljes recept</div>
+          </td>
+        </tr>
+
+        <!-- Szerda -->
+        <tr class="dr w2">
+          <td class="day-col"><span class="dot d2"></span>Szerda</td>
+          <td>
+            <div class="meal-name">Joghurtos proteinpor süti + müzli</div>
+            <div class="meal-src"><a href="https://www.instagram.com/reel/DW1UW7bEZB2/" target="_blank">Instagram recept ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">200 g</td><td class="name">görög joghurt</td></tr>
+              <tr><td class="qty">1 adag</td><td class="name">vanília protein por (~30g)</td></tr>
+              <tr><td class="qty">4 ek</td><td class="name">zabpehely / liszt (40g)</td></tr>
+              <tr><td class="qty">2 db</td><td class="name">tojás</td></tr>
+              <tr><td class="qty">½ tk</td><td class="name">sütőpor</td></tr>
+              <tr><td class="qty">30 g</td><td class="name">müzli (tetejére)</td></tr>
+            </table>
+            <div class="src-note">~4 szelet · 180°C / 20 perc</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc2">~1400 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">120 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">140 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">28 g</span></div>
+            </div>
+            <div class="portions-note">4 szelet összesen — ~350 kcal / szelet</div>
+            <span class="badge b2">magas fehérje</span>
+          </td>
+        </tr>
+
+        <!-- Csütörtök -->
+        <tr class="dr w2">
+          <td class="day-col"><span class="dot d2"></span>Csütörtök</td>
+          <td>
+            <div class="meal-name">Zab chia kása</div>
+            <div class="meal-src"><a href="https://www.bbcgoodfood.com/recipes/perfect-porridge" target="_blank">bbcgoodfood.com ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">50 g</td><td class="name">zabpehely</td></tr>
+              <tr><td class="qty">1 ek</td><td class="name">chia mag</td></tr>
+              <tr><td class="qty">300 ml</td><td class="name">tej (vagy növényi tej)</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+              <tr><td class="qty">1 ek</td><td class="name">méz (opcionális)</td></tr>
+            </table>
+            <div class="src-note">1 adag — frissen főzve</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc2">~360 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">12 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">55 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">8 g</span></div>
+            </div>
+            <div class="portions-note">1 adag = teljes recept</div>
+          </td>
+        </tr>
+
+        <!-- Péntek -->
+        <tr class="dr w2">
+          <td class="day-col"><span class="dot d2"></span>Péntek</td>
+          <td>
+            <div class="meal-name">Svéd sütőpalacsinta (airfryer)</div>
+            <div class="meal-src"><a href="https://svenskarecept.se/ugnspannkaka-i-airfryer-grundrecept/" target="_blank">svenskarecept.se ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">4 dl</td><td class="name">tej (400 ml)</td></tr>
+              <tr><td class="qty">2 db</td><td class="name">tojás</td></tr>
+              <tr><td class="qty">2 dl</td><td class="name">finomliszt (~120g)</td></tr>
+              <tr><td class="qty">½ tk</td><td class="name">só</td></tr>
+              <tr><td class="qty">pici</td><td class="name">vaj (kenéshez)</td></tr>
+            </table>
+            <div class="src-note">6 adag összesen · 180°C / 20–25 perc</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc2">~1140 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">42 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">162 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">30 g</span></div>
+            </div>
+            <div class="portions-note">6 adag összesen — ~190 kcal / adag</div>
+            <span class="badge b2">airfryer</span>
+          </td>
+        </tr>
+
+        <!-- Szombat -->
+        <tr class="dr w2">
+          <td class="day-col"><span class="dot d2"></span>Szombat</td>
+          <td>
+            <div class="meal-name">Kakaós banános gofri</div>
+            <div class="meal-src"><a href="https://www.natalieshealth.com/chocolate-banana-waffles/" target="_blank">natalieshealth.com ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">1 csésze</td><td class="name">tej (240 ml)</td></tr>
+              <tr><td class="qty">1 db</td><td class="name">érett banán</td></tr>
+              <tr><td class="qty">4 ek</td><td class="name">kókuszolaj (60 ml)</td></tr>
+              <tr><td class="qty">2 db</td><td class="name">tojás</td></tr>
+              <tr><td class="qty">1⅓ csésze</td><td class="name">zabpehely (darálva, ~120g)</td></tr>
+              <tr><td class="qty">2 ek</td><td class="name">kakaópor / cacao</td></tr>
+              <tr><td class="qty">1 tk</td><td class="name">sütőpor</td></tr>
+              <tr><td class="qty">2 tk</td><td class="name">ceyloni fahéj</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+            </table>
+            <div class="src-note">4 db gofri összesen</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc2">~736 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">22 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">72 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">42 g</span></div>
+            </div>
+            <div class="portions-note">4 db összesen — ~184 kcal / db</div>
+            <span class="badge b2">hétvégi · cukormentes</span>
+          </td>
+        </tr>
+
+        <!-- Vasárnap -->
+        <tr class="dr w2">
+          <td class="day-col"><span class="dot d2"></span>Vasárnap</td>
+          <td>
+            <div class="meal-name">Vékony palacsinta</div>
+            <div class="meal-src"><a href="https://www.mindmegette.hu/recept/a-legjobb-palacsintateszta" target="_blank">mindmegette.hu ↗</a></div>
+          </td>
+          <td>
+            <table class="ing-table">
+              <tr><td class="qty">200 g</td><td class="name">finomliszt</td></tr>
+              <tr><td class="qty">3 db</td><td class="name">tojás</td></tr>
+              <tr><td class="qty">500 ml</td><td class="name">tej</td></tr>
+              <tr><td class="qty">2 ek</td><td class="name">olaj (+ sütéshez)</td></tr>
+              <tr><td class="qty">csipet</td><td class="name">só</td></tr>
+            </table>
+            <div class="src-note">~12 db összesen</div>
+          </td>
+          <td>
+            <div class="macros-grid">
+              <div class="macro-item"><span class="macro-label">Kalória</span><span class="macro-value kcal kc2">~800 kcal</span></div>
+              <div class="macro-item"><span class="macro-label">Fehérje</span><span class="macro-value">28 g</span></div>
+              <div class="macro-item"><span class="macro-label">Szénhidrát</span><span class="macro-value">112 g</span></div>
+              <div class="macro-item"><span class="macro-label">Zsír</span><span class="macro-value">24 g</span></div>
+            </div>
+            <div class="portions-note">~12 db összesen — ~67 kcal / db</div>
+            <span class="badge b2">hétvégi</span>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  ⚠️ A makrók a teljes receptre vonatkoznak — oszd el ahány adagra szeretnéd.<br>
+  1 csésze = 240 ml · A TikTok / Instagram recepteknél a mennyiségek becsültek.<br>
+  Pontos kalóriakövetéshez ajánlott: Cronometer vagy MyFitnessPal.
+</footer>
+
+</body>
+</html>
