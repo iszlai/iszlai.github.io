@@ -326,11 +326,36 @@ function svgFor(p){
     <circle cx='349' cy='276' r='2.5' fill='#fff'/>
     <text x='30' y='370' font-family='Segoe UI, Arial' font-size='22' font-weight='700' fill='#ffffff'>${p.town}</text>
   </svg>`;
-  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg).replace(/'/g, '%27');
 }
-function imgUrl(p){
-  const seed = encodeURIComponent(p.name.replace(/[^a-z0-9]/gi,'').toLowerCase());
-  return `https://picsum.photos/seed/${seed}sup/600/400`;
+
+/* ---------- Valódi fotók a Wikimedia Commonsról (a koordináták alapján, geokódolva) ---------- */
+// p.photo: a megtalált valódi fotó URL-je; amíg nincs, a generált SVG illusztrációt mutatjuk.
+function photoSrc(p){ return p.photo || svgFor(p); }
+
+async function loadCommonsPhoto(p){
+  try {
+    const geo = 'https://commons.wikimedia.org/w/api.php?origin=*&format=json&action=query' +
+                '&list=geosearch&gsnamespace=6&gsprimary=all&gsradius=10000&gslimit=20' +
+                `&gscoord=${p.lat}|${p.lng}`;
+    const gj = await (await fetch(geo)).json();
+    const hits = (gj.query && gj.query.geosearch) || [];
+    const titles = hits.map(h => h.title)
+                       .filter(t => /\.(jpe?g|png)$/i.test(t))
+                       .slice(0, 10);
+    if (!titles.length) return;
+    const info = 'https://commons.wikimedia.org/w/api.php?origin=*&format=json&action=query' +
+                 '&prop=imageinfo&iiprop=url&iiurlwidth=600&titles=' +
+                 encodeURIComponent(titles.join('|'));
+    const ij = await (await fetch(info)).json();
+    const pages = (ij.query && ij.query.pages) || {};
+    // a geosearch sorrendjét követjük: a legközelebbi képet választjuk, amelynek van bélyegképe
+    for (const t of titles){
+      const page = Object.values(pages).find(pg => pg.title === t);
+      const ii = page && page.imageinfo && page.imageinfo[0];
+      if (ii && ii.thumburl){ p.photo = ii.thumburl; return; }
+    }
+  } catch (e) { /* hálózat / API hiba esetén marad az SVG illusztráció */ }
 }
 function stars(n){ return '★★★★★'.slice(0, n) + '☆☆☆☆☆'.slice(0, 5-n); }
 function dogClass(p){ return p.dog>=4 ? '🐶 Kutyabarát' : (p.dog>=3 ? '🐶 Részben kutyabarát' : '🐶 Korlátozott'); }
@@ -388,7 +413,7 @@ function pawIcon(color){
 function popupHtml(p, i){
   return `
     <div class="pop">
-      <img src="${imgUrl(p)}" onerror="this.onerror=null;this.src='${svgFor(p)}'" alt="${p.name}">
+      <img src="${photoSrc(p)}" onerror="this.onerror=null;this.src='${svgFor(p)}'" alt="${p.name}">
       <h4>${p.name}</h4>
       <div class="small">📍 ${p.town} · 🧭 ${dirText(p)}</div>
       <div class="small">🚗 ${driveText(p)}</div>
@@ -415,11 +440,7 @@ const panelBody = document.getElementById('panelBody');
 
 function selectPlace(i, openPopup = true){
   const p = places[i];
-  const url = imgUrl(p);
-  heroImg.style.background = `url('${svgFor(p)}') center/cover`;
-  const test = new Image();
-  test.onload = () => { heroImg.style.background = `url('${url}') center/cover`; };
-  test.src = url;
+  heroImg.style.background = `url("${photoSrc(p)}") center/cover`;
 
   heroName.textContent = p.name;
   heroLoc.textContent = `📍 ${p.town} · 🧭 ${dirText(p)}`;
@@ -478,6 +499,15 @@ places.forEach((p, i) => {
 let currentSel = null;
 const _origSelect = selectPlace;
 selectPlace = function(i, openPopup){ currentSel = i; return _origSelect(i, openPopup); };
+
+/* ---------- Valódi fotók betöltése és a felület frissítése, amint megérkeznek ---------- */
+places.forEach((p, i) => {
+  loadCommonsPhoto(p).then(() => {
+    if (!p.photo) return;                    // nincs közeli Commons-fotó → marad az illusztráció
+    markers[i].setPopupContent(popupHtml(p, i));
+    if (currentSel === i) _origSelect(i, false);   // a nyitott panel képének frissítése
+  });
+});
 
 function refreshDynamic(){
   places.forEach((p, i) => {
